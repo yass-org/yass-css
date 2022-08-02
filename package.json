@@ -1,0 +1,16 @@
+{
+  "name": "yass",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "preProcess.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.5.1"
+  }
+}
