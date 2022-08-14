@@ -160,8 +160,6 @@ export default {
     "revert",
     "revert-layer",
     "sideways",
-    null,
-    null,
     "mixed",
     "upright"
   ],
@@ -171,12 +169,6 @@ export default {
     "unset",
     "revert",
     "revert-layer",
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
     "horizontal-tb",
     "vertical-rl",
     "vertical-lr",
@@ -198,8 +190,6 @@ export default {
     "unset",
     "revert",
     "revert-layer",
-    null,
-    null,
     "inter-character",
     "over",
     "under"
@@ -293,8 +283,7 @@ export default {
     "revert-layer",
     "border-box",
     "padding-box",
-    "content-box",
-    null
+    "content-box"
   ],
   "border-block-end-style": [
     "initial",
@@ -587,9 +576,7 @@ export default {
     "no-drop",
     "not-allowed",
     "grab",
-    null,
     "grabbing",
-    null,
     "e-resize",
     "n-resize",
     "ne-resize",
@@ -606,9 +593,7 @@ export default {
     "row-resize",
     "all-scroll",
     "zoom-in",
-    "zoom-out",
-    null,
-    null
+    "zoom-out"
   ],
   "-webkit-cursor-visibility": [
     "initial",
@@ -674,8 +659,6 @@ export default {
     "auto",
     "optimizespeed",
     "optimizequality",
-    null,
-    null,
     "crisp-edges",
     "pixelated"
   ],
@@ -904,8 +887,7 @@ export default {
     "relative",
     "absolute",
     "fixed",
-    "sticky",
-    null
+    "sticky"
   ],
   "resize": [
     "initial",
@@ -965,7 +947,6 @@ export default {
     "unset",
     "revert",
     "revert-layer",
-    null,
     "left",
     "right",
     "center",
@@ -995,8 +976,7 @@ export default {
     "revert-layer",
     "underline",
     "overline",
-    "line-through",
-    null
+    "line-through"
   ],
   "text-line-through-mode": [
     "initial",
@@ -1098,10 +1078,7 @@ export default {
     "bidi-override",
     "isolate",
     "isolate-override",
-    "plaintext",
-    null,
-    null,
-    null
+    "plaintext"
   ],
   "font-display": [
     "initial",
@@ -1528,7 +1505,6 @@ export default {
     "loose",
     "normal",
     "strict",
-    null,
     "anywhere"
   ],
   "-webkit-line-snap": [

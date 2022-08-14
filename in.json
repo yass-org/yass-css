@@ -1,0 +1,26 @@
+{
+  "type": "root",
+  "nodes": [
+    {
+      "raws": {
+        "before": "",
+        "between": " ",
+        "semicolon": true,
+        "after": " "
+      },
+      "type": "rule",
+      "selector": ".border-width:size-100",
+      "nodes": [
+        {
+          "raws": {
+            "before": " ",
+            "between": ": "
+          },
+          "type": "decl",
+          "prop": "border-width",
+          "value": "2px"
+        }
+      ]
+    }
+  ]
+}

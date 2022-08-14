@@ -18,5 +18,13 @@ export default {
         "text-warning": "color:orange-500",
         "text-success": "color:green-500",
         "text-information": "color:blue-500",
-    }
+    },
+    "heading": { // TODO: Hmmm
+        "1": "2rem",
+        "2": "1.5rem",
+        "3": "1.25rem",
+        "4": "1.125rem",
+        "5": "1rem",
+        "6": "0.875rem",
+    },
 }

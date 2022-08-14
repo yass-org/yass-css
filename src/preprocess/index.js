@@ -1,4 +1,4 @@
-import cssProperties from './CSSproperties.json' assert { type: 'json' };
+import cssProperties from './css-properties.json' assert { type: 'json' };
 import fs from 'fs'
 
 const processedCSSProperties = {}
@@ -17,17 +17,17 @@ const statuses = [
     'not considering',
 ]
 
-const getValue = (valueObj) => {
+const getValidValue = (valueObj) => {
     // {
     //     "value": "-webkit-text",
     //     "status": "non-standard"
     // }
 
     if(statuses?.includes(valueObj.status)) {
-        return
+        return [false, null]
     }
 
-    return valueObj.value
+    return [true, valueObj.value]
 }
 
 let values = []
@@ -40,22 +40,23 @@ for(const [name, descriptor] of Object.entries(cssProperties.properties)) {
         if(typeof value === 'string') {
             values.push(value)
         } else if(typeof value === 'object') {
-            values.push(getValue(value))
+            const [isValid, validValue] = getValidValue(value)
+            if(isValid) {
+                values.push(validValue)
+            }
         }
     })
-    
+
     processedCSSProperties[name] = [
         ...globalValues,
         ...values,
     ]
 }
 
-/**
- * Once you run this, the json file will need to be manually converted to a JS file (add an `export default` at the top)
- */
-fs.writeFile('../css/properties.json', JSON.stringify(processedCSSProperties, null, 2), err => {
+const output = `export default ${JSON.stringify(processedCSSProperties, null, 2)}`
+fs.writeFile('./src/preprocess/output.js', output, err => {
     if (err) {
       console.error(err);
     }
-    console.log('success')
+    console.log('Rules successfully written to ./output.js')
   });

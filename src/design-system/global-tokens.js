@@ -1,10 +1,10 @@
 export default {
-    // border-radius
-    // border-top-radius
-    // border-right-radius
-    // border-bottom-radius
-    // border-left-radius
     "border-radius": {
+        // border-bottom-radius
+        // border-left-radius
+        // border-radius
+        // border-right-radius
+        // border-top-radius
         "0": "0px",
         "100": "2px",
         "200": "4px",
@@ -24,18 +24,18 @@ export default {
         "300": "4",
         "400": "8",
     },
-    // background-color
-    // background-color-bottom
-    // background-color-left
-    // background-color-right
-    // background-color-top
-    // border-bottom-color
-    // border-color
-    // border-left-color    
-    // border-right-color
-    // border-top-color
-    // color
     "color": {
+        // background-color
+        // background-color-bottom
+        // background-color-left
+        // background-color-right
+        // background-color-top
+        // border-bottom-color
+        // border-color
+        // border-left-color    
+        // border-right-color
+        // border-top-color
+        // color
         "neutral": {
             "50": "hsl(220, 25%, 97.5%)",
             "100": "hsl(220, 25%, 95%)",
@@ -180,19 +180,11 @@ export default {
         "900": "256px",
         "1000": "512px",
     },
-    "heading": {
-        "1": "2rem",
-        "2": "1.5rem",
-        "3": "1.25rem",
-        "4": "1.125rem",
-        "5": "1rem",
-        "6": "0.875rem",
-    },
-    // height
-    // min-height
-    // max-height
-    // button-height
     "height": {
+        // button-height
+        // height
+        // max-height
+        // min-height
         "0": "0",
         "100": "1.625rem",
         "200": "2.75rem",
@@ -209,14 +201,14 @@ export default {
         "600": "1.75",
         "700": "2",
     },
-    // margin
-    // margin-top
-    // margin-right
-    // margin-bottom
-    // margin-left
-    // margin-horizontal
-    // margin-vertical
     "margin": {
+        // margin
+        // margin-bottom
+        // margin-horizontal
+        // margin-left
+        // margin-right
+        // margin-top
+        // margin-vertical
         "0": "0px",
         "100": "2px",
         "200": "4px",
@@ -243,14 +235,14 @@ export default {
         "90": "90%",
         "100": "100%",
     },
-    // padding
-    // padding-top
-    // padding-right
-    // padding-bottom
-    // padding-left
-    // padding-horizontal
-    // padding-vertical
     "padding": {
+        // padding
+        // padding-bottom
+        // padding-horizontal
+        // padding-left
+        // padding-right
+        // padding-top
+        // padding-vertical
         "0": "0px",
         "100": "2px",
         "200": "4px",
@@ -278,10 +270,10 @@ export default {
         "1000": "512px",
         "auto": "auto",
     },
-    // width
-    // min-width
-    // max-width
     "width": {
+        // max-width
+        // min-width
+        // width
         "0": "0",
         "5\\%": "5%",
         "10\\%": "10%",
