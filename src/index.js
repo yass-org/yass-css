@@ -1,6 +1,4 @@
-import baseCSSProperties from './preprocess/output.js'
-import { generate } from './generator/index.js'
-
+import { generate } from './ast/index.js'
 import yargs from 'yargs'
 import { hideBin }  from 'yargs/helpers'
 import fs from 'fs'
@@ -22,17 +20,13 @@ const initialize = () => {
         // TODO: Implement this
         console.log('--alias-tokens: Not yet implemented')    
     }
-    
 }
 
-const build = () => {
-    let generatedCSS = generate({
-        definitions: [
-            baseCSSProperties,
-        ]
-    })
+const run = () => {
+
+    const css = generate()
     
-    fs.writeFile('./build/index.css', generatedCSS, err => {
+    fs.writeFile('./build/index.css', css, err => {
         if (err) {
         console.error(err);
         throw err;
@@ -41,21 +35,8 @@ const build = () => {
     });
 }
 
-// export const objToCss = (obj) => {
-//     // Construct Base CSS Rules
-//     for(const [name, values] of Object.entries(baseCSSProperties)) {
-//         values.forEach((value) => {
-//             const rule = `.${name}\:${value} { ${name}:${value}; }`
-//             compiledCSS = `${compiledCSS}\n${rule}`
-//         })
-//     }
-// }
 
-
-const main = () => {
+(() => {
     initialize()
-    build()
-}
-
-
-main()
+    run()
+})()
