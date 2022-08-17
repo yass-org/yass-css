@@ -1,4 +1,4 @@
-import { generate } from './ast/index.js'
+import { build } from './ast/index.js'
 import yargs from 'yargs'
 import { hideBin }  from 'yargs/helpers'
 import fs from 'fs'
@@ -24,7 +24,7 @@ const initialize = () => {
 
 const run = () => {
 
-    const css = generate()
+    const css = build()
     
     fs.writeFile('./build/index.css', css, err => {
         if (err) {
