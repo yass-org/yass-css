@@ -10,12 +10,14 @@
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "react-jsx"
   },
   "include": [
-    "src"
-  ]
+    "./src/index.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]  
 }

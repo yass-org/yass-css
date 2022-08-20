@@ -1,11 +1,17 @@
-import postcss from "postcss";
-import globalTokens from "../rule-definitions/global-tokens.js";
-import baseCSS from "../rule-definitions/base-css.js";
+import postcss from "postcss"
+import { 
+  globalTokenDefinitions,
+  baseCSSDefinitions,
+} from "../rule-definitions/index"
 import { 
   root as rootTemplate,
   rule as ruleTemplate,
-} from './templates.js'
+} from './templates'
 
+import type { 
+  PropertyDefinition,
+  RuleDefinition,
+} from "../rule-definitions/types"
 
 export const build = () => {
   // Convert the object representation of the design system into a JSON AST that postcss understands
@@ -14,8 +20,8 @@ export const build = () => {
 
   // Append the various types of rules we want to create
   root.nodes = [
-    ...generate(baseCSS),
-    ...generate(globalTokens),
+    ...generate(baseCSSDefinitions),
+    ...generate(globalTokenDefinitions),
   ]
 
   // Turn the JSON AST representation into an actual AST
@@ -42,11 +48,12 @@ const generate = (definitions) => {
   const rules = []
   
   definitions.forEach((definition) => {
-    const { propertyNames, propertyValues } = definition
+    const { propertyNames, propertyValues, separator }: RuleDefinition = definition
 
     propertyNames.forEach((propertyName) => {
+
       propertyValues.forEach(({ token, propertyValue }) => {
-        const selector = `.${propertyName}\\:${token}`
+        const selector = `.${propertyName}\\${separator}${token}`
 
         const rule = ruleTemplate({ 
           selector, // e.g. .padding:300

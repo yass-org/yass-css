@@ -1,4 +1,4 @@
-export default {
+export const definitions = {
     "height": {
         "button": "height:200",
         "form-input": "height:200",

@@ -1,4 +1,4 @@
-import { build } from './ast/index.js'
+import { build } from './ast'
 import yargs from 'yargs'
 import { hideBin }  from 'yargs/helpers'
 import fs from 'fs'

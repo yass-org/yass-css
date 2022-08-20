@@ -11,7 +11,7 @@ export default {
 }
 
   // {
-  //   "propertyName": "size", // TODO: Hmmm
+  //   propertyNames: ["size"], // TODO: Hmmm
   //   propertyValues: [
   //     { token: "0", propertyValue: "0px" },
   //     { token: "100", propertyValue: "16px" },
