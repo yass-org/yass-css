@@ -9,7 +9,7 @@ export const definitions: RuleDefinition[] = [
       "border-right-radius",
       "border-top-radius",
     ],
-    separator: ':',    
+    separator: '\\:',    
     propertyValues: [
       { token: "0", propertyValue: "0px" },
       { token: "100", propertyValue: "2px" },
@@ -32,7 +32,7 @@ export const definitions: RuleDefinition[] = [
       "border-right-width",
       "border-top-width",      
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "0", propertyValue: "0" },
       { token: "100", propertyValue: "1" },
@@ -55,7 +55,7 @@ export const definitions: RuleDefinition[] = [
       "border-top-color",
       "color",
     ],    
-    separator: ':',   
+    separator: '\\:',   
     propertyValues: [
         {
           propertyNames: ['neutral'],
@@ -207,7 +207,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "font-size",
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "100", propertyValue: "0.5rem" },
       { token: "200", propertyValue: "0.625rem" },
@@ -224,7 +224,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "font-weight",
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "100", propertyValue: "100" },
       { token: "200", propertyValue: "200" },
@@ -243,7 +243,7 @@ export const definitions: RuleDefinition[] = [
       "column-gap",
       "row-gap",
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "0", propertyValue: "0px" },
       { token: "100", propertyValue: "2px" },
@@ -264,7 +264,7 @@ export const definitions: RuleDefinition[] = [
       "max-height",
       "min-height",
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "0",propertyValue: "0" },
       { token: "100", propertyValue: "0.625rem" },
@@ -278,7 +278,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "line-height",
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "100", propertyValue: "1" },
       { token: "200", propertyValue: "1.25" },
@@ -299,7 +299,7 @@ export const definitions: RuleDefinition[] = [
       "margin-top",
       "margin-vertical",
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "0", propertyValue: "0px" },
       { token: "100", propertyValue: "2px" },
@@ -319,7 +319,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "opacity",
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "0", propertyValue: "0%" },
       { token: "10", propertyValue: "10%" },
@@ -344,7 +344,7 @@ export const definitions: RuleDefinition[] = [
       "padding-top",
       "padding-vertical",
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "0", propertyValue: "0px" },
       { token: "100", propertyValue: "2px" },
@@ -366,7 +366,7 @@ export const definitions: RuleDefinition[] = [
       "min-width",
       "width",
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       { token: "0", propertyValue: "0" },
       { token: "5\\%", propertyValue: "5%" },

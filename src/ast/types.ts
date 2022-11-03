@@ -25,3 +25,21 @@ export interface RootTemplate {
   type: 'root'
   nodes: RuleTemplate[]
 }
+
+
+export const isRuleDefinitionArray = (obj: any) => {
+  if(!Array.isArray(obj)) {
+    return false
+  }
+
+  let isRuleDefinition = true
+
+  obj.forEach((el) => {
+    if(el.separator === undefined) {
+      isRuleDefinition = false
+      return
+    }  
+  })
+
+  return isRuleDefinition
+}

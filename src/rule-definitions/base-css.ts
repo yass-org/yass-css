@@ -5,7 +5,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "direction"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -41,7 +41,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "display"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -181,7 +181,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "font-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -221,7 +221,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "font-stretch"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -285,7 +285,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-rendering"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -329,7 +329,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-font-kerning"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -369,7 +369,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-font-smoothing"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -413,7 +413,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "font-variant-position"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -453,7 +453,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "font-variant-caps"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -509,7 +509,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "font-variant-alternates"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -545,7 +545,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "font-optical-sizing"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -581,7 +581,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-orientation"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -621,7 +621,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-text-orientation"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -661,7 +661,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "writing-mode"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -709,7 +709,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-text-zoom"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -745,7 +745,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-ruby-position"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -785,7 +785,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "alignment-baseline"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -857,7 +857,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "animation-direction"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -901,7 +901,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "animation-fill-mode"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -941,7 +941,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "animation-play-state"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -977,7 +977,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "background-attachment"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1017,7 +1017,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "background-blend-mode"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1109,7 +1109,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "background-clip"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1149,7 +1149,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "border-block-end-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1217,7 +1217,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "border-block-start-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1285,7 +1285,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "border-bottom-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1353,7 +1353,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "border-collapse"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1389,7 +1389,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "border-inline-end-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1457,7 +1457,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "border-inline-start-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1525,7 +1525,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "border-left-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1593,7 +1593,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "border-right-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1661,7 +1661,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "border-top-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1729,7 +1729,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "box-sizing"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1765,7 +1765,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "break-after"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1833,7 +1833,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "break-before"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1901,7 +1901,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "break-inside"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1945,7 +1945,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "buffered-rendering"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -1985,7 +1985,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "caption-side"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2029,7 +2029,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "clear"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2073,7 +2073,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "clip-rule"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2109,7 +2109,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "color-interpolation"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2149,7 +2149,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "color-interpolation-filters"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2189,7 +2189,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "color-rendering"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2229,7 +2229,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "cursor"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2389,7 +2389,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-cursor-visibility"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2425,7 +2425,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "dominant-baseline"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2497,7 +2497,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "empty-cells"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2533,7 +2533,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "fill-rule"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2569,7 +2569,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "float"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2609,7 +2609,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "image-rendering"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2657,7 +2657,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "list-style-position"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -2693,7 +2693,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "list-style-type"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3045,7 +3045,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "mask-type"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3081,7 +3081,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "math-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3117,7 +3117,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "object-fit"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3165,7 +3165,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "outline-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3233,7 +3233,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "overflow-wrap"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3269,7 +3269,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "overflow-x"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3313,7 +3313,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "overflow-y"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3365,7 +3365,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "overscroll-behavior-x"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3405,7 +3405,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "overscroll-behavior-y"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3445,7 +3445,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "pointer-events"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3517,7 +3517,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "position"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3565,7 +3565,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "resize"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3613,7 +3613,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "shape-rendering"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3657,7 +3657,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "stroke-linecap"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3697,7 +3697,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "stroke-linejoin"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3737,7 +3737,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "table-layout"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3773,7 +3773,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-align"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3841,7 +3841,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-anchor"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3881,7 +3881,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-decoration"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3921,7 +3921,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-line-through-mode"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -3957,7 +3957,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-line-through-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4013,7 +4013,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-overflow"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4049,7 +4049,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-overline-mode"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4085,7 +4085,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-overline-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4141,7 +4141,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-transform"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4185,7 +4185,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-underline-mode"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4221,7 +4221,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-underline-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4277,7 +4277,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "unicode-bidi"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4329,7 +4329,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "font-display"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4377,7 +4377,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "vector-effect"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4413,7 +4413,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "visibility"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4453,7 +4453,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "white-space"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4505,7 +4505,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "word-break"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4549,7 +4549,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "word-wrap"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4585,7 +4585,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-appearance"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4873,7 +4873,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-backface-visibility"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4909,7 +4909,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-background-composite"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -4993,7 +4993,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-border-fit"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5029,7 +5029,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-box-align"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5077,7 +5077,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-box-direction"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5113,7 +5113,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-box-lines"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5149,7 +5149,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-box-orient"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5193,7 +5193,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-box-pack"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5237,7 +5237,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-column-axis"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5277,7 +5277,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "column-fill"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5313,7 +5313,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-column-progression"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5349,7 +5349,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "column-rule-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5417,7 +5417,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-box-decoration-break"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5453,7 +5453,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "mix-blend-mode"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5537,7 +5537,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "isolation"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5573,7 +5573,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "align-content"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5625,7 +5625,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "align-items"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5673,7 +5673,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "align-self"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5725,7 +5725,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "flex-direction"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5769,7 +5769,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "flex-wrap"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5809,7 +5809,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "justify-content"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5857,7 +5857,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-hyphens"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5897,7 +5897,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-line-box-contain"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5953,7 +5953,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-line-align"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -5989,7 +5989,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "line-break"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6037,7 +6037,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-line-snap"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6077,7 +6077,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-box-snap"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6125,7 +6125,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-margin-after-collapse"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6165,7 +6165,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-margin-before-collapse"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6205,7 +6205,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-margin-bottom-collapse"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6245,7 +6245,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-margin-top-collapse"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6285,7 +6285,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-marquee-direction"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6349,7 +6349,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-marquee-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6393,7 +6393,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-nbsp-mode"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6429,7 +6429,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "color-scheme"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6473,7 +6473,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-print-color-adjust"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6509,7 +6509,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-rtl-ordering"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6545,7 +6545,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-text-combine"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6581,7 +6581,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-text-align-last"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6637,7 +6637,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-text-justify"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6681,7 +6681,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "text-decoration-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6729,7 +6729,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-text-security"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6773,7 +6773,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "transform-box"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6821,7 +6821,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "transform-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6857,7 +6857,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-transform-style"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6893,7 +6893,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-user-drag"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6933,7 +6933,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-user-modify"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -6973,7 +6973,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-user-select"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -7005,7 +7005,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "scroll-behavior"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -7041,7 +7041,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-overflow-scrolling"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -7077,7 +7077,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "touch-action"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -7129,7 +7129,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-webkit-touch-callout"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",
@@ -7165,7 +7165,7 @@ export const definitions: RuleDefinition[] = [
     propertyNames: [
       "-apple-trailing-word"
     ],
-    separator: ':',
+    separator: '\\:',
     propertyValues: [
       {
         token: "initial",

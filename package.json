@@ -4,7 +4,7 @@
   "target": "esnext",
   "module": "commonjs",
   "description": "",
-  "main": "./src/index.ts",
+  "main": "./src/manual.css",
   "scripts": {
     "preprocess": "node ./src/preprocess/index.js",
     "start": "ts-node ./src/index.ts"

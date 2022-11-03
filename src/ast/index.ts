@@ -7,6 +7,7 @@ import {
   root as rootTemplate,
   rule as ruleTemplate,
 } from './templates'
+import { isRuleDefinitionArray } from './types'
 
 import type { 
   PropertyDefinition,
@@ -20,8 +21,8 @@ export const build = () => {
 
   // Append the various types of rules we want to create
   root.nodes = [
-    ...generate(baseCSSDefinitions),
-    ...generate(globalTokenDefinitions),
+    ...generate(baseCSSDefinitions, '.'),
+    ...generate(globalTokenDefinitions, '.'),
   ]
 
   // Turn the JSON AST representation into an actual AST
@@ -33,30 +34,25 @@ export const build = () => {
   return css
 }
 
-/**
- * definitions has to be an array of objects where each object conforms to the following shape:
- *  {
- *    "propertyNames": [ "display" ],
- *    "propertyValues": [
- *      { "token": "flex", "propertyValue": "flex" },
- *      ... etc
- *    ]
- *  }
- * 
- */
-const generate = (definitions) => {
+const generate = (definitions: RuleDefinition[], selector: string) => {
   const rules = []
   
   definitions.forEach((definition) => {
-    const { propertyNames, propertyValues, separator }: RuleDefinition = definition
+    const { propertyNames, propertyValues, separator } = definition
 
     propertyNames.forEach((propertyName) => {
 
-      propertyValues.forEach(({ token, propertyValue }) => {
-        const selector = `.${propertyName}\\${separator}${token}`
+      if(isRuleDefinitionArray(propertyValues)) {
+        const ruleDefinitions = propertyValues as RuleDefinition[]
+        rules.push(generate(ruleDefinitions, `${selector}${propertyName}${separator}`))
+        return
+      } 
+      const propertyDefinitions = propertyValues as PropertyDefinition[]
+
+      propertyDefinitions.forEach(({ token, propertyValue }) => {
 
         const rule = ruleTemplate({ 
-          selector, // e.g. .padding:300
+          selector: `${selector}${propertyName}${separator}${token}`, // e.g. .padding:300
           propertyName, // e.g. padding
           propertyValue, // e.g. 6px
         })
