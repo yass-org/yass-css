@@ -7,7 +7,7 @@
   "main": "./src/manual.css",
   "scripts": {
     "preprocess": "node ./src/preprocess/index.js",
-    "start": "ts-node ./src/index.ts"
+    "build": "ts-node ./src/index.ts"
   },
   "author": "",
   "license": "ISC",
