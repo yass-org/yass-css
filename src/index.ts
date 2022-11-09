@@ -13,7 +13,7 @@ const run = () => {
 
     const css = build()
     
-    fs.writeFile('./build/index.css', css, err => {
+    fs.writeFile('./build/styles.css', css, err => {
         if (err) {
         console.error(err);
         throw err;

@@ -5,9 +5,11 @@ export interface TokenDefinitions {
 
 
 interface BaseTokens {
-  scale: TokenDefinitions;
-  color: TokenDefinitions;
-  opacity: TokenDefinitions;
+  'scale': TokenDefinitions;
+  'color': TokenDefinitions;
+  'opacity': TokenDefinitions;
+  'font-weight': TokenDefinitions;
+  // TODO: line-height
 }
 
 export const base: BaseTokens = {
@@ -267,21 +269,36 @@ export const base: BaseTokens = {
       '90': '90%',
       '100': '100%',
     }
-  }
+  },
+  'font-weight': {
+    properties: [
+      'font-weight',
+    ],
+    tokens: {
+      '100': '100',
+      '200': '200',
+      '300': '300',
+      '400': '400',
+      '500': '500',
+      '600': '600',
+      '700': '700',
+      '800': '800',
+      '900': '900',
+    }
+  },
 }
 
 export const aliases: TokenDefinitions[] = [
-  // TODO: Example alias token. Update with Scott's
   {
     properties: [
-      'font-size',
+      'font-weight',
     ],
     tokens: {
-      'small': base.scale.tokens['300'],
-      'default': base.scale.tokens['500'],
-      'large': base.scale.tokens['700'],
+      'light': base['font-weight'].tokens['200'],
+      'normal': base['font-weight'].tokens['400'],
+      'bold': base['font-weight'].tokens['700'],
     }
-  },
+  },  
   {
     properties: [
       'background-color',
@@ -298,10 +315,15 @@ export const aliases: TokenDefinitions[] = [
       'primary-focus': base.color.tokens['blue-400'],
       'primary-active': base.color.tokens['blue-600'],
 
-      'neutral': base.color.tokens['neutral-500'],
-      'neutral-hover': base.color.tokens['neutral-400'],
-      'neutral-focus': base.color.tokens['neutral-400'],
-      'neutral-active': base.color.tokens['neutral-600'],
+      'subtle': base.color.tokens['neutral-300'],
+      'subtle-hover': base.color.tokens['neutral-200'],
+      'subtle-focus': base.color.tokens['neutral-200'],
+      'subtle-active': base.color.tokens['neutral-400'],
+
+      'neutral': base.color.tokens['neutral-600'],
+      'neutral-hover': base.color.tokens['neutral-500'],
+      'neutral-focus': base.color.tokens['neutral-500'],
+      'neutral-active': base.color.tokens['neutral-700'],
 
       'success': base.color.tokens['green-500'],
       'success-hover': base.color.tokens['green-400'],
