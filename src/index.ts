@@ -11,15 +11,23 @@ const initialize = () => {
 
 const run = () => {
 
-    const css = build()
+    const { css, json } = build()
     
     fs.writeFile('./build/styles.css', css, err => {
         if (err) {
         console.error(err);
         throw err;
         }
-        console.log('success')
+        console.log('Successfully wrote CSS')
     });
+
+    fs.writeFile('./build/styles.json', JSON.stringify(json, null, 2), err => {
+        if (err) {
+        console.error(err);
+        throw err;
+        }
+        console.log('Successfully wrote JSON')
+    });    
 }
 
 

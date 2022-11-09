@@ -1,10 +1,10 @@
 {
   "name": "yass",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "target": "esnext",
   "module": "commonjs",
   "description": "",
-  "main": "./build/styles.css",
+  "main": "./build/index.js",
   "scripts": {
     "preprocess": "node ./src/preprocess/index.js",
     "build": "ts-node ./src/index.ts"

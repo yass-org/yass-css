@@ -8,6 +8,8 @@ import { Root, Rule, Declaration } from './ast'
 import type { TokenDefinitions } from './design-system/tokens'
 import type { BaseCSSDeclarations } from './base_css'
 
+const json = {} // TODO: Scope this better
+
 export default () => {
   const processor = postcss([]);
   
@@ -17,6 +19,7 @@ export default () => {
   root.appendNodes(generateFromTokenDefinitions(tokens.base.scale))
   root.appendNodes(generateFromTokenDefinitions(tokens.base.color))
   root.appendNodes(generateFromTokenDefinitions(tokens.base.opacity))
+  root.appendNodes(generateFromTokenDefinitions(tokens.base['font-weight']))
   root.appendNodes(generateAliasTokens(tokens.aliases))
   root.appendNodes(generateUtilityClasses(utility))
 
@@ -26,7 +29,10 @@ export default () => {
   // Render the AST as actual CSS
   const css = processor.process(rehydrated).css
 
-  return css
+  return {
+    css,
+    json,
+  }
 }
 
 /**
@@ -58,6 +64,12 @@ const generateFromTokenDefinitions = ({ tokens, properties }: TokenDefinitions):
 
   properties.forEach((propertyName) => {
     for (const [tokenName, tokenValue] of Object.entries(tokens)) {
+      
+      if(!json[propertyName]) {
+        json[propertyName] = []
+      }
+      json[propertyName].push(`${propertyName}:${tokenName}`)
+      
       const rule = new Rule({ 
         selector: `.${propertyName}\\:${tokenName}`, // e.g. .padding:300
         declarations: [new Declaration({ property: propertyName, value: tokenValue})]
@@ -121,8 +133,13 @@ const generateBaseCSSClasses = (declarations: BaseCSSDeclarations[]) => { // TOD
   
   declarations.forEach((declaration) => {
     const { property, values } = declaration
-
+    
     values.forEach((value) => {
+      if(!json[property]) {
+        json[property] = []
+      }
+      json[property].push(`${property}:${value}`)
+      
       const rule = new Rule({ 
         selector: `.${property}\\:${value}`, // e.g. .display:block
         declarations: [new Declaration({ property: property, value: value})]
@@ -165,10 +182,10 @@ const generateUtilityClasses = (definitions) => {
   const rules: Rule[] = []
 
   definitions.forEach((definition) => {
-    const { name, declarations } = definition
+    const { name: className, declarations } = definition
     const resolvedDeclarations = declarations.map((declaration) => new Declaration(declaration))
     
-    const rule = new Rule({selector: `.${name}`, declarations: resolvedDeclarations})
+    const rule = new Rule({selector: `.${className}`, declarations: resolvedDeclarations})
     rules.push(rule)
   })
   

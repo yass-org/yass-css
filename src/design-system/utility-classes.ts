@@ -127,5 +127,6 @@ export const utility: UtilityClassDefinition[] = [
       },
     ],
   },
+  // TODO: Add visually-hidden
 ]
 
