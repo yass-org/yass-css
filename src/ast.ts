@@ -46,10 +46,12 @@ export interface ResolvedRule {
 export class Rule {
   selector: string;
   declarations: Declaration[];
+  className: string;
 
-  constructor({ selector, declarations }) {
+  constructor({ selector, declarations, className }) {
     this.selector = selector
     this.declarations = declarations
+    this.className = className
   }
 
   json(): ResolvedRule {

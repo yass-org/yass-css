@@ -68,14 +68,18 @@ const generateFromTokenDefinitions = ({ tokens, properties }: TokenDefinitions):
       if(!json[propertyName]) {
         json[propertyName] = []
       }
+
       json[propertyName].push(`${propertyName}:${tokenName}`)
+      const className = `${propertyName}\\:${tokenName}`
       
       const rule = new Rule({ 
-        selector: `.${propertyName}\\:${tokenName}`, // e.g. .padding:300
-        declarations: [new Declaration({ property: propertyName, value: tokenValue})]
+        selector: `.${className}`, // e.g. .padding:300
+        declarations: [new Declaration({ property: propertyName, value: tokenValue})],
+        className,
       })
 
-      rules.push(rule)
+      const pseudoSelectorClasses = generatePseudoSelectorClasses(rule)
+      rules.push(...[rule, ...pseudoSelectorClasses])
     }
   })
 
@@ -139,13 +143,16 @@ const generateBaseCSSClasses = (declarations: BaseCSSDeclarations[]) => { // TOD
         json[property] = []
       }
       json[property].push(`${property}:${value}`)
-      
+      const className = `${property}\\:${value}`
+
       const rule = new Rule({ 
-        selector: `.${property}\\:${value}`, // e.g. .display:block
-        declarations: [new Declaration({ property: property, value: value})]
+        selector: `.${className}`, // e.g. .display:block
+        declarations: [new Declaration({ property: property, value: value})],
+        className,
       })
 
-      rules.push(rule)
+      const pseudoSelectorClasses = generatePseudoSelectorClasses(rule)
+      rules.push(...[rule, ...pseudoSelectorClasses])
     })
   })
 
@@ -185,9 +192,25 @@ const generateUtilityClasses = (definitions) => {
     const { name: className, declarations } = definition
     const resolvedDeclarations = declarations.map((declaration) => new Declaration(declaration))
     
-    const rule = new Rule({selector: `.${className}`, declarations: resolvedDeclarations})
-    rules.push(rule)
+    const rule = new Rule({selector: `.${className}`, declarations: resolvedDeclarations, className})
+
+    const pseudoSelectorClasses = generatePseudoSelectorClasses(rule)
+    rules.push(...[rule, ...pseudoSelectorClasses])
   })
   
   return rules
+}
+
+const pseudoSelectors = ['hover', 'focus', 'active', 'visited']
+
+const generatePseudoSelectorClasses = (rule: Rule): Rule[] => {
+  return pseudoSelectors.map((pseudoSelector: string) => {
+    const selector =`.${pseudoSelector}\\(${rule.className}\\):${pseudoSelector}`
+
+    return new Rule({
+      selector, 
+      declarations: rule.declarations, 
+      className: `${pseudoSelector}\\(${rule.className}\\)`
+    })
+  })
 }

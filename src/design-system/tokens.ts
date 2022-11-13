@@ -15,6 +15,7 @@ interface BaseTokens {
 export const base: BaseTokens = {
   scale: {
     tokens: {
+      '0': '0',
       '1': '0.0625rem',
       '2': '0.125rem',
       '3': '0.25rem',
@@ -107,6 +108,7 @@ export const base: BaseTokens = {
       'padding-right',
       'padding-top',
       'padding',
+      'row-gap',
       'scroll-margin-bottom',
       'scroll-margin-left',
       'scroll-margin-right',
@@ -339,6 +341,12 @@ export const aliases: TokenDefinitions[] = [
       'danger-hover': base.color.tokens['red-400'],
       'danger-focus': base.color.tokens['red-400'],
       'danger-active': base.color.tokens['red-600'],
+
+      'link': base.color.tokens['blue-500'],
+      'link-hover': base.color.tokens['blue-400'],
+      'link-focus': base.color.tokens['blue-400'],
+      'link-active': base.color.tokens['blue-600'],      
+      'link-visited': base.color.tokens['purple-500'],      
     }
   }
 ]
