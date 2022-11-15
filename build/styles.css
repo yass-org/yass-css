@@ -4829,6 +4829,231 @@
 .visited\(border-inline-start-style\:double\):visited {
   border-inline-start-style: double;
 }
+.border-style\:initial {
+  border-style: initial;
+}
+.hover\(border-style\:initial\):hover {
+  border-style: initial;
+}
+.focus\(border-style\:initial\):focus {
+  border-style: initial;
+}
+.active\(border-style\:initial\):active {
+  border-style: initial;
+}
+.visited\(border-style\:initial\):visited {
+  border-style: initial;
+}
+.border-style\:inherit {
+  border-style: inherit;
+}
+.hover\(border-style\:inherit\):hover {
+  border-style: inherit;
+}
+.focus\(border-style\:inherit\):focus {
+  border-style: inherit;
+}
+.active\(border-style\:inherit\):active {
+  border-style: inherit;
+}
+.visited\(border-style\:inherit\):visited {
+  border-style: inherit;
+}
+.border-style\:unset {
+  border-style: unset;
+}
+.hover\(border-style\:unset\):hover {
+  border-style: unset;
+}
+.focus\(border-style\:unset\):focus {
+  border-style: unset;
+}
+.active\(border-style\:unset\):active {
+  border-style: unset;
+}
+.visited\(border-style\:unset\):visited {
+  border-style: unset;
+}
+.border-style\:revert {
+  border-style: revert;
+}
+.hover\(border-style\:revert\):hover {
+  border-style: revert;
+}
+.focus\(border-style\:revert\):focus {
+  border-style: revert;
+}
+.active\(border-style\:revert\):active {
+  border-style: revert;
+}
+.visited\(border-style\:revert\):visited {
+  border-style: revert;
+}
+.border-style\:revert-layer {
+  border-style: revert-layer;
+}
+.hover\(border-style\:revert-layer\):hover {
+  border-style: revert-layer;
+}
+.focus\(border-style\:revert-layer\):focus {
+  border-style: revert-layer;
+}
+.active\(border-style\:revert-layer\):active {
+  border-style: revert-layer;
+}
+.visited\(border-style\:revert-layer\):visited {
+  border-style: revert-layer;
+}
+.border-style\:none {
+  border-style: none;
+}
+.hover\(border-style\:none\):hover {
+  border-style: none;
+}
+.focus\(border-style\:none\):focus {
+  border-style: none;
+}
+.active\(border-style\:none\):active {
+  border-style: none;
+}
+.visited\(border-style\:none\):visited {
+  border-style: none;
+}
+.border-style\:hidden {
+  border-style: hidden;
+}
+.hover\(border-style\:hidden\):hover {
+  border-style: hidden;
+}
+.focus\(border-style\:hidden\):focus {
+  border-style: hidden;
+}
+.active\(border-style\:hidden\):active {
+  border-style: hidden;
+}
+.visited\(border-style\:hidden\):visited {
+  border-style: hidden;
+}
+.border-style\:inset {
+  border-style: inset;
+}
+.hover\(border-style\:inset\):hover {
+  border-style: inset;
+}
+.focus\(border-style\:inset\):focus {
+  border-style: inset;
+}
+.active\(border-style\:inset\):active {
+  border-style: inset;
+}
+.visited\(border-style\:inset\):visited {
+  border-style: inset;
+}
+.border-style\:groove {
+  border-style: groove;
+}
+.hover\(border-style\:groove\):hover {
+  border-style: groove;
+}
+.focus\(border-style\:groove\):focus {
+  border-style: groove;
+}
+.active\(border-style\:groove\):active {
+  border-style: groove;
+}
+.visited\(border-style\:groove\):visited {
+  border-style: groove;
+}
+.border-style\:outset {
+  border-style: outset;
+}
+.hover\(border-style\:outset\):hover {
+  border-style: outset;
+}
+.focus\(border-style\:outset\):focus {
+  border-style: outset;
+}
+.active\(border-style\:outset\):active {
+  border-style: outset;
+}
+.visited\(border-style\:outset\):visited {
+  border-style: outset;
+}
+.border-style\:ridge {
+  border-style: ridge;
+}
+.hover\(border-style\:ridge\):hover {
+  border-style: ridge;
+}
+.focus\(border-style\:ridge\):focus {
+  border-style: ridge;
+}
+.active\(border-style\:ridge\):active {
+  border-style: ridge;
+}
+.visited\(border-style\:ridge\):visited {
+  border-style: ridge;
+}
+.border-style\:dotted {
+  border-style: dotted;
+}
+.hover\(border-style\:dotted\):hover {
+  border-style: dotted;
+}
+.focus\(border-style\:dotted\):focus {
+  border-style: dotted;
+}
+.active\(border-style\:dotted\):active {
+  border-style: dotted;
+}
+.visited\(border-style\:dotted\):visited {
+  border-style: dotted;
+}
+.border-style\:dashed {
+  border-style: dashed;
+}
+.hover\(border-style\:dashed\):hover {
+  border-style: dashed;
+}
+.focus\(border-style\:dashed\):focus {
+  border-style: dashed;
+}
+.active\(border-style\:dashed\):active {
+  border-style: dashed;
+}
+.visited\(border-style\:dashed\):visited {
+  border-style: dashed;
+}
+.border-style\:solid {
+  border-style: solid;
+}
+.hover\(border-style\:solid\):hover {
+  border-style: solid;
+}
+.focus\(border-style\:solid\):focus {
+  border-style: solid;
+}
+.active\(border-style\:solid\):active {
+  border-style: solid;
+}
+.visited\(border-style\:solid\):visited {
+  border-style: solid;
+}
+.border-style\:double {
+  border-style: double;
+}
+.hover\(border-style\:double\):hover {
+  border-style: double;
+}
+.focus\(border-style\:double\):focus {
+  border-style: double;
+}
+.active\(border-style\:double\):active {
+  border-style: double;
+}
+.visited\(border-style\:double\):visited {
+  border-style: double;
+}
 .border-left-style\:initial {
   border-left-style: initial;
 }
@@ -10528,6 +10753,141 @@
 }
 .visited\(overflow-wrap\:break-word\):visited {
   overflow-wrap: break-word;
+}
+.overflow\:initial {
+  overflow: initial;
+}
+.hover\(overflow\:initial\):hover {
+  overflow: initial;
+}
+.focus\(overflow\:initial\):focus {
+  overflow: initial;
+}
+.active\(overflow\:initial\):active {
+  overflow: initial;
+}
+.visited\(overflow\:initial\):visited {
+  overflow: initial;
+}
+.overflow\:inherit {
+  overflow: inherit;
+}
+.hover\(overflow\:inherit\):hover {
+  overflow: inherit;
+}
+.focus\(overflow\:inherit\):focus {
+  overflow: inherit;
+}
+.active\(overflow\:inherit\):active {
+  overflow: inherit;
+}
+.visited\(overflow\:inherit\):visited {
+  overflow: inherit;
+}
+.overflow\:unset {
+  overflow: unset;
+}
+.hover\(overflow\:unset\):hover {
+  overflow: unset;
+}
+.focus\(overflow\:unset\):focus {
+  overflow: unset;
+}
+.active\(overflow\:unset\):active {
+  overflow: unset;
+}
+.visited\(overflow\:unset\):visited {
+  overflow: unset;
+}
+.overflow\:revert {
+  overflow: revert;
+}
+.hover\(overflow\:revert\):hover {
+  overflow: revert;
+}
+.focus\(overflow\:revert\):focus {
+  overflow: revert;
+}
+.active\(overflow\:revert\):active {
+  overflow: revert;
+}
+.visited\(overflow\:revert\):visited {
+  overflow: revert;
+}
+.overflow\:revert-layer {
+  overflow: revert-layer;
+}
+.hover\(overflow\:revert-layer\):hover {
+  overflow: revert-layer;
+}
+.focus\(overflow\:revert-layer\):focus {
+  overflow: revert-layer;
+}
+.active\(overflow\:revert-layer\):active {
+  overflow: revert-layer;
+}
+.visited\(overflow\:revert-layer\):visited {
+  overflow: revert-layer;
+}
+.overflow\:visible {
+  overflow: visible;
+}
+.hover\(overflow\:visible\):hover {
+  overflow: visible;
+}
+.focus\(overflow\:visible\):focus {
+  overflow: visible;
+}
+.active\(overflow\:visible\):active {
+  overflow: visible;
+}
+.visited\(overflow\:visible\):visited {
+  overflow: visible;
+}
+.overflow\:hidden {
+  overflow: hidden;
+}
+.hover\(overflow\:hidden\):hover {
+  overflow: hidden;
+}
+.focus\(overflow\:hidden\):focus {
+  overflow: hidden;
+}
+.active\(overflow\:hidden\):active {
+  overflow: hidden;
+}
+.visited\(overflow\:hidden\):visited {
+  overflow: hidden;
+}
+.overflow\:scroll {
+  overflow: scroll;
+}
+.hover\(overflow\:scroll\):hover {
+  overflow: scroll;
+}
+.focus\(overflow\:scroll\):focus {
+  overflow: scroll;
+}
+.active\(overflow\:scroll\):active {
+  overflow: scroll;
+}
+.visited\(overflow\:scroll\):visited {
+  overflow: scroll;
+}
+.overflow\:auto {
+  overflow: auto;
+}
+.hover\(overflow\:auto\):hover {
+  overflow: auto;
+}
+.focus\(overflow\:auto\):focus {
+  overflow: auto;
+}
+.active\(overflow\:auto\):active {
+  overflow: auto;
+}
+.visited\(overflow\:auto\):visited {
+  overflow: auto;
 }
 .overflow-x\:initial {
   overflow-x: initial;
@@ -85859,6 +86219,156 @@
 .visited\(font-weight\:900\):visited {
   font-weight: 900;
 }
+.z-index\:0 {
+  z-index: 0;
+}
+.hover\(z-index\:0\):hover {
+  z-index: 0;
+}
+.focus\(z-index\:0\):focus {
+  z-index: 0;
+}
+.active\(z-index\:0\):active {
+  z-index: 0;
+}
+.visited\(z-index\:0\):visited {
+  z-index: 0;
+}
+.z-index\:100 {
+  z-index: 100;
+}
+.hover\(z-index\:100\):hover {
+  z-index: 100;
+}
+.focus\(z-index\:100\):focus {
+  z-index: 100;
+}
+.active\(z-index\:100\):active {
+  z-index: 100;
+}
+.visited\(z-index\:100\):visited {
+  z-index: 100;
+}
+.z-index\:200 {
+  z-index: 200;
+}
+.hover\(z-index\:200\):hover {
+  z-index: 200;
+}
+.focus\(z-index\:200\):focus {
+  z-index: 200;
+}
+.active\(z-index\:200\):active {
+  z-index: 200;
+}
+.visited\(z-index\:200\):visited {
+  z-index: 200;
+}
+.z-index\:300 {
+  z-index: 300;
+}
+.hover\(z-index\:300\):hover {
+  z-index: 300;
+}
+.focus\(z-index\:300\):focus {
+  z-index: 300;
+}
+.active\(z-index\:300\):active {
+  z-index: 300;
+}
+.visited\(z-index\:300\):visited {
+  z-index: 300;
+}
+.z-index\:400 {
+  z-index: 400;
+}
+.hover\(z-index\:400\):hover {
+  z-index: 400;
+}
+.focus\(z-index\:400\):focus {
+  z-index: 400;
+}
+.active\(z-index\:400\):active {
+  z-index: 400;
+}
+.visited\(z-index\:400\):visited {
+  z-index: 400;
+}
+.z-index\:500 {
+  z-index: 500;
+}
+.hover\(z-index\:500\):hover {
+  z-index: 500;
+}
+.focus\(z-index\:500\):focus {
+  z-index: 500;
+}
+.active\(z-index\:500\):active {
+  z-index: 500;
+}
+.visited\(z-index\:500\):visited {
+  z-index: 500;
+}
+.z-index\:600 {
+  z-index: 600;
+}
+.hover\(z-index\:600\):hover {
+  z-index: 600;
+}
+.focus\(z-index\:600\):focus {
+  z-index: 600;
+}
+.active\(z-index\:600\):active {
+  z-index: 600;
+}
+.visited\(z-index\:600\):visited {
+  z-index: 600;
+}
+.z-index\:700 {
+  z-index: 700;
+}
+.hover\(z-index\:700\):hover {
+  z-index: 700;
+}
+.focus\(z-index\:700\):focus {
+  z-index: 700;
+}
+.active\(z-index\:700\):active {
+  z-index: 700;
+}
+.visited\(z-index\:700\):visited {
+  z-index: 700;
+}
+.z-index\:800 {
+  z-index: 800;
+}
+.hover\(z-index\:800\):hover {
+  z-index: 800;
+}
+.focus\(z-index\:800\):focus {
+  z-index: 800;
+}
+.active\(z-index\:800\):active {
+  z-index: 800;
+}
+.visited\(z-index\:800\):visited {
+  z-index: 800;
+}
+.z-index\:900 {
+  z-index: 900;
+}
+.hover\(z-index\:900\):hover {
+  z-index: 900;
+}
+.focus\(z-index\:900\):focus {
+  z-index: 900;
+}
+.active\(z-index\:900\):active {
+  z-index: 900;
+}
+.visited\(z-index\:900\):visited {
+  z-index: 900;
+}
 .font-weight\:light {
   font-weight: 200;
 }
@@ -88948,6 +89458,66 @@
 }
 .visited\(color\:link-visited\):visited {
   color: hsl(280, 80%, 50%);
+}
+.z-index\:sunken {
+  z-index: 0;
+}
+.hover\(z-index\:sunken\):hover {
+  z-index: 0;
+}
+.focus\(z-index\:sunken\):focus {
+  z-index: 0;
+}
+.active\(z-index\:sunken\):active {
+  z-index: 0;
+}
+.visited\(z-index\:sunken\):visited {
+  z-index: 0;
+}
+.z-index\:default {
+  z-index: 100;
+}
+.hover\(z-index\:default\):hover {
+  z-index: 100;
+}
+.focus\(z-index\:default\):focus {
+  z-index: 100;
+}
+.active\(z-index\:default\):active {
+  z-index: 100;
+}
+.visited\(z-index\:default\):visited {
+  z-index: 100;
+}
+.z-index\:raised {
+  z-index: 500;
+}
+.hover\(z-index\:raised\):hover {
+  z-index: 500;
+}
+.focus\(z-index\:raised\):focus {
+  z-index: 500;
+}
+.active\(z-index\:raised\):active {
+  z-index: 500;
+}
+.visited\(z-index\:raised\):visited {
+  z-index: 500;
+}
+.z-index\:overlay {
+  z-index: 900;
+}
+.hover\(z-index\:overlay\):hover {
+  z-index: 900;
+}
+.focus\(z-index\:overlay\):focus {
+  z-index: 900;
+}
+.active\(z-index\:overlay\):active {
+  z-index: 900;
+}
+.visited\(z-index\:overlay\):visited {
+  z-index: 900;
 }
 .debug {
   background-color: hsl(0, 100%, 15%);

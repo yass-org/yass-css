@@ -379,6 +379,23 @@
     "border-inline-start-style:solid",
     "border-inline-start-style:double"
   ],
+  "border-style": [
+    "border-style:initial",
+    "border-style:inherit",
+    "border-style:unset",
+    "border-style:revert",
+    "border-style:revert-layer",
+    "border-style:none",
+    "border-style:hidden",
+    "border-style:inset",
+    "border-style:groove",
+    "border-style:outset",
+    "border-style:ridge",
+    "border-style:dotted",
+    "border-style:dashed",
+    "border-style:solid",
+    "border-style:double"
+  ],
   "border-left-style": [
     "border-left-style:initial",
     "border-left-style:inherit",
@@ -814,6 +831,17 @@
     "overflow-wrap:revert-layer",
     "overflow-wrap:normal",
     "overflow-wrap:break-word"
+  ],
+  "overflow": [
+    "overflow:initial",
+    "overflow:inherit",
+    "overflow:unset",
+    "overflow:revert",
+    "overflow:revert-layer",
+    "overflow:visible",
+    "overflow:hidden",
+    "overflow:scroll",
+    "overflow:auto"
   ],
   "overflow-x": [
     "overflow-x:initial",
@@ -6384,5 +6412,21 @@
     "font-weight:light",
     "font-weight:normal",
     "font-weight:bold"
+  ],
+  "z-index": [
+    "z-index:0",
+    "z-index:100",
+    "z-index:200",
+    "z-index:300",
+    "z-index:400",
+    "z-index:500",
+    "z-index:600",
+    "z-index:700",
+    "z-index:800",
+    "z-index:900",
+    "z-index:sunken",
+    "z-index:default",
+    "z-index:raised",
+    "z-index:overlay"
   ]
 }

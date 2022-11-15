@@ -473,6 +473,26 @@ const declarations: BaseCSSDeclarations[] = [
     ]
   },
   {
+    property: "border-style",
+    values: [
+      "initial",
+      "inherit",
+      "unset",
+      "revert",
+      "revert-layer",
+      "none",
+      "hidden",
+      "inset",
+      "groove",
+      "outset",
+      "ridge",
+      "dotted",
+      "dashed",
+      "solid",
+      "double",
+    ]
+  },  
+  {
     property: "border-left-style",
     values: [
       "initial",
@@ -990,6 +1010,20 @@ const declarations: BaseCSSDeclarations[] = [
       "revert-layer",
       "normal",
       "break-word",
+    ]
+  },
+  {
+    property: "overflow",
+    values: [
+      "initial",
+      "inherit",
+      "unset",
+      "revert",
+      "revert-layer",
+      "visible",
+      "hidden",
+      "scroll",
+      "auto",
     ]
   },
   {

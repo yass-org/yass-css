@@ -20,6 +20,7 @@ export default () => {
   root.appendNodes(generateFromTokenDefinitions(tokens.base.color))
   root.appendNodes(generateFromTokenDefinitions(tokens.base.opacity))
   root.appendNodes(generateFromTokenDefinitions(tokens.base['font-weight']))
+  root.appendNodes(generateFromTokenDefinitions(tokens.base.elevation))
   root.appendNodes(generateAliasTokens(tokens.aliases))
   root.appendNodes(generateUtilityClasses(utility))
 

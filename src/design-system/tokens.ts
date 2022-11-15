@@ -9,6 +9,7 @@ interface BaseTokens {
   'color': TokenDefinitions;
   'opacity': TokenDefinitions;
   'font-weight': TokenDefinitions;
+  'elevation': TokenDefinitions;
   // TODO: line-height
 }
 
@@ -288,6 +289,23 @@ export const base: BaseTokens = {
       '900': '900',
     }
   },
+  'elevation': {
+    properties: [
+      'z-index',
+    ],
+    tokens: {
+      '0': '0',
+      '100': '100',
+      '200': '200',
+      '300': '300',
+      '400': '400',
+      '500': '500',
+      '600': '600',
+      '700': '700',
+      '800': '800',
+      '900': '900',
+    }
+  },  
 }
 
 export const aliases: TokenDefinitions[] = [
@@ -348,7 +366,18 @@ export const aliases: TokenDefinitions[] = [
       'link-active': base.color.tokens['blue-600'],      
       'link-visited': base.color.tokens['purple-500'],      
     }
-  }
+  },
+  {
+    properties: [
+      'z-index',
+    ],
+    tokens: {
+      'sunken': base.elevation.tokens['0'],
+      'default': base.elevation.tokens['100'],
+      'raised': base.elevation.tokens['500'],
+      'overlay': base.elevation.tokens['900'],
+    }
+  },    
 ]
 
 
