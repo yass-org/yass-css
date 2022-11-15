@@ -6428,5 +6428,10 @@
     "z-index:default",
     "z-index:raised",
     "z-index:overlay"
+  ],
+  "grid-template-columns": [
+    "grid-template-columns:three-column-layout",
+    "grid-template-columns:two-column-layout",
+    "grid-template-columns:page-layout"
   ]
 }

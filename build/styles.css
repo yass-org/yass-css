@@ -89519,6 +89519,51 @@
 .visited\(z-index\:overlay\):visited {
   z-index: 900;
 }
+.grid-template-columns\:three-column-layout {
+  grid-template-columns: repeat(3, 1fr);
+}
+.hover\(grid-template-columns\:three-column-layout\):hover {
+  grid-template-columns: repeat(3, 1fr);
+}
+.focus\(grid-template-columns\:three-column-layout\):focus {
+  grid-template-columns: repeat(3, 1fr);
+}
+.active\(grid-template-columns\:three-column-layout\):active {
+  grid-template-columns: repeat(3, 1fr);
+}
+.visited\(grid-template-columns\:three-column-layout\):visited {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-template-columns\:two-column-layout {
+  grid-template-columns: repeat(2, 1fr);
+}
+.hover\(grid-template-columns\:two-column-layout\):hover {
+  grid-template-columns: repeat(2, 1fr);
+}
+.focus\(grid-template-columns\:two-column-layout\):focus {
+  grid-template-columns: repeat(2, 1fr);
+}
+.active\(grid-template-columns\:two-column-layout\):active {
+  grid-template-columns: repeat(2, 1fr);
+}
+.visited\(grid-template-columns\:two-column-layout\):visited {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-template-columns\:page-layout {
+  grid-template-columns: 1fr 4fr 1fr;
+}
+.hover\(grid-template-columns\:page-layout\):hover {
+  grid-template-columns: 1fr 4fr 1fr;
+}
+.focus\(grid-template-columns\:page-layout\):focus {
+  grid-template-columns: 1fr 4fr 1fr;
+}
+.active\(grid-template-columns\:page-layout\):active {
+  grid-template-columns: 1fr 4fr 1fr;
+}
+.visited\(grid-template-columns\:page-layout\):visited {
+  grid-template-columns: 1fr 4fr 1fr;
+}
 .debug {
   background-color: hsl(0, 100%, 15%);
   opacity: 10%;

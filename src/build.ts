@@ -192,7 +192,7 @@ const generateUtilityClasses = (definitions) => {
   definitions.forEach((definition) => {
     const { name: className, declarations } = definition
     const resolvedDeclarations = declarations.map((declaration) => new Declaration(declaration))
-    
+
     const rule = new Rule({selector: `.${className}`, declarations: resolvedDeclarations, className})
 
     const pseudoSelectorClasses = generatePseudoSelectorClasses(rule)

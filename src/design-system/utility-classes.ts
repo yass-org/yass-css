@@ -10,6 +10,7 @@ interface UtilityClassDefinition {
 };
 
 export const utility: UtilityClassDefinition[] = [
+  // TODO: Add visually-hidden
   {
     name: 'debug',
     declarations: [
@@ -127,6 +128,5 @@ export const utility: UtilityClassDefinition[] = [
       },
     ],
   },
-  // TODO: Add visually-hidden
 ]
 
