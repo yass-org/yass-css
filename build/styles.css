@@ -86414,6 +86414,636 @@
 .visited\(font-weight\:bold\):visited {
   font-weight: 700;
 }
+.padding-inline\:button-small {
+  padding-inline: 0.5rem;
+}
+.hover\(padding-inline\:button-small\):hover {
+  padding-inline: 0.5rem;
+}
+.focus\(padding-inline\:button-small\):focus {
+  padding-inline: 0.5rem;
+}
+.active\(padding-inline\:button-small\):active {
+  padding-inline: 0.5rem;
+}
+.visited\(padding-inline\:button-small\):visited {
+  padding-inline: 0.5rem;
+}
+.padding-inline\:button-medium {
+  padding-inline: 1rem;
+}
+.hover\(padding-inline\:button-medium\):hover {
+  padding-inline: 1rem;
+}
+.focus\(padding-inline\:button-medium\):focus {
+  padding-inline: 1rem;
+}
+.active\(padding-inline\:button-medium\):active {
+  padding-inline: 1rem;
+}
+.visited\(padding-inline\:button-medium\):visited {
+  padding-inline: 1rem;
+}
+.padding-inline\:button-large {
+  padding-inline: 1.5rem;
+}
+.hover\(padding-inline\:button-large\):hover {
+  padding-inline: 1.5rem;
+}
+.focus\(padding-inline\:button-large\):focus {
+  padding-inline: 1.5rem;
+}
+.active\(padding-inline\:button-large\):active {
+  padding-inline: 1.5rem;
+}
+.visited\(padding-inline\:button-large\):visited {
+  padding-inline: 1.5rem;
+}
+.padding-block\:button-small {
+  padding-block: 0.25rem;
+}
+.hover\(padding-block\:button-small\):hover {
+  padding-block: 0.25rem;
+}
+.focus\(padding-block\:button-small\):focus {
+  padding-block: 0.25rem;
+}
+.active\(padding-block\:button-small\):active {
+  padding-block: 0.25rem;
+}
+.visited\(padding-block\:button-small\):visited {
+  padding-block: 0.25rem;
+}
+.padding-block\:button-medium {
+  padding-block: 0.5rem;
+}
+.hover\(padding-block\:button-medium\):hover {
+  padding-block: 0.5rem;
+}
+.focus\(padding-block\:button-medium\):focus {
+  padding-block: 0.5rem;
+}
+.active\(padding-block\:button-medium\):active {
+  padding-block: 0.5rem;
+}
+.visited\(padding-block\:button-medium\):visited {
+  padding-block: 0.5rem;
+}
+.padding-block\:button-large {
+  padding-block: 0.75rem;
+}
+.hover\(padding-block\:button-large\):hover {
+  padding-block: 0.75rem;
+}
+.focus\(padding-block\:button-large\):focus {
+  padding-block: 0.75rem;
+}
+.active\(padding-block\:button-large\):active {
+  padding-block: 0.75rem;
+}
+.visited\(padding-block\:button-large\):visited {
+  padding-block: 0.75rem;
+}
+.color\:primary {
+  color: hsl(220, 25%, 95%);
+}
+.hover\(color\:primary\):hover {
+  color: hsl(220, 25%, 95%);
+}
+.focus\(color\:primary\):focus {
+  color: hsl(220, 25%, 95%);
+}
+.active\(color\:primary\):active {
+  color: hsl(220, 25%, 95%);
+}
+.visited\(color\:primary\):visited {
+  color: hsl(220, 25%, 95%);
+}
+.color\:primary-hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.hover\(color\:primary-hover\):hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.focus\(color\:primary-hover\):focus {
+  color: hsl(220, 25%, 97.5%);
+}
+.active\(color\:primary-hover\):active {
+  color: hsl(220, 25%, 97.5%);
+}
+.visited\(color\:primary-hover\):visited {
+  color: hsl(220, 25%, 97.5%);
+}
+.color\:primary-active {
+  color: hsl(220, 25%, 85%);
+}
+.hover\(color\:primary-active\):hover {
+  color: hsl(220, 25%, 85%);
+}
+.focus\(color\:primary-active\):focus {
+  color: hsl(220, 25%, 85%);
+}
+.active\(color\:primary-active\):active {
+  color: hsl(220, 25%, 85%);
+}
+.visited\(color\:primary-active\):visited {
+  color: hsl(220, 25%, 85%);
+}
+.color\:subtle {
+  color: hsl(220, 25%, 30%);
+}
+.hover\(color\:subtle\):hover {
+  color: hsl(220, 25%, 30%);
+}
+.focus\(color\:subtle\):focus {
+  color: hsl(220, 25%, 30%);
+}
+.active\(color\:subtle\):active {
+  color: hsl(220, 25%, 30%);
+}
+.visited\(color\:subtle\):visited {
+  color: hsl(220, 25%, 30%);
+}
+.color\:subtle-hover {
+  color: hsl(220, 25%, 40%);
+}
+.hover\(color\:subtle-hover\):hover {
+  color: hsl(220, 25%, 40%);
+}
+.focus\(color\:subtle-hover\):focus {
+  color: hsl(220, 25%, 40%);
+}
+.active\(color\:subtle-hover\):active {
+  color: hsl(220, 25%, 40%);
+}
+.visited\(color\:subtle-hover\):visited {
+  color: hsl(220, 25%, 40%);
+}
+.color\:subtle-active {
+  color: hsl(220, 25%, 20%);
+}
+.hover\(color\:subtle-active\):hover {
+  color: hsl(220, 25%, 20%);
+}
+.focus\(color\:subtle-active\):focus {
+  color: hsl(220, 25%, 20%);
+}
+.active\(color\:subtle-active\):active {
+  color: hsl(220, 25%, 20%);
+}
+.visited\(color\:subtle-active\):visited {
+  color: hsl(220, 25%, 20%);
+}
+.color\:neutral {
+  color: hsl(220, 25%, 95%);
+}
+.hover\(color\:neutral\):hover {
+  color: hsl(220, 25%, 95%);
+}
+.focus\(color\:neutral\):focus {
+  color: hsl(220, 25%, 95%);
+}
+.active\(color\:neutral\):active {
+  color: hsl(220, 25%, 95%);
+}
+.visited\(color\:neutral\):visited {
+  color: hsl(220, 25%, 95%);
+}
+.color\:neutral-hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.hover\(color\:neutral-hover\):hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.focus\(color\:neutral-hover\):focus {
+  color: hsl(220, 25%, 97.5%);
+}
+.active\(color\:neutral-hover\):active {
+  color: hsl(220, 25%, 97.5%);
+}
+.visited\(color\:neutral-hover\):visited {
+  color: hsl(220, 25%, 97.5%);
+}
+.color\:neutral-active {
+  color: hsl(220, 25%, 85%);
+}
+.hover\(color\:neutral-active\):hover {
+  color: hsl(220, 25%, 85%);
+}
+.focus\(color\:neutral-active\):focus {
+  color: hsl(220, 25%, 85%);
+}
+.active\(color\:neutral-active\):active {
+  color: hsl(220, 25%, 85%);
+}
+.visited\(color\:neutral-active\):visited {
+  color: hsl(220, 25%, 85%);
+}
+.color\:success {
+  color: hsl(220, 25%, 95%);
+}
+.hover\(color\:success\):hover {
+  color: hsl(220, 25%, 95%);
+}
+.focus\(color\:success\):focus {
+  color: hsl(220, 25%, 95%);
+}
+.active\(color\:success\):active {
+  color: hsl(220, 25%, 95%);
+}
+.visited\(color\:success\):visited {
+  color: hsl(220, 25%, 95%);
+}
+.color\:success-hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.hover\(color\:success-hover\):hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.focus\(color\:success-hover\):focus {
+  color: hsl(220, 25%, 97.5%);
+}
+.active\(color\:success-hover\):active {
+  color: hsl(220, 25%, 97.5%);
+}
+.visited\(color\:success-hover\):visited {
+  color: hsl(220, 25%, 97.5%);
+}
+.color\:success-active {
+  color: hsl(220, 25%, 85%);
+}
+.hover\(color\:success-active\):hover {
+  color: hsl(220, 25%, 85%);
+}
+.focus\(color\:success-active\):focus {
+  color: hsl(220, 25%, 85%);
+}
+.active\(color\:success-active\):active {
+  color: hsl(220, 25%, 85%);
+}
+.visited\(color\:success-active\):visited {
+  color: hsl(220, 25%, 85%);
+}
+.color\:warning {
+  color: hsl(220, 25%, 95%);
+}
+.hover\(color\:warning\):hover {
+  color: hsl(220, 25%, 95%);
+}
+.focus\(color\:warning\):focus {
+  color: hsl(220, 25%, 95%);
+}
+.active\(color\:warning\):active {
+  color: hsl(220, 25%, 95%);
+}
+.visited\(color\:warning\):visited {
+  color: hsl(220, 25%, 95%);
+}
+.color\:warning-hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.hover\(color\:warning-hover\):hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.focus\(color\:warning-hover\):focus {
+  color: hsl(220, 25%, 97.5%);
+}
+.active\(color\:warning-hover\):active {
+  color: hsl(220, 25%, 97.5%);
+}
+.visited\(color\:warning-hover\):visited {
+  color: hsl(220, 25%, 97.5%);
+}
+.color\:warning-active {
+  color: hsl(220, 25%, 85%);
+}
+.hover\(color\:warning-active\):hover {
+  color: hsl(220, 25%, 85%);
+}
+.focus\(color\:warning-active\):focus {
+  color: hsl(220, 25%, 85%);
+}
+.active\(color\:warning-active\):active {
+  color: hsl(220, 25%, 85%);
+}
+.visited\(color\:warning-active\):visited {
+  color: hsl(220, 25%, 85%);
+}
+.color\:danger {
+  color: hsl(220, 25%, 95%);
+}
+.hover\(color\:danger\):hover {
+  color: hsl(220, 25%, 95%);
+}
+.focus\(color\:danger\):focus {
+  color: hsl(220, 25%, 95%);
+}
+.active\(color\:danger\):active {
+  color: hsl(220, 25%, 95%);
+}
+.visited\(color\:danger\):visited {
+  color: hsl(220, 25%, 95%);
+}
+.color\:danger-hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.hover\(color\:danger-hover\):hover {
+  color: hsl(220, 25%, 97.5%);
+}
+.focus\(color\:danger-hover\):focus {
+  color: hsl(220, 25%, 97.5%);
+}
+.active\(color\:danger-hover\):active {
+  color: hsl(220, 25%, 97.5%);
+}
+.visited\(color\:danger-hover\):visited {
+  color: hsl(220, 25%, 97.5%);
+}
+.color\:danger-active {
+  color: hsl(220, 25%, 85%);
+}
+.hover\(color\:danger-active\):hover {
+  color: hsl(220, 25%, 85%);
+}
+.focus\(color\:danger-active\):focus {
+  color: hsl(220, 25%, 85%);
+}
+.active\(color\:danger-active\):active {
+  color: hsl(220, 25%, 85%);
+}
+.visited\(color\:danger-active\):visited {
+  color: hsl(220, 25%, 85%);
+}
+.border-color\:primary {
+  border-color: hsl(220, 25%, 95%);
+}
+.hover\(border-color\:primary\):hover {
+  border-color: hsl(220, 25%, 95%);
+}
+.focus\(border-color\:primary\):focus {
+  border-color: hsl(220, 25%, 95%);
+}
+.active\(border-color\:primary\):active {
+  border-color: hsl(220, 25%, 95%);
+}
+.visited\(border-color\:primary\):visited {
+  border-color: hsl(220, 25%, 95%);
+}
+.border-color\:primary-hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.hover\(border-color\:primary-hover\):hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.focus\(border-color\:primary-hover\):focus {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.active\(border-color\:primary-hover\):active {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.visited\(border-color\:primary-hover\):visited {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.border-color\:primary-active {
+  border-color: hsl(220, 25%, 85%);
+}
+.hover\(border-color\:primary-active\):hover {
+  border-color: hsl(220, 25%, 85%);
+}
+.focus\(border-color\:primary-active\):focus {
+  border-color: hsl(220, 25%, 85%);
+}
+.active\(border-color\:primary-active\):active {
+  border-color: hsl(220, 25%, 85%);
+}
+.visited\(border-color\:primary-active\):visited {
+  border-color: hsl(220, 25%, 85%);
+}
+.border-color\:subtle {
+  border-color: hsl(220, 25%, 30%);
+}
+.hover\(border-color\:subtle\):hover {
+  border-color: hsl(220, 25%, 30%);
+}
+.focus\(border-color\:subtle\):focus {
+  border-color: hsl(220, 25%, 30%);
+}
+.active\(border-color\:subtle\):active {
+  border-color: hsl(220, 25%, 30%);
+}
+.visited\(border-color\:subtle\):visited {
+  border-color: hsl(220, 25%, 30%);
+}
+.border-color\:subtle-hover {
+  border-color: hsl(220, 25%, 40%);
+}
+.hover\(border-color\:subtle-hover\):hover {
+  border-color: hsl(220, 25%, 40%);
+}
+.focus\(border-color\:subtle-hover\):focus {
+  border-color: hsl(220, 25%, 40%);
+}
+.active\(border-color\:subtle-hover\):active {
+  border-color: hsl(220, 25%, 40%);
+}
+.visited\(border-color\:subtle-hover\):visited {
+  border-color: hsl(220, 25%, 40%);
+}
+.border-color\:subtle-active {
+  border-color: hsl(220, 25%, 20%);
+}
+.hover\(border-color\:subtle-active\):hover {
+  border-color: hsl(220, 25%, 20%);
+}
+.focus\(border-color\:subtle-active\):focus {
+  border-color: hsl(220, 25%, 20%);
+}
+.active\(border-color\:subtle-active\):active {
+  border-color: hsl(220, 25%, 20%);
+}
+.visited\(border-color\:subtle-active\):visited {
+  border-color: hsl(220, 25%, 20%);
+}
+.border-color\:neutral {
+  border-color: hsl(220, 25%, 95%);
+}
+.hover\(border-color\:neutral\):hover {
+  border-color: hsl(220, 25%, 95%);
+}
+.focus\(border-color\:neutral\):focus {
+  border-color: hsl(220, 25%, 95%);
+}
+.active\(border-color\:neutral\):active {
+  border-color: hsl(220, 25%, 95%);
+}
+.visited\(border-color\:neutral\):visited {
+  border-color: hsl(220, 25%, 95%);
+}
+.border-color\:neutral-hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.hover\(border-color\:neutral-hover\):hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.focus\(border-color\:neutral-hover\):focus {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.active\(border-color\:neutral-hover\):active {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.visited\(border-color\:neutral-hover\):visited {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.border-color\:neutral-active {
+  border-color: hsl(220, 25%, 85%);
+}
+.hover\(border-color\:neutral-active\):hover {
+  border-color: hsl(220, 25%, 85%);
+}
+.focus\(border-color\:neutral-active\):focus {
+  border-color: hsl(220, 25%, 85%);
+}
+.active\(border-color\:neutral-active\):active {
+  border-color: hsl(220, 25%, 85%);
+}
+.visited\(border-color\:neutral-active\):visited {
+  border-color: hsl(220, 25%, 85%);
+}
+.border-color\:success {
+  border-color: hsl(220, 25%, 95%);
+}
+.hover\(border-color\:success\):hover {
+  border-color: hsl(220, 25%, 95%);
+}
+.focus\(border-color\:success\):focus {
+  border-color: hsl(220, 25%, 95%);
+}
+.active\(border-color\:success\):active {
+  border-color: hsl(220, 25%, 95%);
+}
+.visited\(border-color\:success\):visited {
+  border-color: hsl(220, 25%, 95%);
+}
+.border-color\:success-hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.hover\(border-color\:success-hover\):hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.focus\(border-color\:success-hover\):focus {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.active\(border-color\:success-hover\):active {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.visited\(border-color\:success-hover\):visited {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.border-color\:success-active {
+  border-color: hsl(220, 25%, 85%);
+}
+.hover\(border-color\:success-active\):hover {
+  border-color: hsl(220, 25%, 85%);
+}
+.focus\(border-color\:success-active\):focus {
+  border-color: hsl(220, 25%, 85%);
+}
+.active\(border-color\:success-active\):active {
+  border-color: hsl(220, 25%, 85%);
+}
+.visited\(border-color\:success-active\):visited {
+  border-color: hsl(220, 25%, 85%);
+}
+.border-color\:warning {
+  border-color: hsl(220, 25%, 95%);
+}
+.hover\(border-color\:warning\):hover {
+  border-color: hsl(220, 25%, 95%);
+}
+.focus\(border-color\:warning\):focus {
+  border-color: hsl(220, 25%, 95%);
+}
+.active\(border-color\:warning\):active {
+  border-color: hsl(220, 25%, 95%);
+}
+.visited\(border-color\:warning\):visited {
+  border-color: hsl(220, 25%, 95%);
+}
+.border-color\:warning-hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.hover\(border-color\:warning-hover\):hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.focus\(border-color\:warning-hover\):focus {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.active\(border-color\:warning-hover\):active {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.visited\(border-color\:warning-hover\):visited {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.border-color\:warning-active {
+  border-color: hsl(220, 25%, 85%);
+}
+.hover\(border-color\:warning-active\):hover {
+  border-color: hsl(220, 25%, 85%);
+}
+.focus\(border-color\:warning-active\):focus {
+  border-color: hsl(220, 25%, 85%);
+}
+.active\(border-color\:warning-active\):active {
+  border-color: hsl(220, 25%, 85%);
+}
+.visited\(border-color\:warning-active\):visited {
+  border-color: hsl(220, 25%, 85%);
+}
+.border-color\:danger {
+  border-color: hsl(220, 25%, 95%);
+}
+.hover\(border-color\:danger\):hover {
+  border-color: hsl(220, 25%, 95%);
+}
+.focus\(border-color\:danger\):focus {
+  border-color: hsl(220, 25%, 95%);
+}
+.active\(border-color\:danger\):active {
+  border-color: hsl(220, 25%, 95%);
+}
+.visited\(border-color\:danger\):visited {
+  border-color: hsl(220, 25%, 95%);
+}
+.border-color\:danger-hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.hover\(border-color\:danger-hover\):hover {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.focus\(border-color\:danger-hover\):focus {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.active\(border-color\:danger-hover\):active {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.visited\(border-color\:danger-hover\):visited {
+  border-color: hsl(220, 25%, 97.5%);
+}
+.border-color\:danger-active {
+  border-color: hsl(220, 25%, 85%);
+}
+.hover\(border-color\:danger-active\):hover {
+  border-color: hsl(220, 25%, 85%);
+}
+.focus\(border-color\:danger-active\):focus {
+  border-color: hsl(220, 25%, 85%);
+}
+.active\(border-color\:danger-active\):active {
+  border-color: hsl(220, 25%, 85%);
+}
+.visited\(border-color\:danger-active\):visited {
+  border-color: hsl(220, 25%, 85%);
+}
 .background-color\:primary {
   background-color: hsl(220, 80%, 50%);
 }
@@ -86430,49 +87060,34 @@
   background-color: hsl(220, 80%, 50%);
 }
 .background-color\:primary-hover {
-  background-color: hsl(220, 80%, 65%);
+  background-color: hsl(220, 80%, 75%);
 }
 .hover\(background-color\:primary-hover\):hover {
-  background-color: hsl(220, 80%, 65%);
+  background-color: hsl(220, 80%, 75%);
 }
 .focus\(background-color\:primary-hover\):focus {
-  background-color: hsl(220, 80%, 65%);
+  background-color: hsl(220, 80%, 75%);
 }
 .active\(background-color\:primary-hover\):active {
-  background-color: hsl(220, 80%, 65%);
+  background-color: hsl(220, 80%, 75%);
 }
 .visited\(background-color\:primary-hover\):visited {
-  background-color: hsl(220, 80%, 65%);
-}
-.background-color\:primary-focus {
-  background-color: hsl(220, 80%, 65%);
-}
-.hover\(background-color\:primary-focus\):hover {
-  background-color: hsl(220, 80%, 65%);
-}
-.focus\(background-color\:primary-focus\):focus {
-  background-color: hsl(220, 80%, 65%);
-}
-.active\(background-color\:primary-focus\):active {
-  background-color: hsl(220, 80%, 65%);
-}
-.visited\(background-color\:primary-focus\):visited {
-  background-color: hsl(220, 80%, 65%);
+  background-color: hsl(220, 80%, 75%);
 }
 .background-color\:primary-active {
-  background-color: hsl(220, 80%, 40%);
+  background-color: hsl(220, 80%, 35%);
 }
 .hover\(background-color\:primary-active\):hover {
-  background-color: hsl(220, 80%, 40%);
+  background-color: hsl(220, 80%, 35%);
 }
 .focus\(background-color\:primary-active\):focus {
-  background-color: hsl(220, 80%, 40%);
+  background-color: hsl(220, 80%, 35%);
 }
 .active\(background-color\:primary-active\):active {
-  background-color: hsl(220, 80%, 40%);
+  background-color: hsl(220, 80%, 35%);
 }
 .visited\(background-color\:primary-active\):visited {
-  background-color: hsl(220, 80%, 40%);
+  background-color: hsl(220, 80%, 35%);
 }
 .background-color\:subtle {
   background-color: hsl(220, 25%, 75%);
@@ -86502,21 +87117,6 @@
   background-color: hsl(220, 25%, 85%);
 }
 .visited\(background-color\:subtle-hover\):visited {
-  background-color: hsl(220, 25%, 85%);
-}
-.background-color\:subtle-focus {
-  background-color: hsl(220, 25%, 85%);
-}
-.hover\(background-color\:subtle-focus\):hover {
-  background-color: hsl(220, 25%, 85%);
-}
-.focus\(background-color\:subtle-focus\):focus {
-  background-color: hsl(220, 25%, 85%);
-}
-.active\(background-color\:subtle-focus\):active {
-  background-color: hsl(220, 25%, 85%);
-}
-.visited\(background-color\:subtle-focus\):visited {
   background-color: hsl(220, 25%, 85%);
 }
 .background-color\:subtle-active {
@@ -86564,21 +87164,6 @@
 .visited\(background-color\:neutral-hover\):visited {
   background-color: hsl(220, 25%, 50%);
 }
-.background-color\:neutral-focus {
-  background-color: hsl(220, 25%, 50%);
-}
-.hover\(background-color\:neutral-focus\):hover {
-  background-color: hsl(220, 25%, 50%);
-}
-.focus\(background-color\:neutral-focus\):focus {
-  background-color: hsl(220, 25%, 50%);
-}
-.active\(background-color\:neutral-focus\):active {
-  background-color: hsl(220, 25%, 50%);
-}
-.visited\(background-color\:neutral-focus\):visited {
-  background-color: hsl(220, 25%, 50%);
-}
 .background-color\:neutral-active {
   background-color: hsl(220, 25%, 30%);
 }
@@ -86622,21 +87207,6 @@
   background-color: hsl(135, 80%, 45%);
 }
 .visited\(background-color\:success-hover\):visited {
-  background-color: hsl(135, 80%, 45%);
-}
-.background-color\:success-focus {
-  background-color: hsl(135, 80%, 45%);
-}
-.hover\(background-color\:success-focus\):hover {
-  background-color: hsl(135, 80%, 45%);
-}
-.focus\(background-color\:success-focus\):focus {
-  background-color: hsl(135, 80%, 45%);
-}
-.active\(background-color\:success-focus\):active {
-  background-color: hsl(135, 80%, 45%);
-}
-.visited\(background-color\:success-focus\):visited {
   background-color: hsl(135, 80%, 45%);
 }
 .background-color\:success-active {
@@ -86684,21 +87254,6 @@
 .visited\(background-color\:warning-hover\):visited {
   background-color: hsl(25, 100%, 60%);
 }
-.background-color\:warning-focus {
-  background-color: hsl(25, 100%, 60%);
-}
-.hover\(background-color\:warning-focus\):hover {
-  background-color: hsl(25, 100%, 60%);
-}
-.focus\(background-color\:warning-focus\):focus {
-  background-color: hsl(25, 100%, 60%);
-}
-.active\(background-color\:warning-focus\):active {
-  background-color: hsl(25, 100%, 60%);
-}
-.visited\(background-color\:warning-focus\):visited {
-  background-color: hsl(25, 100%, 60%);
-}
 .background-color\:warning-active {
   background-color: hsl(25, 100%, 40%);
 }
@@ -86744,21 +87299,6 @@
 .visited\(background-color\:danger-hover\):visited {
   background-color: hsl(0, 100%, 65%);
 }
-.background-color\:danger-focus {
-  background-color: hsl(0, 100%, 65%);
-}
-.hover\(background-color\:danger-focus\):hover {
-  background-color: hsl(0, 100%, 65%);
-}
-.focus\(background-color\:danger-focus\):focus {
-  background-color: hsl(0, 100%, 65%);
-}
-.active\(background-color\:danger-focus\):active {
-  background-color: hsl(0, 100%, 65%);
-}
-.visited\(background-color\:danger-focus\):visited {
-  background-color: hsl(0, 100%, 65%);
-}
 .background-color\:danger-active {
   background-color: hsl(0, 100%, 30%);
 }
@@ -86802,21 +87342,6 @@
   background-color: hsl(220, 80%, 65%);
 }
 .visited\(background-color\:link-hover\):visited {
-  background-color: hsl(220, 80%, 65%);
-}
-.background-color\:link-focus {
-  background-color: hsl(220, 80%, 65%);
-}
-.hover\(background-color\:link-focus\):hover {
-  background-color: hsl(220, 80%, 65%);
-}
-.focus\(background-color\:link-focus\):focus {
-  background-color: hsl(220, 80%, 65%);
-}
-.active\(background-color\:link-focus\):active {
-  background-color: hsl(220, 80%, 65%);
-}
-.visited\(background-color\:link-focus\):visited {
   background-color: hsl(220, 80%, 65%);
 }
 .background-color\:link-active {
@@ -86865,49 +87390,34 @@
   border-bottom-color: hsl(220, 80%, 50%);
 }
 .border-bottom-color\:primary-hover {
-  border-bottom-color: hsl(220, 80%, 65%);
+  border-bottom-color: hsl(220, 80%, 75%);
 }
 .hover\(border-bottom-color\:primary-hover\):hover {
-  border-bottom-color: hsl(220, 80%, 65%);
+  border-bottom-color: hsl(220, 80%, 75%);
 }
 .focus\(border-bottom-color\:primary-hover\):focus {
-  border-bottom-color: hsl(220, 80%, 65%);
+  border-bottom-color: hsl(220, 80%, 75%);
 }
 .active\(border-bottom-color\:primary-hover\):active {
-  border-bottom-color: hsl(220, 80%, 65%);
+  border-bottom-color: hsl(220, 80%, 75%);
 }
 .visited\(border-bottom-color\:primary-hover\):visited {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.border-bottom-color\:primary-focus {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.hover\(border-bottom-color\:primary-focus\):hover {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.focus\(border-bottom-color\:primary-focus\):focus {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.active\(border-bottom-color\:primary-focus\):active {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.visited\(border-bottom-color\:primary-focus\):visited {
-  border-bottom-color: hsl(220, 80%, 65%);
+  border-bottom-color: hsl(220, 80%, 75%);
 }
 .border-bottom-color\:primary-active {
-  border-bottom-color: hsl(220, 80%, 40%);
+  border-bottom-color: hsl(220, 80%, 35%);
 }
 .hover\(border-bottom-color\:primary-active\):hover {
-  border-bottom-color: hsl(220, 80%, 40%);
+  border-bottom-color: hsl(220, 80%, 35%);
 }
 .focus\(border-bottom-color\:primary-active\):focus {
-  border-bottom-color: hsl(220, 80%, 40%);
+  border-bottom-color: hsl(220, 80%, 35%);
 }
 .active\(border-bottom-color\:primary-active\):active {
-  border-bottom-color: hsl(220, 80%, 40%);
+  border-bottom-color: hsl(220, 80%, 35%);
 }
 .visited\(border-bottom-color\:primary-active\):visited {
-  border-bottom-color: hsl(220, 80%, 40%);
+  border-bottom-color: hsl(220, 80%, 35%);
 }
 .border-bottom-color\:subtle {
   border-bottom-color: hsl(220, 25%, 75%);
@@ -86937,21 +87447,6 @@
   border-bottom-color: hsl(220, 25%, 85%);
 }
 .visited\(border-bottom-color\:subtle-hover\):visited {
-  border-bottom-color: hsl(220, 25%, 85%);
-}
-.border-bottom-color\:subtle-focus {
-  border-bottom-color: hsl(220, 25%, 85%);
-}
-.hover\(border-bottom-color\:subtle-focus\):hover {
-  border-bottom-color: hsl(220, 25%, 85%);
-}
-.focus\(border-bottom-color\:subtle-focus\):focus {
-  border-bottom-color: hsl(220, 25%, 85%);
-}
-.active\(border-bottom-color\:subtle-focus\):active {
-  border-bottom-color: hsl(220, 25%, 85%);
-}
-.visited\(border-bottom-color\:subtle-focus\):visited {
   border-bottom-color: hsl(220, 25%, 85%);
 }
 .border-bottom-color\:subtle-active {
@@ -86999,21 +87494,6 @@
 .visited\(border-bottom-color\:neutral-hover\):visited {
   border-bottom-color: hsl(220, 25%, 50%);
 }
-.border-bottom-color\:neutral-focus {
-  border-bottom-color: hsl(220, 25%, 50%);
-}
-.hover\(border-bottom-color\:neutral-focus\):hover {
-  border-bottom-color: hsl(220, 25%, 50%);
-}
-.focus\(border-bottom-color\:neutral-focus\):focus {
-  border-bottom-color: hsl(220, 25%, 50%);
-}
-.active\(border-bottom-color\:neutral-focus\):active {
-  border-bottom-color: hsl(220, 25%, 50%);
-}
-.visited\(border-bottom-color\:neutral-focus\):visited {
-  border-bottom-color: hsl(220, 25%, 50%);
-}
 .border-bottom-color\:neutral-active {
   border-bottom-color: hsl(220, 25%, 30%);
 }
@@ -87057,21 +87537,6 @@
   border-bottom-color: hsl(135, 80%, 45%);
 }
 .visited\(border-bottom-color\:success-hover\):visited {
-  border-bottom-color: hsl(135, 80%, 45%);
-}
-.border-bottom-color\:success-focus {
-  border-bottom-color: hsl(135, 80%, 45%);
-}
-.hover\(border-bottom-color\:success-focus\):hover {
-  border-bottom-color: hsl(135, 80%, 45%);
-}
-.focus\(border-bottom-color\:success-focus\):focus {
-  border-bottom-color: hsl(135, 80%, 45%);
-}
-.active\(border-bottom-color\:success-focus\):active {
-  border-bottom-color: hsl(135, 80%, 45%);
-}
-.visited\(border-bottom-color\:success-focus\):visited {
   border-bottom-color: hsl(135, 80%, 45%);
 }
 .border-bottom-color\:success-active {
@@ -87119,21 +87584,6 @@
 .visited\(border-bottom-color\:warning-hover\):visited {
   border-bottom-color: hsl(25, 100%, 60%);
 }
-.border-bottom-color\:warning-focus {
-  border-bottom-color: hsl(25, 100%, 60%);
-}
-.hover\(border-bottom-color\:warning-focus\):hover {
-  border-bottom-color: hsl(25, 100%, 60%);
-}
-.focus\(border-bottom-color\:warning-focus\):focus {
-  border-bottom-color: hsl(25, 100%, 60%);
-}
-.active\(border-bottom-color\:warning-focus\):active {
-  border-bottom-color: hsl(25, 100%, 60%);
-}
-.visited\(border-bottom-color\:warning-focus\):visited {
-  border-bottom-color: hsl(25, 100%, 60%);
-}
 .border-bottom-color\:warning-active {
   border-bottom-color: hsl(25, 100%, 40%);
 }
@@ -87179,21 +87629,6 @@
 .visited\(border-bottom-color\:danger-hover\):visited {
   border-bottom-color: hsl(0, 100%, 65%);
 }
-.border-bottom-color\:danger-focus {
-  border-bottom-color: hsl(0, 100%, 65%);
-}
-.hover\(border-bottom-color\:danger-focus\):hover {
-  border-bottom-color: hsl(0, 100%, 65%);
-}
-.focus\(border-bottom-color\:danger-focus\):focus {
-  border-bottom-color: hsl(0, 100%, 65%);
-}
-.active\(border-bottom-color\:danger-focus\):active {
-  border-bottom-color: hsl(0, 100%, 65%);
-}
-.visited\(border-bottom-color\:danger-focus\):visited {
-  border-bottom-color: hsl(0, 100%, 65%);
-}
 .border-bottom-color\:danger-active {
   border-bottom-color: hsl(0, 100%, 30%);
 }
@@ -87237,21 +87672,6 @@
   border-bottom-color: hsl(220, 80%, 65%);
 }
 .visited\(border-bottom-color\:link-hover\):visited {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.border-bottom-color\:link-focus {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.hover\(border-bottom-color\:link-focus\):hover {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.focus\(border-bottom-color\:link-focus\):focus {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.active\(border-bottom-color\:link-focus\):active {
-  border-bottom-color: hsl(220, 80%, 65%);
-}
-.visited\(border-bottom-color\:link-focus\):visited {
   border-bottom-color: hsl(220, 80%, 65%);
 }
 .border-bottom-color\:link-active {
@@ -87300,49 +87720,34 @@
   border-color: hsl(220, 80%, 50%);
 }
 .border-color\:primary-hover {
-  border-color: hsl(220, 80%, 65%);
+  border-color: hsl(220, 80%, 75%);
 }
 .hover\(border-color\:primary-hover\):hover {
-  border-color: hsl(220, 80%, 65%);
+  border-color: hsl(220, 80%, 75%);
 }
 .focus\(border-color\:primary-hover\):focus {
-  border-color: hsl(220, 80%, 65%);
+  border-color: hsl(220, 80%, 75%);
 }
 .active\(border-color\:primary-hover\):active {
-  border-color: hsl(220, 80%, 65%);
+  border-color: hsl(220, 80%, 75%);
 }
 .visited\(border-color\:primary-hover\):visited {
-  border-color: hsl(220, 80%, 65%);
-}
-.border-color\:primary-focus {
-  border-color: hsl(220, 80%, 65%);
-}
-.hover\(border-color\:primary-focus\):hover {
-  border-color: hsl(220, 80%, 65%);
-}
-.focus\(border-color\:primary-focus\):focus {
-  border-color: hsl(220, 80%, 65%);
-}
-.active\(border-color\:primary-focus\):active {
-  border-color: hsl(220, 80%, 65%);
-}
-.visited\(border-color\:primary-focus\):visited {
-  border-color: hsl(220, 80%, 65%);
+  border-color: hsl(220, 80%, 75%);
 }
 .border-color\:primary-active {
-  border-color: hsl(220, 80%, 40%);
+  border-color: hsl(220, 80%, 35%);
 }
 .hover\(border-color\:primary-active\):hover {
-  border-color: hsl(220, 80%, 40%);
+  border-color: hsl(220, 80%, 35%);
 }
 .focus\(border-color\:primary-active\):focus {
-  border-color: hsl(220, 80%, 40%);
+  border-color: hsl(220, 80%, 35%);
 }
 .active\(border-color\:primary-active\):active {
-  border-color: hsl(220, 80%, 40%);
+  border-color: hsl(220, 80%, 35%);
 }
 .visited\(border-color\:primary-active\):visited {
-  border-color: hsl(220, 80%, 40%);
+  border-color: hsl(220, 80%, 35%);
 }
 .border-color\:subtle {
   border-color: hsl(220, 25%, 75%);
@@ -87372,21 +87777,6 @@
   border-color: hsl(220, 25%, 85%);
 }
 .visited\(border-color\:subtle-hover\):visited {
-  border-color: hsl(220, 25%, 85%);
-}
-.border-color\:subtle-focus {
-  border-color: hsl(220, 25%, 85%);
-}
-.hover\(border-color\:subtle-focus\):hover {
-  border-color: hsl(220, 25%, 85%);
-}
-.focus\(border-color\:subtle-focus\):focus {
-  border-color: hsl(220, 25%, 85%);
-}
-.active\(border-color\:subtle-focus\):active {
-  border-color: hsl(220, 25%, 85%);
-}
-.visited\(border-color\:subtle-focus\):visited {
   border-color: hsl(220, 25%, 85%);
 }
 .border-color\:subtle-active {
@@ -87434,21 +87824,6 @@
 .visited\(border-color\:neutral-hover\):visited {
   border-color: hsl(220, 25%, 50%);
 }
-.border-color\:neutral-focus {
-  border-color: hsl(220, 25%, 50%);
-}
-.hover\(border-color\:neutral-focus\):hover {
-  border-color: hsl(220, 25%, 50%);
-}
-.focus\(border-color\:neutral-focus\):focus {
-  border-color: hsl(220, 25%, 50%);
-}
-.active\(border-color\:neutral-focus\):active {
-  border-color: hsl(220, 25%, 50%);
-}
-.visited\(border-color\:neutral-focus\):visited {
-  border-color: hsl(220, 25%, 50%);
-}
 .border-color\:neutral-active {
   border-color: hsl(220, 25%, 30%);
 }
@@ -87492,21 +87867,6 @@
   border-color: hsl(135, 80%, 45%);
 }
 .visited\(border-color\:success-hover\):visited {
-  border-color: hsl(135, 80%, 45%);
-}
-.border-color\:success-focus {
-  border-color: hsl(135, 80%, 45%);
-}
-.hover\(border-color\:success-focus\):hover {
-  border-color: hsl(135, 80%, 45%);
-}
-.focus\(border-color\:success-focus\):focus {
-  border-color: hsl(135, 80%, 45%);
-}
-.active\(border-color\:success-focus\):active {
-  border-color: hsl(135, 80%, 45%);
-}
-.visited\(border-color\:success-focus\):visited {
   border-color: hsl(135, 80%, 45%);
 }
 .border-color\:success-active {
@@ -87554,21 +87914,6 @@
 .visited\(border-color\:warning-hover\):visited {
   border-color: hsl(25, 100%, 60%);
 }
-.border-color\:warning-focus {
-  border-color: hsl(25, 100%, 60%);
-}
-.hover\(border-color\:warning-focus\):hover {
-  border-color: hsl(25, 100%, 60%);
-}
-.focus\(border-color\:warning-focus\):focus {
-  border-color: hsl(25, 100%, 60%);
-}
-.active\(border-color\:warning-focus\):active {
-  border-color: hsl(25, 100%, 60%);
-}
-.visited\(border-color\:warning-focus\):visited {
-  border-color: hsl(25, 100%, 60%);
-}
 .border-color\:warning-active {
   border-color: hsl(25, 100%, 40%);
 }
@@ -87614,21 +87959,6 @@
 .visited\(border-color\:danger-hover\):visited {
   border-color: hsl(0, 100%, 65%);
 }
-.border-color\:danger-focus {
-  border-color: hsl(0, 100%, 65%);
-}
-.hover\(border-color\:danger-focus\):hover {
-  border-color: hsl(0, 100%, 65%);
-}
-.focus\(border-color\:danger-focus\):focus {
-  border-color: hsl(0, 100%, 65%);
-}
-.active\(border-color\:danger-focus\):active {
-  border-color: hsl(0, 100%, 65%);
-}
-.visited\(border-color\:danger-focus\):visited {
-  border-color: hsl(0, 100%, 65%);
-}
 .border-color\:danger-active {
   border-color: hsl(0, 100%, 30%);
 }
@@ -87672,21 +88002,6 @@
   border-color: hsl(220, 80%, 65%);
 }
 .visited\(border-color\:link-hover\):visited {
-  border-color: hsl(220, 80%, 65%);
-}
-.border-color\:link-focus {
-  border-color: hsl(220, 80%, 65%);
-}
-.hover\(border-color\:link-focus\):hover {
-  border-color: hsl(220, 80%, 65%);
-}
-.focus\(border-color\:link-focus\):focus {
-  border-color: hsl(220, 80%, 65%);
-}
-.active\(border-color\:link-focus\):active {
-  border-color: hsl(220, 80%, 65%);
-}
-.visited\(border-color\:link-focus\):visited {
   border-color: hsl(220, 80%, 65%);
 }
 .border-color\:link-active {
@@ -87735,49 +88050,34 @@
   border-left-color: hsl(220, 80%, 50%);
 }
 .border-left-color\:primary-hover {
-  border-left-color: hsl(220, 80%, 65%);
+  border-left-color: hsl(220, 80%, 75%);
 }
 .hover\(border-left-color\:primary-hover\):hover {
-  border-left-color: hsl(220, 80%, 65%);
+  border-left-color: hsl(220, 80%, 75%);
 }
 .focus\(border-left-color\:primary-hover\):focus {
-  border-left-color: hsl(220, 80%, 65%);
+  border-left-color: hsl(220, 80%, 75%);
 }
 .active\(border-left-color\:primary-hover\):active {
-  border-left-color: hsl(220, 80%, 65%);
+  border-left-color: hsl(220, 80%, 75%);
 }
 .visited\(border-left-color\:primary-hover\):visited {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.border-left-color\:primary-focus {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.hover\(border-left-color\:primary-focus\):hover {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.focus\(border-left-color\:primary-focus\):focus {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.active\(border-left-color\:primary-focus\):active {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.visited\(border-left-color\:primary-focus\):visited {
-  border-left-color: hsl(220, 80%, 65%);
+  border-left-color: hsl(220, 80%, 75%);
 }
 .border-left-color\:primary-active {
-  border-left-color: hsl(220, 80%, 40%);
+  border-left-color: hsl(220, 80%, 35%);
 }
 .hover\(border-left-color\:primary-active\):hover {
-  border-left-color: hsl(220, 80%, 40%);
+  border-left-color: hsl(220, 80%, 35%);
 }
 .focus\(border-left-color\:primary-active\):focus {
-  border-left-color: hsl(220, 80%, 40%);
+  border-left-color: hsl(220, 80%, 35%);
 }
 .active\(border-left-color\:primary-active\):active {
-  border-left-color: hsl(220, 80%, 40%);
+  border-left-color: hsl(220, 80%, 35%);
 }
 .visited\(border-left-color\:primary-active\):visited {
-  border-left-color: hsl(220, 80%, 40%);
+  border-left-color: hsl(220, 80%, 35%);
 }
 .border-left-color\:subtle {
   border-left-color: hsl(220, 25%, 75%);
@@ -87807,21 +88107,6 @@
   border-left-color: hsl(220, 25%, 85%);
 }
 .visited\(border-left-color\:subtle-hover\):visited {
-  border-left-color: hsl(220, 25%, 85%);
-}
-.border-left-color\:subtle-focus {
-  border-left-color: hsl(220, 25%, 85%);
-}
-.hover\(border-left-color\:subtle-focus\):hover {
-  border-left-color: hsl(220, 25%, 85%);
-}
-.focus\(border-left-color\:subtle-focus\):focus {
-  border-left-color: hsl(220, 25%, 85%);
-}
-.active\(border-left-color\:subtle-focus\):active {
-  border-left-color: hsl(220, 25%, 85%);
-}
-.visited\(border-left-color\:subtle-focus\):visited {
   border-left-color: hsl(220, 25%, 85%);
 }
 .border-left-color\:subtle-active {
@@ -87869,21 +88154,6 @@
 .visited\(border-left-color\:neutral-hover\):visited {
   border-left-color: hsl(220, 25%, 50%);
 }
-.border-left-color\:neutral-focus {
-  border-left-color: hsl(220, 25%, 50%);
-}
-.hover\(border-left-color\:neutral-focus\):hover {
-  border-left-color: hsl(220, 25%, 50%);
-}
-.focus\(border-left-color\:neutral-focus\):focus {
-  border-left-color: hsl(220, 25%, 50%);
-}
-.active\(border-left-color\:neutral-focus\):active {
-  border-left-color: hsl(220, 25%, 50%);
-}
-.visited\(border-left-color\:neutral-focus\):visited {
-  border-left-color: hsl(220, 25%, 50%);
-}
 .border-left-color\:neutral-active {
   border-left-color: hsl(220, 25%, 30%);
 }
@@ -87927,21 +88197,6 @@
   border-left-color: hsl(135, 80%, 45%);
 }
 .visited\(border-left-color\:success-hover\):visited {
-  border-left-color: hsl(135, 80%, 45%);
-}
-.border-left-color\:success-focus {
-  border-left-color: hsl(135, 80%, 45%);
-}
-.hover\(border-left-color\:success-focus\):hover {
-  border-left-color: hsl(135, 80%, 45%);
-}
-.focus\(border-left-color\:success-focus\):focus {
-  border-left-color: hsl(135, 80%, 45%);
-}
-.active\(border-left-color\:success-focus\):active {
-  border-left-color: hsl(135, 80%, 45%);
-}
-.visited\(border-left-color\:success-focus\):visited {
   border-left-color: hsl(135, 80%, 45%);
 }
 .border-left-color\:success-active {
@@ -87989,21 +88244,6 @@
 .visited\(border-left-color\:warning-hover\):visited {
   border-left-color: hsl(25, 100%, 60%);
 }
-.border-left-color\:warning-focus {
-  border-left-color: hsl(25, 100%, 60%);
-}
-.hover\(border-left-color\:warning-focus\):hover {
-  border-left-color: hsl(25, 100%, 60%);
-}
-.focus\(border-left-color\:warning-focus\):focus {
-  border-left-color: hsl(25, 100%, 60%);
-}
-.active\(border-left-color\:warning-focus\):active {
-  border-left-color: hsl(25, 100%, 60%);
-}
-.visited\(border-left-color\:warning-focus\):visited {
-  border-left-color: hsl(25, 100%, 60%);
-}
 .border-left-color\:warning-active {
   border-left-color: hsl(25, 100%, 40%);
 }
@@ -88049,21 +88289,6 @@
 .visited\(border-left-color\:danger-hover\):visited {
   border-left-color: hsl(0, 100%, 65%);
 }
-.border-left-color\:danger-focus {
-  border-left-color: hsl(0, 100%, 65%);
-}
-.hover\(border-left-color\:danger-focus\):hover {
-  border-left-color: hsl(0, 100%, 65%);
-}
-.focus\(border-left-color\:danger-focus\):focus {
-  border-left-color: hsl(0, 100%, 65%);
-}
-.active\(border-left-color\:danger-focus\):active {
-  border-left-color: hsl(0, 100%, 65%);
-}
-.visited\(border-left-color\:danger-focus\):visited {
-  border-left-color: hsl(0, 100%, 65%);
-}
 .border-left-color\:danger-active {
   border-left-color: hsl(0, 100%, 30%);
 }
@@ -88107,21 +88332,6 @@
   border-left-color: hsl(220, 80%, 65%);
 }
 .visited\(border-left-color\:link-hover\):visited {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.border-left-color\:link-focus {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.hover\(border-left-color\:link-focus\):hover {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.focus\(border-left-color\:link-focus\):focus {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.active\(border-left-color\:link-focus\):active {
-  border-left-color: hsl(220, 80%, 65%);
-}
-.visited\(border-left-color\:link-focus\):visited {
   border-left-color: hsl(220, 80%, 65%);
 }
 .border-left-color\:link-active {
@@ -88170,49 +88380,34 @@
   border-right-color: hsl(220, 80%, 50%);
 }
 .border-right-color\:primary-hover {
-  border-right-color: hsl(220, 80%, 65%);
+  border-right-color: hsl(220, 80%, 75%);
 }
 .hover\(border-right-color\:primary-hover\):hover {
-  border-right-color: hsl(220, 80%, 65%);
+  border-right-color: hsl(220, 80%, 75%);
 }
 .focus\(border-right-color\:primary-hover\):focus {
-  border-right-color: hsl(220, 80%, 65%);
+  border-right-color: hsl(220, 80%, 75%);
 }
 .active\(border-right-color\:primary-hover\):active {
-  border-right-color: hsl(220, 80%, 65%);
+  border-right-color: hsl(220, 80%, 75%);
 }
 .visited\(border-right-color\:primary-hover\):visited {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.border-right-color\:primary-focus {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.hover\(border-right-color\:primary-focus\):hover {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.focus\(border-right-color\:primary-focus\):focus {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.active\(border-right-color\:primary-focus\):active {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.visited\(border-right-color\:primary-focus\):visited {
-  border-right-color: hsl(220, 80%, 65%);
+  border-right-color: hsl(220, 80%, 75%);
 }
 .border-right-color\:primary-active {
-  border-right-color: hsl(220, 80%, 40%);
+  border-right-color: hsl(220, 80%, 35%);
 }
 .hover\(border-right-color\:primary-active\):hover {
-  border-right-color: hsl(220, 80%, 40%);
+  border-right-color: hsl(220, 80%, 35%);
 }
 .focus\(border-right-color\:primary-active\):focus {
-  border-right-color: hsl(220, 80%, 40%);
+  border-right-color: hsl(220, 80%, 35%);
 }
 .active\(border-right-color\:primary-active\):active {
-  border-right-color: hsl(220, 80%, 40%);
+  border-right-color: hsl(220, 80%, 35%);
 }
 .visited\(border-right-color\:primary-active\):visited {
-  border-right-color: hsl(220, 80%, 40%);
+  border-right-color: hsl(220, 80%, 35%);
 }
 .border-right-color\:subtle {
   border-right-color: hsl(220, 25%, 75%);
@@ -88242,21 +88437,6 @@
   border-right-color: hsl(220, 25%, 85%);
 }
 .visited\(border-right-color\:subtle-hover\):visited {
-  border-right-color: hsl(220, 25%, 85%);
-}
-.border-right-color\:subtle-focus {
-  border-right-color: hsl(220, 25%, 85%);
-}
-.hover\(border-right-color\:subtle-focus\):hover {
-  border-right-color: hsl(220, 25%, 85%);
-}
-.focus\(border-right-color\:subtle-focus\):focus {
-  border-right-color: hsl(220, 25%, 85%);
-}
-.active\(border-right-color\:subtle-focus\):active {
-  border-right-color: hsl(220, 25%, 85%);
-}
-.visited\(border-right-color\:subtle-focus\):visited {
   border-right-color: hsl(220, 25%, 85%);
 }
 .border-right-color\:subtle-active {
@@ -88304,21 +88484,6 @@
 .visited\(border-right-color\:neutral-hover\):visited {
   border-right-color: hsl(220, 25%, 50%);
 }
-.border-right-color\:neutral-focus {
-  border-right-color: hsl(220, 25%, 50%);
-}
-.hover\(border-right-color\:neutral-focus\):hover {
-  border-right-color: hsl(220, 25%, 50%);
-}
-.focus\(border-right-color\:neutral-focus\):focus {
-  border-right-color: hsl(220, 25%, 50%);
-}
-.active\(border-right-color\:neutral-focus\):active {
-  border-right-color: hsl(220, 25%, 50%);
-}
-.visited\(border-right-color\:neutral-focus\):visited {
-  border-right-color: hsl(220, 25%, 50%);
-}
 .border-right-color\:neutral-active {
   border-right-color: hsl(220, 25%, 30%);
 }
@@ -88362,21 +88527,6 @@
   border-right-color: hsl(135, 80%, 45%);
 }
 .visited\(border-right-color\:success-hover\):visited {
-  border-right-color: hsl(135, 80%, 45%);
-}
-.border-right-color\:success-focus {
-  border-right-color: hsl(135, 80%, 45%);
-}
-.hover\(border-right-color\:success-focus\):hover {
-  border-right-color: hsl(135, 80%, 45%);
-}
-.focus\(border-right-color\:success-focus\):focus {
-  border-right-color: hsl(135, 80%, 45%);
-}
-.active\(border-right-color\:success-focus\):active {
-  border-right-color: hsl(135, 80%, 45%);
-}
-.visited\(border-right-color\:success-focus\):visited {
   border-right-color: hsl(135, 80%, 45%);
 }
 .border-right-color\:success-active {
@@ -88424,21 +88574,6 @@
 .visited\(border-right-color\:warning-hover\):visited {
   border-right-color: hsl(25, 100%, 60%);
 }
-.border-right-color\:warning-focus {
-  border-right-color: hsl(25, 100%, 60%);
-}
-.hover\(border-right-color\:warning-focus\):hover {
-  border-right-color: hsl(25, 100%, 60%);
-}
-.focus\(border-right-color\:warning-focus\):focus {
-  border-right-color: hsl(25, 100%, 60%);
-}
-.active\(border-right-color\:warning-focus\):active {
-  border-right-color: hsl(25, 100%, 60%);
-}
-.visited\(border-right-color\:warning-focus\):visited {
-  border-right-color: hsl(25, 100%, 60%);
-}
 .border-right-color\:warning-active {
   border-right-color: hsl(25, 100%, 40%);
 }
@@ -88484,21 +88619,6 @@
 .visited\(border-right-color\:danger-hover\):visited {
   border-right-color: hsl(0, 100%, 65%);
 }
-.border-right-color\:danger-focus {
-  border-right-color: hsl(0, 100%, 65%);
-}
-.hover\(border-right-color\:danger-focus\):hover {
-  border-right-color: hsl(0, 100%, 65%);
-}
-.focus\(border-right-color\:danger-focus\):focus {
-  border-right-color: hsl(0, 100%, 65%);
-}
-.active\(border-right-color\:danger-focus\):active {
-  border-right-color: hsl(0, 100%, 65%);
-}
-.visited\(border-right-color\:danger-focus\):visited {
-  border-right-color: hsl(0, 100%, 65%);
-}
 .border-right-color\:danger-active {
   border-right-color: hsl(0, 100%, 30%);
 }
@@ -88542,21 +88662,6 @@
   border-right-color: hsl(220, 80%, 65%);
 }
 .visited\(border-right-color\:link-hover\):visited {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.border-right-color\:link-focus {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.hover\(border-right-color\:link-focus\):hover {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.focus\(border-right-color\:link-focus\):focus {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.active\(border-right-color\:link-focus\):active {
-  border-right-color: hsl(220, 80%, 65%);
-}
-.visited\(border-right-color\:link-focus\):visited {
   border-right-color: hsl(220, 80%, 65%);
 }
 .border-right-color\:link-active {
@@ -88605,49 +88710,34 @@
   border-top-color: hsl(220, 80%, 50%);
 }
 .border-top-color\:primary-hover {
-  border-top-color: hsl(220, 80%, 65%);
+  border-top-color: hsl(220, 80%, 75%);
 }
 .hover\(border-top-color\:primary-hover\):hover {
-  border-top-color: hsl(220, 80%, 65%);
+  border-top-color: hsl(220, 80%, 75%);
 }
 .focus\(border-top-color\:primary-hover\):focus {
-  border-top-color: hsl(220, 80%, 65%);
+  border-top-color: hsl(220, 80%, 75%);
 }
 .active\(border-top-color\:primary-hover\):active {
-  border-top-color: hsl(220, 80%, 65%);
+  border-top-color: hsl(220, 80%, 75%);
 }
 .visited\(border-top-color\:primary-hover\):visited {
-  border-top-color: hsl(220, 80%, 65%);
-}
-.border-top-color\:primary-focus {
-  border-top-color: hsl(220, 80%, 65%);
-}
-.hover\(border-top-color\:primary-focus\):hover {
-  border-top-color: hsl(220, 80%, 65%);
-}
-.focus\(border-top-color\:primary-focus\):focus {
-  border-top-color: hsl(220, 80%, 65%);
-}
-.active\(border-top-color\:primary-focus\):active {
-  border-top-color: hsl(220, 80%, 65%);
-}
-.visited\(border-top-color\:primary-focus\):visited {
-  border-top-color: hsl(220, 80%, 65%);
+  border-top-color: hsl(220, 80%, 75%);
 }
 .border-top-color\:primary-active {
-  border-top-color: hsl(220, 80%, 40%);
+  border-top-color: hsl(220, 80%, 35%);
 }
 .hover\(border-top-color\:primary-active\):hover {
-  border-top-color: hsl(220, 80%, 40%);
+  border-top-color: hsl(220, 80%, 35%);
 }
 .focus\(border-top-color\:primary-active\):focus {
-  border-top-color: hsl(220, 80%, 40%);
+  border-top-color: hsl(220, 80%, 35%);
 }
 .active\(border-top-color\:primary-active\):active {
-  border-top-color: hsl(220, 80%, 40%);
+  border-top-color: hsl(220, 80%, 35%);
 }
 .visited\(border-top-color\:primary-active\):visited {
-  border-top-color: hsl(220, 80%, 40%);
+  border-top-color: hsl(220, 80%, 35%);
 }
 .border-top-color\:subtle {
   border-top-color: hsl(220, 25%, 75%);
@@ -88677,21 +88767,6 @@
   border-top-color: hsl(220, 25%, 85%);
 }
 .visited\(border-top-color\:subtle-hover\):visited {
-  border-top-color: hsl(220, 25%, 85%);
-}
-.border-top-color\:subtle-focus {
-  border-top-color: hsl(220, 25%, 85%);
-}
-.hover\(border-top-color\:subtle-focus\):hover {
-  border-top-color: hsl(220, 25%, 85%);
-}
-.focus\(border-top-color\:subtle-focus\):focus {
-  border-top-color: hsl(220, 25%, 85%);
-}
-.active\(border-top-color\:subtle-focus\):active {
-  border-top-color: hsl(220, 25%, 85%);
-}
-.visited\(border-top-color\:subtle-focus\):visited {
   border-top-color: hsl(220, 25%, 85%);
 }
 .border-top-color\:subtle-active {
@@ -88739,21 +88814,6 @@
 .visited\(border-top-color\:neutral-hover\):visited {
   border-top-color: hsl(220, 25%, 50%);
 }
-.border-top-color\:neutral-focus {
-  border-top-color: hsl(220, 25%, 50%);
-}
-.hover\(border-top-color\:neutral-focus\):hover {
-  border-top-color: hsl(220, 25%, 50%);
-}
-.focus\(border-top-color\:neutral-focus\):focus {
-  border-top-color: hsl(220, 25%, 50%);
-}
-.active\(border-top-color\:neutral-focus\):active {
-  border-top-color: hsl(220, 25%, 50%);
-}
-.visited\(border-top-color\:neutral-focus\):visited {
-  border-top-color: hsl(220, 25%, 50%);
-}
 .border-top-color\:neutral-active {
   border-top-color: hsl(220, 25%, 30%);
 }
@@ -88797,21 +88857,6 @@
   border-top-color: hsl(135, 80%, 45%);
 }
 .visited\(border-top-color\:success-hover\):visited {
-  border-top-color: hsl(135, 80%, 45%);
-}
-.border-top-color\:success-focus {
-  border-top-color: hsl(135, 80%, 45%);
-}
-.hover\(border-top-color\:success-focus\):hover {
-  border-top-color: hsl(135, 80%, 45%);
-}
-.focus\(border-top-color\:success-focus\):focus {
-  border-top-color: hsl(135, 80%, 45%);
-}
-.active\(border-top-color\:success-focus\):active {
-  border-top-color: hsl(135, 80%, 45%);
-}
-.visited\(border-top-color\:success-focus\):visited {
   border-top-color: hsl(135, 80%, 45%);
 }
 .border-top-color\:success-active {
@@ -88859,21 +88904,6 @@
 .visited\(border-top-color\:warning-hover\):visited {
   border-top-color: hsl(25, 100%, 60%);
 }
-.border-top-color\:warning-focus {
-  border-top-color: hsl(25, 100%, 60%);
-}
-.hover\(border-top-color\:warning-focus\):hover {
-  border-top-color: hsl(25, 100%, 60%);
-}
-.focus\(border-top-color\:warning-focus\):focus {
-  border-top-color: hsl(25, 100%, 60%);
-}
-.active\(border-top-color\:warning-focus\):active {
-  border-top-color: hsl(25, 100%, 60%);
-}
-.visited\(border-top-color\:warning-focus\):visited {
-  border-top-color: hsl(25, 100%, 60%);
-}
 .border-top-color\:warning-active {
   border-top-color: hsl(25, 100%, 40%);
 }
@@ -88917,21 +88947,6 @@
   border-top-color: hsl(0, 100%, 65%);
 }
 .visited\(border-top-color\:danger-hover\):visited {
-  border-top-color: hsl(0, 100%, 65%);
-}
-.border-top-color\:danger-focus {
-  border-top-color: hsl(0, 100%, 65%);
-}
-.hover\(border-top-color\:danger-focus\):hover {
-  border-top-color: hsl(0, 100%, 65%);
-}
-.focus\(border-top-color\:danger-focus\):focus {
-  border-top-color: hsl(0, 100%, 65%);
-}
-.active\(border-top-color\:danger-focus\):active {
-  border-top-color: hsl(0, 100%, 65%);
-}
-.visited\(border-top-color\:danger-focus\):visited {
   border-top-color: hsl(0, 100%, 65%);
 }
 .border-top-color\:danger-active {
@@ -88979,21 +88994,6 @@
 .visited\(border-top-color\:link-hover\):visited {
   border-top-color: hsl(220, 80%, 65%);
 }
-.border-top-color\:link-focus {
-  border-top-color: hsl(220, 80%, 65%);
-}
-.hover\(border-top-color\:link-focus\):hover {
-  border-top-color: hsl(220, 80%, 65%);
-}
-.focus\(border-top-color\:link-focus\):focus {
-  border-top-color: hsl(220, 80%, 65%);
-}
-.active\(border-top-color\:link-focus\):active {
-  border-top-color: hsl(220, 80%, 65%);
-}
-.visited\(border-top-color\:link-focus\):visited {
-  border-top-color: hsl(220, 80%, 65%);
-}
 .border-top-color\:link-active {
   border-top-color: hsl(220, 80%, 40%);
 }
@@ -89023,441 +89023,6 @@
 }
 .visited\(border-top-color\:link-visited\):visited {
   border-top-color: hsl(280, 80%, 50%);
-}
-.color\:primary {
-  color: hsl(220, 80%, 50%);
-}
-.hover\(color\:primary\):hover {
-  color: hsl(220, 80%, 50%);
-}
-.focus\(color\:primary\):focus {
-  color: hsl(220, 80%, 50%);
-}
-.active\(color\:primary\):active {
-  color: hsl(220, 80%, 50%);
-}
-.visited\(color\:primary\):visited {
-  color: hsl(220, 80%, 50%);
-}
-.color\:primary-hover {
-  color: hsl(220, 80%, 65%);
-}
-.hover\(color\:primary-hover\):hover {
-  color: hsl(220, 80%, 65%);
-}
-.focus\(color\:primary-hover\):focus {
-  color: hsl(220, 80%, 65%);
-}
-.active\(color\:primary-hover\):active {
-  color: hsl(220, 80%, 65%);
-}
-.visited\(color\:primary-hover\):visited {
-  color: hsl(220, 80%, 65%);
-}
-.color\:primary-focus {
-  color: hsl(220, 80%, 65%);
-}
-.hover\(color\:primary-focus\):hover {
-  color: hsl(220, 80%, 65%);
-}
-.focus\(color\:primary-focus\):focus {
-  color: hsl(220, 80%, 65%);
-}
-.active\(color\:primary-focus\):active {
-  color: hsl(220, 80%, 65%);
-}
-.visited\(color\:primary-focus\):visited {
-  color: hsl(220, 80%, 65%);
-}
-.color\:primary-active {
-  color: hsl(220, 80%, 40%);
-}
-.hover\(color\:primary-active\):hover {
-  color: hsl(220, 80%, 40%);
-}
-.focus\(color\:primary-active\):focus {
-  color: hsl(220, 80%, 40%);
-}
-.active\(color\:primary-active\):active {
-  color: hsl(220, 80%, 40%);
-}
-.visited\(color\:primary-active\):visited {
-  color: hsl(220, 80%, 40%);
-}
-.color\:subtle {
-  color: hsl(220, 25%, 75%);
-}
-.hover\(color\:subtle\):hover {
-  color: hsl(220, 25%, 75%);
-}
-.focus\(color\:subtle\):focus {
-  color: hsl(220, 25%, 75%);
-}
-.active\(color\:subtle\):active {
-  color: hsl(220, 25%, 75%);
-}
-.visited\(color\:subtle\):visited {
-  color: hsl(220, 25%, 75%);
-}
-.color\:subtle-hover {
-  color: hsl(220, 25%, 85%);
-}
-.hover\(color\:subtle-hover\):hover {
-  color: hsl(220, 25%, 85%);
-}
-.focus\(color\:subtle-hover\):focus {
-  color: hsl(220, 25%, 85%);
-}
-.active\(color\:subtle-hover\):active {
-  color: hsl(220, 25%, 85%);
-}
-.visited\(color\:subtle-hover\):visited {
-  color: hsl(220, 25%, 85%);
-}
-.color\:subtle-focus {
-  color: hsl(220, 25%, 85%);
-}
-.hover\(color\:subtle-focus\):hover {
-  color: hsl(220, 25%, 85%);
-}
-.focus\(color\:subtle-focus\):focus {
-  color: hsl(220, 25%, 85%);
-}
-.active\(color\:subtle-focus\):active {
-  color: hsl(220, 25%, 85%);
-}
-.visited\(color\:subtle-focus\):visited {
-  color: hsl(220, 25%, 85%);
-}
-.color\:subtle-active {
-  color: hsl(220, 25%, 65%);
-}
-.hover\(color\:subtle-active\):hover {
-  color: hsl(220, 25%, 65%);
-}
-.focus\(color\:subtle-active\):focus {
-  color: hsl(220, 25%, 65%);
-}
-.active\(color\:subtle-active\):active {
-  color: hsl(220, 25%, 65%);
-}
-.visited\(color\:subtle-active\):visited {
-  color: hsl(220, 25%, 65%);
-}
-.color\:neutral {
-  color: hsl(220, 25%, 40%);
-}
-.hover\(color\:neutral\):hover {
-  color: hsl(220, 25%, 40%);
-}
-.focus\(color\:neutral\):focus {
-  color: hsl(220, 25%, 40%);
-}
-.active\(color\:neutral\):active {
-  color: hsl(220, 25%, 40%);
-}
-.visited\(color\:neutral\):visited {
-  color: hsl(220, 25%, 40%);
-}
-.color\:neutral-hover {
-  color: hsl(220, 25%, 50%);
-}
-.hover\(color\:neutral-hover\):hover {
-  color: hsl(220, 25%, 50%);
-}
-.focus\(color\:neutral-hover\):focus {
-  color: hsl(220, 25%, 50%);
-}
-.active\(color\:neutral-hover\):active {
-  color: hsl(220, 25%, 50%);
-}
-.visited\(color\:neutral-hover\):visited {
-  color: hsl(220, 25%, 50%);
-}
-.color\:neutral-focus {
-  color: hsl(220, 25%, 50%);
-}
-.hover\(color\:neutral-focus\):hover {
-  color: hsl(220, 25%, 50%);
-}
-.focus\(color\:neutral-focus\):focus {
-  color: hsl(220, 25%, 50%);
-}
-.active\(color\:neutral-focus\):active {
-  color: hsl(220, 25%, 50%);
-}
-.visited\(color\:neutral-focus\):visited {
-  color: hsl(220, 25%, 50%);
-}
-.color\:neutral-active {
-  color: hsl(220, 25%, 30%);
-}
-.hover\(color\:neutral-active\):hover {
-  color: hsl(220, 25%, 30%);
-}
-.focus\(color\:neutral-active\):focus {
-  color: hsl(220, 25%, 30%);
-}
-.active\(color\:neutral-active\):active {
-  color: hsl(220, 25%, 30%);
-}
-.visited\(color\:neutral-active\):visited {
-  color: hsl(220, 25%, 30%);
-}
-.color\:success {
-  color: hsl(135, 80%, 35%);
-}
-.hover\(color\:success\):hover {
-  color: hsl(135, 80%, 35%);
-}
-.focus\(color\:success\):focus {
-  color: hsl(135, 80%, 35%);
-}
-.active\(color\:success\):active {
-  color: hsl(135, 80%, 35%);
-}
-.visited\(color\:success\):visited {
-  color: hsl(135, 80%, 35%);
-}
-.color\:success-hover {
-  color: hsl(135, 80%, 45%);
-}
-.hover\(color\:success-hover\):hover {
-  color: hsl(135, 80%, 45%);
-}
-.focus\(color\:success-hover\):focus {
-  color: hsl(135, 80%, 45%);
-}
-.active\(color\:success-hover\):active {
-  color: hsl(135, 80%, 45%);
-}
-.visited\(color\:success-hover\):visited {
-  color: hsl(135, 80%, 45%);
-}
-.color\:success-focus {
-  color: hsl(135, 80%, 45%);
-}
-.hover\(color\:success-focus\):hover {
-  color: hsl(135, 80%, 45%);
-}
-.focus\(color\:success-focus\):focus {
-  color: hsl(135, 80%, 45%);
-}
-.active\(color\:success-focus\):active {
-  color: hsl(135, 80%, 45%);
-}
-.visited\(color\:success-focus\):visited {
-  color: hsl(135, 80%, 45%);
-}
-.color\:success-active {
-  color: hsl(135, 80%, 30%);
-}
-.hover\(color\:success-active\):hover {
-  color: hsl(135, 80%, 30%);
-}
-.focus\(color\:success-active\):focus {
-  color: hsl(135, 80%, 30%);
-}
-.active\(color\:success-active\):active {
-  color: hsl(135, 80%, 30%);
-}
-.visited\(color\:success-active\):visited {
-  color: hsl(135, 80%, 30%);
-}
-.color\:warning {
-  color: hsl(25, 100%, 50%);
-}
-.hover\(color\:warning\):hover {
-  color: hsl(25, 100%, 50%);
-}
-.focus\(color\:warning\):focus {
-  color: hsl(25, 100%, 50%);
-}
-.active\(color\:warning\):active {
-  color: hsl(25, 100%, 50%);
-}
-.visited\(color\:warning\):visited {
-  color: hsl(25, 100%, 50%);
-}
-.color\:warning-hover {
-  color: hsl(25, 100%, 60%);
-}
-.hover\(color\:warning-hover\):hover {
-  color: hsl(25, 100%, 60%);
-}
-.focus\(color\:warning-hover\):focus {
-  color: hsl(25, 100%, 60%);
-}
-.active\(color\:warning-hover\):active {
-  color: hsl(25, 100%, 60%);
-}
-.visited\(color\:warning-hover\):visited {
-  color: hsl(25, 100%, 60%);
-}
-.color\:warning-focus {
-  color: hsl(25, 100%, 60%);
-}
-.hover\(color\:warning-focus\):hover {
-  color: hsl(25, 100%, 60%);
-}
-.focus\(color\:warning-focus\):focus {
-  color: hsl(25, 100%, 60%);
-}
-.active\(color\:warning-focus\):active {
-  color: hsl(25, 100%, 60%);
-}
-.visited\(color\:warning-focus\):visited {
-  color: hsl(25, 100%, 60%);
-}
-.color\:warning-active {
-  color: hsl(25, 100%, 40%);
-}
-.hover\(color\:warning-active\):hover {
-  color: hsl(25, 100%, 40%);
-}
-.focus\(color\:warning-active\):focus {
-  color: hsl(25, 100%, 40%);
-}
-.active\(color\:warning-active\):active {
-  color: hsl(25, 100%, 40%);
-}
-.visited\(color\:warning-active\):visited {
-  color: hsl(25, 100%, 40%);
-}
-.color\:danger {
-  color: hsl(0, 100%, 35%);
-}
-.hover\(color\:danger\):hover {
-  color: hsl(0, 100%, 35%);
-}
-.focus\(color\:danger\):focus {
-  color: hsl(0, 100%, 35%);
-}
-.active\(color\:danger\):active {
-  color: hsl(0, 100%, 35%);
-}
-.visited\(color\:danger\):visited {
-  color: hsl(0, 100%, 35%);
-}
-.color\:danger-hover {
-  color: hsl(0, 100%, 65%);
-}
-.hover\(color\:danger-hover\):hover {
-  color: hsl(0, 100%, 65%);
-}
-.focus\(color\:danger-hover\):focus {
-  color: hsl(0, 100%, 65%);
-}
-.active\(color\:danger-hover\):active {
-  color: hsl(0, 100%, 65%);
-}
-.visited\(color\:danger-hover\):visited {
-  color: hsl(0, 100%, 65%);
-}
-.color\:danger-focus {
-  color: hsl(0, 100%, 65%);
-}
-.hover\(color\:danger-focus\):hover {
-  color: hsl(0, 100%, 65%);
-}
-.focus\(color\:danger-focus\):focus {
-  color: hsl(0, 100%, 65%);
-}
-.active\(color\:danger-focus\):active {
-  color: hsl(0, 100%, 65%);
-}
-.visited\(color\:danger-focus\):visited {
-  color: hsl(0, 100%, 65%);
-}
-.color\:danger-active {
-  color: hsl(0, 100%, 30%);
-}
-.hover\(color\:danger-active\):hover {
-  color: hsl(0, 100%, 30%);
-}
-.focus\(color\:danger-active\):focus {
-  color: hsl(0, 100%, 30%);
-}
-.active\(color\:danger-active\):active {
-  color: hsl(0, 100%, 30%);
-}
-.visited\(color\:danger-active\):visited {
-  color: hsl(0, 100%, 30%);
-}
-.color\:link {
-  color: hsl(220, 80%, 50%);
-}
-.hover\(color\:link\):hover {
-  color: hsl(220, 80%, 50%);
-}
-.focus\(color\:link\):focus {
-  color: hsl(220, 80%, 50%);
-}
-.active\(color\:link\):active {
-  color: hsl(220, 80%, 50%);
-}
-.visited\(color\:link\):visited {
-  color: hsl(220, 80%, 50%);
-}
-.color\:link-hover {
-  color: hsl(220, 80%, 65%);
-}
-.hover\(color\:link-hover\):hover {
-  color: hsl(220, 80%, 65%);
-}
-.focus\(color\:link-hover\):focus {
-  color: hsl(220, 80%, 65%);
-}
-.active\(color\:link-hover\):active {
-  color: hsl(220, 80%, 65%);
-}
-.visited\(color\:link-hover\):visited {
-  color: hsl(220, 80%, 65%);
-}
-.color\:link-focus {
-  color: hsl(220, 80%, 65%);
-}
-.hover\(color\:link-focus\):hover {
-  color: hsl(220, 80%, 65%);
-}
-.focus\(color\:link-focus\):focus {
-  color: hsl(220, 80%, 65%);
-}
-.active\(color\:link-focus\):active {
-  color: hsl(220, 80%, 65%);
-}
-.visited\(color\:link-focus\):visited {
-  color: hsl(220, 80%, 65%);
-}
-.color\:link-active {
-  color: hsl(220, 80%, 40%);
-}
-.hover\(color\:link-active\):hover {
-  color: hsl(220, 80%, 40%);
-}
-.focus\(color\:link-active\):focus {
-  color: hsl(220, 80%, 40%);
-}
-.active\(color\:link-active\):active {
-  color: hsl(220, 80%, 40%);
-}
-.visited\(color\:link-active\):visited {
-  color: hsl(220, 80%, 40%);
-}
-.color\:link-visited {
-  color: hsl(280, 80%, 50%);
-}
-.hover\(color\:link-visited\):hover {
-  color: hsl(280, 80%, 50%);
-}
-.focus\(color\:link-visited\):focus {
-  color: hsl(280, 80%, 50%);
-}
-.active\(color\:link-visited\):active {
-  color: hsl(280, 80%, 50%);
-}
-.visited\(color\:link-visited\):visited {
-  color: hsl(280, 80%, 50%);
 }
 .z-index\:sunken {
   z-index: 0;

@@ -318,6 +318,57 @@ export const aliases: TokenDefinitions[] = [
       'normal': base['font-weight'].tokens['400'],
       'bold': base['font-weight'].tokens['700'],
     }
+  },
+  {
+    properties: [
+      'padding-inline'
+    ],
+    tokens: {
+      'button-small': base.scale.tokens['5'],
+      'button-medium': base.scale.tokens['10'],
+      'button-large': base.scale.tokens['15'],
+    }
+  },
+  {
+    properties: [
+      'padding-block'
+    ],
+    tokens: {
+      'button-small': base.scale.tokens['3'],
+      'button-medium': base.scale.tokens['5'],
+      'button-large': base.scale.tokens['7'],
+    }
+  },
+  {
+    properties: [
+      'color',
+      'border-color'
+    ], 
+    tokens: {
+      'primary': base.color.tokens['neutral-100'],
+      'primary-hover': base.color.tokens['neutral-50'],
+      'primary-active': base.color.tokens['neutral-200'],
+
+      'subtle': base.color.tokens['neutral-700'],
+      'subtle-hover': base.color.tokens['neutral-600'],
+      'subtle-active': base.color.tokens['neutral-800'],
+
+      'neutral': base.color.tokens['neutral-100'],
+      'neutral-hover': base.color.tokens['neutral-50'],
+      'neutral-active': base.color.tokens['neutral-200'],
+
+      'success': base.color.tokens['neutral-100'],
+      'success-hover': base.color.tokens['neutral-50'],
+      'success-active': base.color.tokens['neutral-200'],
+
+      'warning': base.color.tokens['neutral-100'],
+      'warning-hover': base.color.tokens['neutral-50'],
+      'warning-active': base.color.tokens['neutral-200'],
+
+      'danger': base.color.tokens['neutral-100'],
+      'danger-hover': base.color.tokens['neutral-50'],
+      'danger-active': base.color.tokens['neutral-200'],     
+    }
   },  
   {
     properties: [
@@ -327,42 +378,34 @@ export const aliases: TokenDefinitions[] = [
       'border-left-color',
       'border-right-color',
       'border-top-color',
-      'color',
     ], 
     tokens: {
       'primary': base.color.tokens['blue-500'],
-      'primary-hover': base.color.tokens['blue-400'],
-      'primary-focus': base.color.tokens['blue-400'],
-      'primary-active': base.color.tokens['blue-600'],
+      'primary-hover': base.color.tokens['blue-300'],
+      'primary-active': base.color.tokens['blue-700'],
 
       'subtle': base.color.tokens['neutral-300'],
       'subtle-hover': base.color.tokens['neutral-200'],
-      'subtle-focus': base.color.tokens['neutral-200'],
       'subtle-active': base.color.tokens['neutral-400'],
 
       'neutral': base.color.tokens['neutral-600'],
       'neutral-hover': base.color.tokens['neutral-500'],
-      'neutral-focus': base.color.tokens['neutral-500'],
       'neutral-active': base.color.tokens['neutral-700'],
 
       'success': base.color.tokens['green-500'],
       'success-hover': base.color.tokens['green-400'],
-      'success-focus': base.color.tokens['green-400'],
       'success-active': base.color.tokens['green-600'],
 
       'warning': base.color.tokens['orange-500'],
       'warning-hover': base.color.tokens['orange-400'],
-      'warning-focus': base.color.tokens['orange-400'],
       'warning-active': base.color.tokens['orange-600'],
 
       'danger': base.color.tokens['red-500'],
       'danger-hover': base.color.tokens['red-400'],
-      'danger-focus': base.color.tokens['red-400'],
       'danger-active': base.color.tokens['red-600'],
 
       'link': base.color.tokens['blue-500'],
       'link-hover': base.color.tokens['blue-400'],
-      'link-focus': base.color.tokens['blue-400'],
       'link-active': base.color.tokens['blue-600'],      
       'link-visited': base.color.tokens['purple-500'],      
     }
