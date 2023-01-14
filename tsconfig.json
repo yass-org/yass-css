@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./build/",
-    "target": "es5",
+    "outDir": "build",
+    "target": "ES6",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "types": ["jest", "node"],
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -17,7 +18,8 @@
     "declarationMap": true,
   },
   "include": [
-    "./src/index.ts"
+    "./src",
+    "__tests__"
   ],
   "exclude": [
     "node_modules"

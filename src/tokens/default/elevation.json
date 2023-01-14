@@ -1,0 +1,13 @@
+[
+  { "name": "0", "value": "0", "properties": ["z-index"] },
+  { "name": "100", "value": "100", "properties": ["z-index"] },
+  { "name": "200", "value": "200", "properties": ["z-index"] },
+  { "name": "300", "value": "300", "properties": ["z-index"] },
+  { "name": "400", "value": "400", "properties": ["z-index"] },
+  { "name": "500", "value": "500", "properties": ["z-index"] },
+  { "name": "600", "value": "600", "properties": ["z-index"] },
+  { "name": "700", "value": "700", "properties": ["z-index"] },
+  { "name": "800", "value": "800", "properties": ["z-index"] },
+  { "name": "900", "value": "900", "properties": ["z-index"] }
+]
+

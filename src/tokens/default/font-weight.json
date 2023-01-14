@@ -1,0 +1,11 @@
+[
+  { "name": "100", "value": "100", "properties": ["font-weight"] },
+  { "name": "200", "value": "200", "properties": ["font-weight"] },
+  { "name": "300", "value": "300", "properties": ["font-weight"] },
+  { "name": "400", "value": "400", "properties": ["font-weight"] },
+  { "name": "500", "value": "500", "properties": ["font-weight"] },
+  { "name": "600", "value": "600", "properties": ["font-weight"] },
+  { "name": "700", "value": "700", "properties": ["font-weight"] },
+  { "name": "800", "value": "800", "properties": ["font-weight"] },
+  { "name": "900", "value": "900", "properties": ["font-weight"] }
+]

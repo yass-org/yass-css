@@ -1,37 +1,14 @@
-import build from './build'
-import yargs from 'yargs'
-import { hideBin }  from 'yargs/helpers'
-import fs from 'fs'
+#!/usr/bin/env node
+import { build } from './build'
+import writeStylesheet from './utils/write-stylesheet'
+import getConfig from './config'
+import getTokens  from './tokens'
 
 
-const initialize = () => {
-    // Parse command line args
-    const argv = yargs(hideBin(process.argv)).argv
-}
+const tokensDir = process.argv[2]
 
-const run = () => {
+const config = getConfig()
+const tokens = getTokens(tokensDir, config)
+const stylesheet = build(tokens, config)
 
-    const { css, json } = build()
-    
-    fs.writeFile('./build/styles.css', css, err => {
-        if (err) {
-        console.error(err);
-        throw err;
-        }
-        console.log('Successfully wrote CSS')
-    });
-
-    fs.writeFile('./build/styles.json', JSON.stringify(json, null, 2), err => {
-        if (err) {
-        console.error(err);
-        throw err;
-        }
-        console.log('Successfully wrote JSON')
-    });    
-}
-
-
-(() => {
-    initialize()
-    run()
-})()
+writeStylesheet(stylesheet, config)
