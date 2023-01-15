@@ -1,17 +1,17 @@
 
 
 type Value = string;
-
-export interface Theme {
-  [theme: string]: Value;
-}
+export type Category = 'color' | 'scale';
 
 export interface DesignToken {
-  name: string;
+  key: string;
   value: Value;
-  theme?: Theme;
-  namespace: string;
-  category?: 'color' | 'elevation' | 'motion' | 'font-weight' | 'opacity' | 'scale';
+
+  name?: string;
+  themes?: {
+    [theme: string]: Value;
+  };
+  category?: Category;
   properties?: string[];
-  // comment?: string; // TODO
+  meta?: {};
 }

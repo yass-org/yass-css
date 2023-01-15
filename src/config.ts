@@ -1,18 +1,27 @@
 export interface Config {
   includeBaseClasses: boolean;
-  stylesheet?: {
+  token: {
+    namespace?: string;
+    separator?: string;
+  }
+  stylesheet: {
     buildPath?: string;
     filename?: string;
   },
-  types?: {
+  types: {
     buildPath?: string;
     filename?: string;
   },
 }
 
+export type UserConfig = Partial<Config>
 
 const defaults: Config = {
   includeBaseClasses: true,
+  token: {
+    namespace: '',
+    separator: '\\:',
+  },
   stylesheet: {
     buildPath:'styles/yass/',
     filename: 'yass.css',
@@ -23,10 +32,7 @@ const defaults: Config = {
   },
 }
 
-
-
-const getConfig = (): Config => {
-  const userConfig: Partial<Config> = require(`${process.cwd()}/yass.config.json`) // Open user config JSON
+export const getConfig = (userConfig: UserConfig): Config => {
 
   const config: Config = {
     ...defaults,
@@ -35,5 +41,3 @@ const getConfig = (): Config => {
 
   return config
 }
-
-export default getConfig

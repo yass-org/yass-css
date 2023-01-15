@@ -17,7 +17,7 @@ const defaults = [
   ...scale,
 ]
 
-const getTokens = (dir: string | undefined, config: Config) => {
+export const getTokens = (dir: string | undefined, config: Config) => {
   if(!dir) {
     if(config.includeBaseClasses) {
       return [ ...css, ...defaults ]
@@ -35,5 +35,3 @@ const getTokens = (dir: string | undefined, config: Config) => {
 
   return tokens
 } 
-
-export default getTokens

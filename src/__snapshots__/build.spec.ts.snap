@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`build() matches snapshot 1`] = `
+":root {
+  --yass-color-red: rgb(255, 0, 0);
+  --yass-color-green: rgb(0, 255, 0);
+  --yass-block: block;
+  --yass-color-blue: rgb(0, 0, 200);
+}
+.high-contrast {
+  --yass-color-blue: rgb(0, 0, 255);
+}
+.dark {
+  --yass-color-blue: rgb(0, 0, 100);
+}
+.color\\:color-red { color: var(--yass-color-red); }
+.color\\:green { color: var(--yass-color-green); }
+.display\\:block { display: var(--yass-block); }
+.color\\:green { color: var(--yass-color-blue); }"
+`;
