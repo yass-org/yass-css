@@ -18,3 +18,11 @@ exports[`build() matches snapshot 1`] = `
 .display\\:block { display: var(--yass-block); }
 .color\\:green { color: var(--yass-color-blue); }"
 `;
+
+exports[`buildCustomProperties() custom properties are ordered to allow them to resolve 1`] = `
+":root {
+  --three-column-layout: repeat(3, 1fr);
+  --three-column-layout-alias: var(--three-column-layout);
+  --alias-referencing-another-alias: var(--three-column-layout-alias)
+}"
+`;

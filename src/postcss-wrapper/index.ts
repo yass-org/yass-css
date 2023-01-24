@@ -4,15 +4,25 @@ import {
 } from 'postcss'
 
 export class RootElement {
-  constructor() {}
+  root: Rule
 
-  toJSON() {
-    return new Rule({
+  constructor() {
+    this.root = new Rule({
       selector: ':root',
       raws: {
         after: '\n'
       }
     })
+  }
+
+  appendAll(children: CustomProperty[]) {
+    children.forEach((child: CustomProperty) => {
+      this.root.append(child.toJSON())
+    })
+  }
+
+  toJSON() {
+    return this.root
   }
 }
 

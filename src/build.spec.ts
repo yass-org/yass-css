@@ -1,7 +1,64 @@
-import { build, validateToken } from './build'
+import { build, buildCustomProperties, validateToken } from './build'
 import { getConfig } from './config'
 import type { Category, DesignToken } from './types'
-import type { Config, UserConfig } from './config'
+import type { Config } from './config'
+import postcss from 'postcss'
+
+describe('buildCustomProperties()', () => {
+  it('creates a custom property from a token', () => {
+    const config: Config = getConfig({})
+    const token: DesignToken = {
+      key: 'three-column-layout',
+      value: 'repeat(3, 1fr)'
+    }
+
+    const customProp = buildCustomProperties([token], config)
+    const { css } = postcss().process(customProp)
+
+    expect(css).toContain('--three-column-layout: repeat(3, 1fr)')
+  })
+
+  it('creates a custom property from an alias token', () => {
+    const config: Config = getConfig({})
+    const tokens: DesignToken[] = [
+      {
+        key: 'three-column-layout',
+        value: 'repeat(3, 1fr)'
+      },
+      {
+        key: 'three-column-layout-alias',
+        value: '{three-column-layout}'
+      },
+    ]
+    const customProp = buildCustomProperties(tokens, config)
+    const { css } = postcss().process(customProp)
+
+    expect(css).toContain('--three-column-layout: repeat(3, 1fr)')
+    expect(css).toContain('--three-column-layout-alias: var(--three-column-layout)')
+  })
+
+  it('custom properties are ordered to allow them to resolve', () => {
+    const config: Config = getConfig({})
+    const tokens: DesignToken[] = [
+      {
+        key: 'alias-referencing-another-alias',
+        value: '{three-column-layout-alias}'
+      },      
+      {
+        key: 'three-column-layout-alias',
+        value: '{three-column-layout}'
+      },
+      {
+        key: 'three-column-layout',
+        value: 'repeat(3, 1fr)'
+      },      
+    ]
+    const customProp = buildCustomProperties(tokens, config)
+    const { css } = postcss().process(customProp)
+
+    expect(css).toMatchSnapshot()
+  })  
+})
 
 
 describe('build()', () => {

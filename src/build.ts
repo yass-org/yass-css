@@ -1,4 +1,4 @@
-import postcss, { Root, Rule } from 'postcss'
+import postcss, { Declaration, Root, Rule } from 'postcss'
 
 import { AtomicClass, CustomProperty, RootElement } from './postcss-wrapper' 
 import color from './definitions/categories/color.json'
@@ -7,6 +7,7 @@ import scale from './definitions/categories/scale.json'
 import type { DesignToken } from "./types"
 import { createCustomPropertyName } from './utils/create-custom-property-name'
 import { Config } from './config'
+import { resolveCustomProperties } from './utils/resolve-custom-properties'
 
 const categoryMap = {
   'color': color,
@@ -15,21 +16,41 @@ const categoryMap = {
 
 
 export const build = (tokens: DesignToken[], config: Config): string => {
+  if(tokens.length === 0){
+    return ''
+  }  
+
+  const validTokens = tokens.filter((token: DesignToken) => {
+    const { isValid, reason } = validateToken(token)
+    
+    if(!isValid) {
+      console.warn('Skipping token: ', reason);
+    }
+
+    return isValid
+  })
+
   const root = new Root()
-  
-  root.append(buildStyleSheet(tokens, config))
-  
-  const css = postcss().process(root).css
+
+  root.append(buildCustomProperties(validTokens, config))
+  root.append(buildStyleSheet(validTokens, config))
+
+  const { css } = postcss().process(root)
 
   return css
 }
 
-const buildStyleSheet = (tokens: DesignToken[], config: Config): Root => {
-  if(tokens.length === 0){
-    return new Root()
-  }
+export const buildCustomProperties = (tokens: DesignToken[], config: Config): Rule => {  
+  const customProperties = resolveCustomProperties(tokens, config)
 
-  const customProperties = []
+  const root = new RootElement()
+  root.appendAll(customProperties)
+
+  return root.toJSON()
+}
+
+const buildStyleSheet = (tokens: DesignToken[], config: Config): Root => {
+
   const themesRules: { [theme: string]: Rule } = {}
   const classes = new Root()
 
@@ -41,13 +62,6 @@ const buildStyleSheet = (tokens: DesignToken[], config: Config): Root => {
     }
 
     const { key, value, name, category, themes = [], properties: userProperties } = token
-
-    // Create custom properties
-    const customProperty = new CustomProperty({
-      key: createCustomPropertyName(token, config),
-      value, // TODO: Resolve alias values
-    })
-    customProperties.push(customProperty.toJSON())
 
     // Create theme classes
     Object.keys(themes).forEach((theme: string) => {
@@ -65,7 +79,8 @@ const buildStyleSheet = (tokens: DesignToken[], config: Config): Root => {
     })
 
     const properties = userProperties || categoryMap[category]
-    
+    const customProperty = new CustomProperty({ key: createCustomPropertyName(token, config), value })
+
     properties.forEach((property: string) => {
       
       // Create atomic classes
@@ -81,7 +96,6 @@ const buildStyleSheet = (tokens: DesignToken[], config: Config): Root => {
   })
 
   return new Root().append(
-    new RootElement().toJSON().append(customProperties),
     Object.values(themesRules),
     classes,
   )
