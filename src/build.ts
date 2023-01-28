@@ -1,4 +1,4 @@
-import postcss, { Declaration, Root, Rule } from 'postcss'
+import postcss, { Root, Rule } from 'postcss'
 
 import { AtomicClass, CustomProperty, RootElement } from './postcss-wrapper' 
 import color from './definitions/categories/color.json'
@@ -33,7 +33,8 @@ export const build = (tokens: DesignToken[], config: Config): string => {
   const root = new Root()
 
   root.append(buildCustomProperties(validTokens, config))
-  root.append(buildStyleSheet(validTokens, config))
+  root.append(buildThemeClasses(validTokens, config))
+  root.append(buildAtomicClasses(validTokens, config))
 
   const { css } = postcss().process(root)
 
@@ -49,9 +50,31 @@ export const buildCustomProperties = (tokens: DesignToken[], config: Config): Ru
   return root.toJSON()
 }
 
-const buildStyleSheet = (tokens: DesignToken[], config: Config): Root => {
+const buildThemeClasses = (tokens: DesignToken[], config: Config) => {
+  const themesClassBuckets: { [theme: string]: Rule } = {}
+  
+  tokens.forEach((token: DesignToken) => {
+    const { themes = [], properties: userProperties } = token
 
-  const themesRules: { [theme: string]: Rule } = {}
+    Object.keys(themes).forEach((theme: string) => {
+      if(!themesClassBuckets[theme]) {
+        themesClassBuckets[theme] = new Rule({ selector: `.${theme}` })
+      }
+
+      const themedValue = themes[theme]
+      
+      themesClassBuckets[theme].append(new CustomProperty({
+        key: createCustomPropertyName(token, config),
+        value: themedValue, // TODO: Resolve alias values
+      }).toJSON())
+    })
+  })
+
+  return Object.values(themesClassBuckets)
+}
+
+const buildAtomicClasses = (tokens: DesignToken[], config: Config): Root => {
+
   const classes = new Root()
 
   tokens.forEach((token: DesignToken) => {
@@ -63,27 +86,11 @@ const buildStyleSheet = (tokens: DesignToken[], config: Config): Root => {
 
     const { key, value, name, category, themes = [], properties: userProperties } = token
 
-    // Create theme classes
-    Object.keys(themes).forEach((theme: string) => {
-      
-      if(!themesRules[theme]) {
-        themesRules[theme] = new Rule({ selector: `.${theme}` })
-      }
-
-      const themedValue = themes[theme]
-      
-      themesRules[theme].append(new CustomProperty({
-        key: createCustomPropertyName(token, config),
-        value: themedValue, // TODO: Resolve alias values
-      }).toJSON())
-    })
 
     const properties = userProperties || categoryMap[category]
     const customProperty = new CustomProperty({ key: createCustomPropertyName(token, config), value })
 
     properties.forEach((property: string) => {
-      
-      // Create atomic classes
       const atomicClass = new AtomicClass({
         className: `${property}\\:${name || key}`,
         declaration: {
@@ -95,10 +102,7 @@ const buildStyleSheet = (tokens: DesignToken[], config: Config): Root => {
     })
   })
 
-  return new Root().append(
-    Object.values(themesRules),
-    classes,
-  )
+  return new Root().append(classes)
 }
 
 

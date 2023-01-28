@@ -74,7 +74,7 @@ export class CustomProperty {
   
   constructor({ key, value }: { key: string, value: string }) {
     this.key = key
-    this.value = value // TODO: Resolve alias values
+    this.value = value
   }
 
   toJSON() {
@@ -86,5 +86,16 @@ export class CustomProperty {
         after: '',
       }
     })
+  }
+
+  toString() {
+    return new Declaration({
+      prop: this.key,
+      value: this.value,
+      raws: {
+        before: '\n  ',
+        after: '',
+      }
+    }).toString()
   }
 }
