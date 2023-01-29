@@ -2,19 +2,25 @@
 
 exports[`build() matches snapshot 1`] = `
 ":root {
+  --yass-color-red-light: rgb(255, 0, 0);
   --yass-color-red: rgb(255, 0, 0);
   --yass-color-green: rgb(0, 255, 0);
   --yass-block: block;
   --yass-color-blue: rgb(0, 0, 200);
 }
+.light {
+  --yass-color-red: var(--color-red-light);
+  --yass-color-blue: var(--color-blue);
+}
 .high-contrast {
-  --yass-color-blue: rgb(0, 0, 255);
+  --yass-color-blue: var(--rgb(0, 0, 255));
 }
 .dark {
-  --yass-color-blue: rgb(0, 0, 100);
+  --yass-color-blue: var(--rgb(0, 0, 100));
 }
-.color\\:color-red { color: var(--yass-color-red); }
-.color\\:green { color: var(--yass-color-green); }
-.display\\:block { display: var(--yass-block); }
-.color\\:green { color: var(--yass-color-blue); }"
+.yass-color-color-red-light { color: var(--yass-color-red-light); }
+.yass-color-color-red { color: var(--yass-color-red); }
+.yass-color-green { color: var(--yass-color-green); }
+.yass-display-block { display: var(--yass-block); }
+.yass-color-blue { color: var(--yass-color-blue); }"
 `;

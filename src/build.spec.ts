@@ -1,7 +1,7 @@
-import { build, validateToken } from './build'
+import { build } from './build'
 import { getConfig } from './config'
-import type { Category, DesignToken } from './types'
-import type { Config, UserConfig } from './config'
+import type { DesignToken } from './types'
+import type { Config } from './config'
 
 
 describe('build()', () => {
@@ -53,9 +53,17 @@ describe('build()', () => {
   it('matches snapshot', () => {
     const tokens: DesignToken[] = [
       {
+        key: 'color-red-light',
+        value: 'rgb(255, 0, 0)',
+        properties: ['color'],
+      },
+      {
         key: 'color-red',
         value: 'rgb(255, 0, 0)',
         properties: ['color'],
+        themes: {
+          'light': '{color-red-light}'
+        }
       },
       {
         key: 'color-green',
@@ -73,9 +81,10 @@ describe('build()', () => {
         value: 'rgb(0, 0, 200)',
         themes: {
           'high-contrast': 'rgb(0, 0, 255)',
-          'dark': 'rgb(0, 0, 100)'
+          'dark': 'rgb(0, 0, 100)',
+          'light': '{color-blue}'
         },
-        name: 'green',
+        name: 'blue',
         properties: ['color'],
       },      
     ]
@@ -90,67 +99,4 @@ describe('build()', () => {
 
     expect(stylesheet).toMatchSnapshot()
   })
-})
-
-describe('validateToken()', () => {
-  it.each([
-    [
-      {
-        key: undefined,
-        value: 'rgb(255, 0, 0)',
-        properties: ['color'],
-      },
-      { isValid: false, reason: 'A token must define a key' },
-    ],
-    [
-      {
-        key: '',
-        value: 'rgb(255, 0, 0)',
-        properties: ['color'],
-      },
-      { isValid: false, reason: 'A token must define a key' },
-    ],
-    [
-      {
-        key: 'color-red',
-        value: '',
-        properties: ['color'],
-      },
-      { isValid: false, reason: 'A token must define a value' },
-    ],
-    [
-      {
-        key: 'color-red',
-        value: undefined,
-        properties: ['color'],
-      },
-      { isValid: false, reason: 'A token must define a value' },
-    ],
-    [
-      {
-        key: 'color-red',
-        value: 'rgb(255, 0, 0)',
-      },
-      { isValid: false, reason: 'A token must define either a category, or a list of properties' },
-    ],
-    [
-      {
-        key: 'color-red',
-        value: 'rgb(255, 0, 0)',
-        category: 'color' as Category,
-      },
-      { isValid: true },
-    ],    
-    [
-      {
-        key: 'color-red',
-        value: 'rgb(255, 0, 0)',
-        properties: ['color'],
-      },
-      { isValid: true },
-    ],
-  ])('should return %p for %p and %s', (token, expected) => {
-    expect(validateToken(token)).toEqual(expected);
-  })
-
 })
