@@ -1,10 +1,9 @@
-import { resolveCustomProperties } from "./resolve-custom-properties"
+import { CustomPropertyTransformer } from "./custom-properties"
 import { getConfig } from "../config";
+import { CustomProperty } from "../postcss-wrapper";
 
 import type { DesignToken } from "../types";
 import type { UserConfig, Config } from "../config";
-import { Declaration } from "postcss";
-import { CustomProperty } from "../postcss-wrapper";
 
 describe("resolveCustomProperties()", () => {
   it("maps basic tokens", () => {
@@ -17,7 +16,7 @@ describe("resolveCustomProperties()", () => {
       },
     ]
     
-    const result = resolveCustomProperties(tokens, config)
+    const result = CustomPropertyTransformer.transform(tokens, config)
       .map((customProperty: CustomProperty) => 
         customProperty.toString())
   
@@ -38,7 +37,7 @@ describe("resolveCustomProperties()", () => {
       },      
     ]
 
-    const result = resolveCustomProperties(tokens, config)
+    const result = CustomPropertyTransformer.transform(tokens, config)
       .map((customProperty: CustomProperty) => 
         customProperty.toString())
 
@@ -62,7 +61,7 @@ describe("resolveCustomProperties()", () => {
       },  
     ]
 
-    const result = resolveCustomProperties(tokens, config)
+    const result = CustomPropertyTransformer.transform(tokens, config)
       .map((customProperty: CustomProperty) => 
         customProperty.toString())
 
@@ -76,7 +75,7 @@ describe("resolveCustomProperties()", () => {
     const userConfig: UserConfig = {}
     const config: Config = getConfig(userConfig)
     const tokens: DesignToken[] = [
-{
+      {
         key: 'brand-primary',
         value: '{blue-500}'
       },    
@@ -90,7 +89,7 @@ describe("resolveCustomProperties()", () => {
       },
     ]
 
-    const result = resolveCustomProperties(tokens, config)
+    const result = CustomPropertyTransformer.transform(tokens, config)
       .map((customProperty: CustomProperty) => 
         customProperty.toString())
 
@@ -107,7 +106,9 @@ describe("resolveCustomProperties()", () => {
     const config: Config = getConfig(userConfig)
     const tokens: DesignToken[] = []
 
-    expect(resolveCustomProperties(tokens, config)).toEqual([])
+    const result = CustomPropertyTransformer.transform(tokens, config)
+
+    expect(result).toEqual([])
   })
   
   it("throws an error when alias token cannot be resolved", () => {
@@ -120,9 +121,60 @@ describe("resolveCustomProperties()", () => {
       },
     ]
     
-    expect(() => resolveCustomProperties(tokens, config)).toThrow(
-      new Error("Unable to resolve tokens. You may have an alias token that doesn't reference a valid token.")
+    expect(() => CustomPropertyTransformer.transform(tokens, config)).toThrow(
+      new Error("Unable to transform all tokens. You may have an alias token that doesn't reference a valid token.")
     );
   })
+
+
+  describe('property()', () => {
+    it('constructs basic custom property name from token', () => {
+      const token: DesignToken = {
+        key: 'very-red',
+        value: 'rgb(255, 0, 0)',
+      }
+
+      const userConfig: UserConfig = {}
+      const config: Config = getConfig(userConfig)
+      const variable = CustomPropertyTransformer.property(token, config)
+
+      expect(variable).toBe('--very-red')
+    })
+
+    it('adds namespace when provided in config', () => {
+      const token: DesignToken = {
+        key: 'very-red',
+        value: 'rgb(255, 0, 0)',
+      }
+
+      const userConfig: UserConfig = {
+        token: {
+          namespace: 'gl-',
+        }
+      }
+      const config: Config = getConfig(userConfig)
+      const variable = CustomPropertyTransformer.property(token, config)
+
+      expect(variable).toBe('--gl-very-red')
+    })
+
+    it('ignores token.name when constructing custom property name', () => {
+      const token: DesignToken = {
+        key: 'very-red',
+        value: 'rgb(255, 0, 0)',
+        name: 'red'
+      }
+
+      const userConfig: UserConfig = {
+        token: {
+          namespace: 'gl-',
+        }
+      }
+      const config: Config = getConfig(userConfig)
+      const variable = CustomPropertyTransformer.property(token, config)
+
+      expect(variable).toBe('--gl-very-red')
+    })  
+  })  
 })
 
