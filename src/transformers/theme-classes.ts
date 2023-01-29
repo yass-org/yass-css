@@ -9,18 +9,16 @@ export class ThemeClassTransformer {
     const themesBuckets: { [theme: string]: ThemeClass } = {}
 
     tokens.forEach((token: DesignToken) => {
-      const { themes = [] } = token
+      const { themes = {} } = token
 
       Object.keys(themes).forEach((theme: string) => {
         if(!themesBuckets[theme]) {
           themesBuckets[theme] = new ThemeClass({ selector: `.${theme}` })
         }
-
-        const themedValue = themes[theme]
-        
+                
         themesBuckets[theme].append(new CustomProperty({
           key: CustomPropertyTransformer.property(token, config),
-          value: themedValue, // TODO: Resolve alias values
+          value: `var(--${CustomPropertyTransformer.resolveValue(themes[theme])})`,
         }))
       })
     })

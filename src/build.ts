@@ -31,8 +31,7 @@ export const build = (tokens: DesignToken[], config: Config): string => {
       // Add CSS Custom Properties to :root
       CustomPropertyTransformer.transform(validTokens, config)
     ),
-    // TODO: Add theme classes back when we're able to resolve aliases in them
-    // ...ThemeClassTransformer.transform(validTokens, config),
+    ...ThemeClassTransformer.transform(validTokens, config),
     // Add the atomic classes
     ...AtomicClassTransformer.transform(validTokens, config),
   ]).toJSON()

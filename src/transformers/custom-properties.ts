@@ -85,4 +85,13 @@ export class CustomPropertyTransformer {
     const { value } = token
     return value[0] === '{' && value[value.length - 1] === '}'
   }
+
+  // TODO: Figure out a nice way to DRY this
+  static resolveValue(value: string) {
+    if(value[0] === '{' && value[value.length - 1] === '}') {
+      return value.slice(1, value.length - 1)
+    }
+
+    return value
+  }
 }

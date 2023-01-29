@@ -8,6 +8,16 @@ exports[`build() matches snapshot 1`] = `
   --yass-block: block;
   --yass-color-blue: rgb(0, 0, 200);
 }
+.light {
+  --yass-color-red: var(--color-red-light);
+  --yass-color-blue: var(--color-blue);
+}
+.high-contrast {
+  --yass-color-blue: var(--rgb(0, 0, 255));
+}
+.dark {
+  --yass-color-blue: var(--rgb(0, 0, 100));
+}
 .yass-color-color-red-light { color: var(--yass-color-red-light); }
 .yass-color-color-red { color: var(--yass-color-red); }
 .yass-color-green { color: var(--yass-color-green); }
