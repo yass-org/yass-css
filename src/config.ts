@@ -1,12 +1,16 @@
 export interface Config {
-  includeBaseClasses: boolean;
-  token: {
+  rules: {
     namespace?: string;
     separator?: string;
   }
   stylesheet: {
     buildPath?: string;
     filename?: string;
+    include: {
+      baseClasses?: boolean;
+      tokenClasses?: boolean;
+      themeClasses?: boolean;
+    }
   },
   types: {
     buildPath?: string;
@@ -16,27 +20,25 @@ export interface Config {
 
 export type UserConfig = Partial<Config>
 
-const defaults: Config = {
-  includeBaseClasses: true,
-  token: {
-    namespace: '',
-    separator: '\\:',
-  },
-  stylesheet: {
-    buildPath:'styles/yass/',
-    filename: 'yass.css',
-  },
-  types: {
-    buildPath: 'types/',
-    filename: 'yass.ts',
-  },
-}
-
 export const getConfig = (userConfig: UserConfig): Config => {
-
   const config: Config = {
-    ...defaults,
-    ...userConfig,
+    rules: {
+      namespace: userConfig?.rules?.namespace || '',
+      separator: userConfig?.rules?.separator || '\\:',
+    },
+    stylesheet: {
+      buildPath:  userConfig?.stylesheet?.buildPath || 'styles/yass/',
+      filename: userConfig?.stylesheet?.filename || 'yass.css',
+      include: {
+        baseClasses: userConfig?.stylesheet?.include?.baseClasses !== undefined ? userConfig?.stylesheet?.include.baseClasses : true,
+        themeClasses: userConfig?.stylesheet?.include?.themeClasses !== undefined ? userConfig?.stylesheet?.include.themeClasses : true,
+        tokenClasses: userConfig?.stylesheet?.include?.tokenClasses !== undefined ? userConfig?.stylesheet?.include.tokenClasses : true,
+      }
+    },
+    types: {
+      buildPath: userConfig?.types?.buildPath || 'types/',
+      filename: userConfig?.types?.filename || 'yass.ts',
+    },
   }
 
   return config

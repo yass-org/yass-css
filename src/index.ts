@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { build } from './build'
-import writeStylesheet from './utils/write-stylesheet'
+import { FileSystem } from './file-system'
 import { getTokens }  from './tokens'
 import { getConfig } from './config'
 
@@ -14,4 +14,8 @@ const config = getConfig(userConfig)
 const tokens = getTokens(tokensDir, config)
 const stylesheet = build(tokens, config)
 
-writeStylesheet(stylesheet, config)
+FileSystem.writeFile(
+  config.stylesheet.buildPath,
+  config.stylesheet.filename,
+  stylesheet,
+)
