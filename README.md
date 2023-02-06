@@ -77,7 +77,25 @@ If you have used a tool like [Style Dictionary](https://amzn.github.io/style-dic
 Global level configuration can be done via a `yass.config.json` file in your projects root directory (or wherever you run `npx yass-css` from).
 
 ### Token level
+A Yass design token has the following TS type:
+```typescript
+type Value = string;
 
+export type Category = 'color' | 'scale';
+
+export interface DesignToken {
+  key: string;
+  value: Value;
+
+  name?: string;
+  themes?: {
+    [theme: string]: Value;
+  };
+  category?: Category;
+  properties?: string[];
+  meta?: {};
+}
+```
 
 ## Production
 Similar to Tailwind, Yass currently generates very large stylesheets. This is usually fine in development (unless the stylesheet is over ~20mb). But in production, we highly recommend using a tool like [PurgeCSS](https://purgecss.com/) to remove any unused styles. A more streamlined developer experience for this is an active area of development in Yass.
