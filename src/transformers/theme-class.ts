@@ -1,11 +1,15 @@
 import { Config } from "../config";
 import { DesignToken } from "../types";
-import { CustomPropertyTransformer } from "./custom-properties";
-import { CustomProperty, ThemeClass } from "../postcss-wrapper";
+import { CustomPropertyTransformer } from "./custom-property";
+import { CustomProperty, ThemeClass } from "../ast";
 
 export class ThemeClassTransformer {
 
   static transform(tokens: DesignToken[], config: Config) {
+    if(config.stylesheet.include.themeClasses === false) {
+      return []
+    }
+
     const themesBuckets: { [theme: string]: ThemeClass } = {}
 
     tokens.forEach((token: DesignToken) => {
@@ -18,7 +22,7 @@ export class ThemeClassTransformer {
                 
         themesBuckets[theme].append(new CustomProperty({
           key: CustomPropertyTransformer.property(token, config),
-          value: `var(--${CustomPropertyTransformer.resolveValue(themes[theme])})`,
+          value: CustomPropertyTransformer.resolveValue(themes[theme]),
         }))
       })
     })

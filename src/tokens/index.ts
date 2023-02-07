@@ -4,8 +4,7 @@ import fontWeight from './default/font-weight.json'
 import opacity from './default/opacity.json'
 import scale from './default/scale.json'
 import css from './css.json'
-
-import walkSync from '../utils/walk-sync'
+import { FileSystem } from '../file-system'
 
 import type { Config } from '../config'
 
@@ -18,20 +17,14 @@ const defaults = [
 ]
 
 export const getTokens = (dir: string | undefined, config: Config) => {
-  if(!dir) {
-    if(config.includeBaseClasses) {
-      return [ ...css, ...defaults ]
-    }
+  return dir ? getUserTokens(dir) : defaults
+} 
 
-    return defaults
-  }
-
-
-  let tokens = []
-
-  walkSync(dir, (filepath, stats) => {
+const getUserTokens = (dir) => {
+  const tokens = []
+  FileSystem.walkDir(dir, (filepath, _stats) => {
     tokens.push(...require(`${process.cwd()}/${filepath}`))
   })
 
   return tokens
-} 
+}

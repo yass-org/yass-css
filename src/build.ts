@@ -1,14 +1,9 @@
-import postcss, { Root, Rule } from 'postcss'
-
-import { RootElement, StyleSheet } from './postcss-wrapper' 
+import { RootElement, StyleSheet } from './ast' 
+import { Config } from './config'
+import { AtomicClassTransformer, CustomPropertyTransformer, ThemeClassTransformer } from './transformers'
+import { validateToken } from './validation'
 
 import type { DesignToken } from "./types"
-import { Config } from './config'
-import { CustomPropertyTransformer } from './transformers/custom-properties'
-import { AtomicClassTransformer } from './transformers/atomic-classes'
-import { validateToken } from './validation'
-import { ThemeClassTransformer } from './transformers/theme-classes'
-
 
 export const build = (tokens: DesignToken[], config: Config): string => {
     if(!tokens || tokens.length === 0){
@@ -37,7 +32,7 @@ export const build = (tokens: DesignToken[], config: Config): string => {
   ]).toJSON()
   
 
-  const { css } = postcss().process(stylesheet)
+  const { css } = stylesheet
 
   return css
 }

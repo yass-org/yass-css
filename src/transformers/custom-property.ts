@@ -1,7 +1,6 @@
 import { Config } from "../config"
-import { CustomProperty } from "../postcss-wrapper"
+import { CustomProperty } from "../ast"
 import { DesignToken } from "../types"
-
 
 export class CustomPropertyTransformer {  
   constructor() {}
@@ -76,7 +75,7 @@ export class CustomPropertyTransformer {
 
   static property(token: DesignToken, config: Config): string {
     const { key } = token
-    const namespace = config?.token?.namespace || ''
+    const namespace = config.rules.namespace
 
     return `--${namespace}${key}`
   }
@@ -89,7 +88,7 @@ export class CustomPropertyTransformer {
   // TODO: Figure out a nice way to DRY this
   static resolveValue(value: string) {
     if(value[0] === '{' && value[value.length - 1] === '}') {
-      return value.slice(1, value.length - 1)
+      return `var(--${value.slice(1, value.length - 1)})`
     }
 
     return value

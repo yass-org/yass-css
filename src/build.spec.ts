@@ -90,7 +90,7 @@ describe('build()', () => {
     ]
 
     const config: Config = getConfig({
-      token: {
+      rules: {
         namespace: 'yass-',
         separator: '-'
       }
