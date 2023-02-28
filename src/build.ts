@@ -14,7 +14,7 @@ export const build = (tokens: DesignToken[], config: Config): string => {
     const { isValid, reason } = validateToken(token)
     
     if(!isValid) {
-      console.warn('Skipping token: ', reason);
+      console.warn(`Skipping token: ${JSON.stringify(token)} - `, reason);
     }
 
     return isValid

@@ -8,7 +8,11 @@ import type { UserConfig } from './config'
 
 
 const tokensDir = process.argv[2]
-const userConfig: UserConfig = require(`${process.cwd()}/yass.config.json`) // Open user config JSON
+
+const userConfig: UserConfig = FileSystem.readJSONFile(
+  `${process.cwd()}/yass.config.json`,
+  () => console.info('yass.config.json was not found. Using defaults'),
+)
 
 const config = getConfig(userConfig)
 const tokens = getTokens(tokensDir, config)

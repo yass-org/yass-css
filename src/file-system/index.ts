@@ -23,4 +23,13 @@ export class FileSystem {
     fs.mkdirSync(dir, { recursive: true })
     fs.writeFileSync(`${dir}/${filename}`, content)
   }
+
+  static readJSONFile = (filepath: string, onError?: Function): object => {
+    try {
+      return require(filepath)
+    } catch (error) {
+      onError()
+      return {}
+    } 
+  }
 }
