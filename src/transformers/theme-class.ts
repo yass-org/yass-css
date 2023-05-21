@@ -3,9 +3,9 @@ import { DesignToken } from "../types";
 import { CustomPropertyTransformer } from "./custom-property";
 import { CustomProperty, ThemeClass } from "../ast";
 
-export class ThemeClassTransformer {
+export const ThemeClassTransformer = {
 
-  static transform(tokens: DesignToken[], config: Config) {
+  transform(tokens: DesignToken[], config: Config) {
     if(config.stylesheet.include.themeClasses === false) {
       return []
     }

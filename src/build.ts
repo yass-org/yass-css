@@ -1,7 +1,7 @@
 import { RootElement, StyleSheet } from './ast' 
 import { Config } from './config'
 import { AtomicClassTransformer, CustomPropertyTransformer, ThemeClassTransformer } from './transformers'
-import { validateToken } from './validation'
+import { validateTokens } from './validation'
 
 import type { DesignToken } from "./types"
 
@@ -10,15 +10,7 @@ export const build = (tokens: DesignToken[], config: Config): string => {
     return ''
   }  
 
-  const validTokens = tokens.filter((token: DesignToken) => {
-    const { isValid, reason } = validateToken(token)
-    
-    if(!isValid) {
-      console.warn('Skipping token: ', reason);
-    }
-
-    return isValid
-  })
+  const validTokens = validateTokens(tokens)
 
   const stylesheet = new StyleSheet([
     // Add the `:root` first
@@ -30,7 +22,6 @@ export const build = (tokens: DesignToken[], config: Config): string => {
     // Add the atomic classes
     ...AtomicClassTransformer.transform(validTokens, config),
   ]).toJSON()
-  
 
   const { css } = stylesheet
 

@@ -1,5 +1,3 @@
-import ts, { factory } from 'typescript'
-
 import color from './definitions/categories/color.json'
 import scale from './definitions/categories/scale.json'
 

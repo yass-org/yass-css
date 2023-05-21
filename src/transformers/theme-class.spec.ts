@@ -3,7 +3,7 @@ import { getConfig } from "../config";
 import { ThemeClass } from "../ast";
 
 import type { DesignToken } from "../types";
-import type { UserConfig, Config } from "../config";
+import type { Config } from "../config";
 
 describe("ThemeClassTransformer", () => {
   describe('transform()', () => {

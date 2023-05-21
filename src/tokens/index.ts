@@ -6,8 +6,6 @@ import scale from './default/scale.json'
 import css from './css.json'
 import { FileSystem } from '../file-system'
 
-import type { Config } from '../config'
-
 const defaults = [
   ...color,
   ...elevation,
@@ -16,15 +14,15 @@ const defaults = [
   ...scale,
 ]
 
-export const getTokens = (dir: string | undefined, config: Config) => {
-  return dir ? getUserTokens(dir) : defaults
-} 
+export const getTokens = (dir: string | undefined) => {
+  if(!dir) {
+    return defaults
+  } 
 
-const getUserTokens = (dir) => {
   const tokens = []
   FileSystem.walkDir(dir, (filepath, _stats) => {
     tokens.push(...require(`${process.cwd()}/${filepath}`))
   })
 
   return tokens
-}
+} 

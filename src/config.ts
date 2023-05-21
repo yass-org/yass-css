@@ -18,9 +18,7 @@ export interface Config {
   },
 }
 
-export type UserConfig = Partial<Config>
-
-export const getConfig = (userConfig: UserConfig): Config => {
+export const getConfig = (userConfig: Partial<Config>): Config => {
   const config: Config = {
     rules: {
       namespace: userConfig?.rules?.namespace || '',

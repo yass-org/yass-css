@@ -4,8 +4,8 @@ Atomic CSS that encodes your design system.
 
 ## Quickstart
 ```bash
-$ npx yass-css # Use Yass default design system
-$ npx yass-css path/to/tokens # Use your own design system
+$ npx yass-css # Use Yass default design tokens
+$ npx yass-css path/to/tokens # Use your own design tokens
 ```
 
 ## Core concepts
@@ -98,5 +98,22 @@ export interface DesignToken {
 ```
 
 ## Production
-Similar to Tailwind, Yass currently generates very large stylesheets. This is usually fine in development (unless the stylesheet is over ~20mb). But in production, we highly recommend using a tool like [PurgeCSS](https://purgecss.com/) to remove any unused styles. A more streamlined developer experience for this is an active area of development in Yass.
+Yass currently generates very large stylesheets. This is usually fine in development (unless the stylesheet is over ~20mb). But in production, it is highly recommended to use a tool like [PurgeCSS](https://purgecss.com/) to remove any unused styles. A more streamlined developer experience for this is an active area of development in Yass.
 
+
+## Development
+
+To get a development server running for Yass, follow these steps:
+```bash
+$ git clone git@github.com:yass-org/yass-css.git
+$ cd yass-css
+$ npm i --location=global # This will install yass-css globally. This is useful for testing changes to yass when used in other projects
+$ npm run dev # This will watch for changes, and regenerate the build folder.
+```
+
+Then, in another terminal window:
+```bash
+$ mkdir test-app
+$ cd test-app
+$ npx yass-css # This will run the version of yass-css you installed in the previous section.
+```

@@ -2,8 +2,7 @@ import { Config } from "../config"
 import { CustomProperty } from "../ast"
 import { DesignToken } from "../types"
 
-export class CustomPropertyTransformer {  
-  constructor() {}
+export const CustomPropertyTransformer = {  
 
   /** 
    * Surprisingly difficult function to write. We need to make sure that the resulting custom properties are 
@@ -19,7 +18,7 @@ export class CustomPropertyTransformer {
    * 
    * To solve this, we repeatedly iterate over the tokens array, adding any tokens that are able to be transformed. 
    */
-  static transform(tokens: DesignToken[], config: Config): CustomProperty[] {
+  transform(tokens: DesignToken[], config: Config): CustomProperty[] {
     const customProperties: CustomProperty[] = []
     const seen: Set<string> = new Set()
     let counter = 0
@@ -62,31 +61,31 @@ export class CustomPropertyTransformer {
       // The while loop should never be able to iterate more than tokens.length. If this happens, 
       // then it's likely that the user has added tokens that are unable to be transformed.
       if(counter++ >= tokens.length) {
-        throw new Error("Unable to transform all tokens. You may have an alias token that doesn't reference a valid token.");
+        throw new Error("Unable to generate classes for all tokens. You may have an alias token that doesn't reference a valid token, or you have two tokens with the same key.");
       }
     }
 
     return customProperties
-  }
+  },
 
-  static aliasValue(token: DesignToken) {
+  aliasValue(token: DesignToken) {
     return token.value.slice(1, token.value.length - 1)
-  }
+  },
 
-  static property(token: DesignToken, config: Config): string {
+  property(token: DesignToken, config: Config): string {
     const { key } = token
     const namespace = config.rules.namespace
 
     return `--${namespace}${key}`
-  }
+  },
 
-  static isAliasToken(token: DesignToken) {
+  isAliasToken(token: DesignToken) {
     const { value } = token
     return value[0] === '{' && value[value.length - 1] === '}'
-  }
+  },
 
   // TODO: Figure out a nice way to DRY this
-  static resolveValue(value: string) {
+  resolveValue(value: string) {
     if(value[0] === '{' && value[value.length - 1] === '}') {
       return `var(--${value.slice(1, value.length - 1)})`
     }

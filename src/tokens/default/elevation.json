@@ -1,13 +1,13 @@
 [
-  { "name": "0", "value": "0", "properties": ["z-index"] },
-  { "name": "100", "value": "100", "properties": ["z-index"] },
-  { "name": "200", "value": "200", "properties": ["z-index"] },
-  { "name": "300", "value": "300", "properties": ["z-index"] },
-  { "name": "400", "value": "400", "properties": ["z-index"] },
-  { "name": "500", "value": "500", "properties": ["z-index"] },
-  { "name": "600", "value": "600", "properties": ["z-index"] },
-  { "name": "700", "value": "700", "properties": ["z-index"] },
-  { "name": "800", "value": "800", "properties": ["z-index"] },
-  { "name": "900", "value": "900", "properties": ["z-index"] }
+  { "key": "elevation-0", "name": "0", "value": "0", "properties": ["z-index"] },
+  { "key": "elevation-100", "name": "100", "value": "100", "properties": ["z-index"] },
+  { "key": "elevation-200", "name": "200", "value": "200", "properties": ["z-index"] },
+  { "key": "elevation-300", "name": "300", "value": "300", "properties": ["z-index"] },
+  { "key": "elevation-400", "name": "400", "value": "400", "properties": ["z-index"] },
+  { "key": "elevation-500", "name": "500", "value": "500", "properties": ["z-index"] },
+  { "key": "elevation-600", "name": "600", "value": "600", "properties": ["z-index"] },
+  { "key": "elevation-700", "name": "700", "value": "700", "properties": ["z-index"] },
+  { "key": "elevation-800", "name": "800", "value": "800", "properties": ["z-index"] },
+  { "key": "elevation-900", "name": "900", "value": "900", "properties": ["z-index"] }
 ]
 

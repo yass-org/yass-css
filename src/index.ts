@@ -4,14 +4,15 @@ import { FileSystem } from './file-system'
 import { getTokens }  from './tokens'
 import { getConfig } from './config'
 
-import type { UserConfig } from './config'
+import type { Config } from './config'
 
 
 const tokensDir = process.argv[2]
-const userConfig: UserConfig = require(`${process.cwd()}/yass.config.json`) // Open user config JSON
+
+const userConfig: Partial<Config> = FileSystem.getIfExists(`${process.cwd()}/yass.config.json`)
 
 const config = getConfig(userConfig)
-const tokens = getTokens(tokensDir, config)
+const tokens = getTokens(tokensDir)
 const stylesheet = build(tokens, config)
 
 FileSystem.writeFile(
@@ -19,3 +20,5 @@ FileSystem.writeFile(
   config.stylesheet.filename,
   stylesheet,
 )
+
+console.log('Success!')
