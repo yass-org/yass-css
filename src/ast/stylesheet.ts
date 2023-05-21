@@ -20,7 +20,7 @@ export class StyleSheet {
     this.root.append(children.toJSON())
   }
 
-  toJSON () {
+  toJSON() {
     return postcss().process(this.root)
   }
 }

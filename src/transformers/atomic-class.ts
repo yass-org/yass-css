@@ -11,12 +11,12 @@ const categoryMap = {
   'scale': scale,
 }
 
-export class AtomicClassTransformer {
+export const AtomicClassTransformer = {
 
   /**
    * Converts an array of `DesignToken` objects into an array of Yass atomic classes 
    */
-  static transform(tokens: DesignToken[], config: Config): AtomicClass[] {
+  transform(tokens: DesignToken[], config: Config): AtomicClass[] {
     return tokens.flatMap((token: DesignToken) => {
       const { category, properties: userProperties } = token 
       const properties = userProperties || categoryMap[category]
@@ -31,9 +31,8 @@ export class AtomicClassTransformer {
         })
       ))
     })
-  }
-
-  static className(property: string, token: DesignToken, config: Config): string {
+  },
+  className(property: string, token: DesignToken, config: Config): string {
     return `${config.rules.namespace}${property}${config.rules.separator}${token.name || token.key}`
   }
 }

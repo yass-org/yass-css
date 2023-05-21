@@ -5,7 +5,7 @@ import type { Config } from './config'
 
 
 describe('build()', () => {
-  it('generates classname from token.key if token.name is not present', () => {
+  it('generates class name from token.key if token.name is not present', () => {
     const tokens: DesignToken[] = [
       {
         key: 'color-red',
@@ -26,7 +26,7 @@ describe('build()', () => {
     expect(stylesheet).toContain('--color-green: rgb(0, 255, 0);')
   })
 
-  it('prefers token.name over token.key to generate classname if token.name is present', () => {
+  it('prefers token.name over token.key to generate class name if token.name is present', () => {
     const tokens: DesignToken[] = [{
       key: 'color-red',
       value: 'rgb(255, 0, 0)',
@@ -38,7 +38,7 @@ describe('build()', () => {
     const stylesheet = build(tokens, config)
 
     expect(stylesheet).toContain('--color-red: rgb(255, 0, 0);') // Uses token.key for the custom property
-    expect(stylesheet).toContain('.color\\:red { color: var(--color-red); }') // Uses token.name for the classname
+    expect(stylesheet).toContain('.color\\:red { color: var(--color-red); }') // Uses token.name for the class name
   })
 
   it('does not generate :root element if no tokens are defined', () => {

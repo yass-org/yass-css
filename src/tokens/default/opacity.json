@@ -1,13 +1,13 @@
 [
-  { "name": "0", "value": "0%", "properties": ["opacity"] },
-  { "name": "100", "value": "10%", "properties": ["opacity"] },
-  { "name": "200", "value": "20%", "properties": ["opacity"] },
-  { "name": "300", "value": "30%", "properties": ["opacity"] },
-  { "name": "400", "value": "40%", "properties": ["opacity"] },
-  { "name": "500", "value": "50%", "properties": ["opacity"] },
-  { "name": "600", "value": "60%", "properties": ["opacity"] },
-  { "name": "700", "value": "70%", "properties": ["opacity"] },
-  { "name": "800", "value": "80%", "properties": ["opacity"] },
-  { "name": "900", "value": "90%", "properties": ["opacity"] },
-  { "name": "1000", "value": "100%", "properties": ["opacity"] }
+  { "key": "opacity-0", "name": "0", "value": "0%", "properties": ["opacity"] },
+  { "key": "opacity-100", "name": "100", "value": "10%", "properties": ["opacity"] },
+  { "key": "opacity-200", "name": "200", "value": "20%", "properties": ["opacity"] },
+  { "key": "opacity-300", "name": "300", "value": "30%", "properties": ["opacity"] },
+  { "key": "opacity-400", "name": "400", "value": "40%", "properties": ["opacity"] },
+  { "key": "opacity-500", "name": "500", "value": "50%", "properties": ["opacity"] },
+  { "key": "opacity-600", "name": "600", "value": "60%", "properties": ["opacity"] },
+  { "key": "opacity-700", "name": "700", "value": "70%", "properties": ["opacity"] },
+  { "key": "opacity-800", "name": "800", "value": "80%", "properties": ["opacity"] },
+  { "key": "opacity-900", "name": "900", "value": "90%", "properties": ["opacity"] },
+  { "key": "opacity-1000", "name": "1000", "value": "100%", "properties": ["opacity"] }
 ]
