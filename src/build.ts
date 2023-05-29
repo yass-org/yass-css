@@ -1,7 +1,8 @@
 import { RootElement, StyleSheet } from './ast' 
 import { Config } from './config'
-import { AtomicClassTransformer, CustomPropertyTransformer, ThemeClassTransformer } from './transformers'
-import { validateTokens } from './validation'
+import { AtomicClassTransformer, CSSRuleTransformer, CustomPropertyTransformer, ThemeClassTransformer } from './transformers'
+import rules from './definitions/css/rules.json'
+import { validateTokens, validateRules } from './validation'
 
 import type { DesignToken } from "./types"
 
@@ -11,6 +12,7 @@ export const build = (tokens: DesignToken[], config: Config): string => {
   }  
 
   const validTokens = validateTokens(tokens)
+  const validRules = validateRules(rules)
 
   const stylesheet = new StyleSheet([
     // Add the `:root` first
@@ -18,6 +20,7 @@ export const build = (tokens: DesignToken[], config: Config): string => {
       // Add CSS Custom Properties to :root
       CustomPropertyTransformer.transform(validTokens, config)
     ),
+    ...CSSRuleTransformer.transform(rules, config),
     ...ThemeClassTransformer.transform(validTokens, config),
     // Add the atomic classes
     ...AtomicClassTransformer.transform(validTokens, config),

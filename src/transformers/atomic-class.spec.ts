@@ -64,7 +64,7 @@ describe("AtomicClassTransformer", () => {
       expect(result).toEqual([])
     })
     
-    it("doesn't throw an error when property doesn't is not a CSS property", () => { // TODO: Discuss whether this is intended
+    it("doesn't throw an error when property is not a CSS property", () => { // TODO: Discuss whether this is intended
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [

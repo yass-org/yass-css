@@ -1,4 +1,4 @@
-import { DesignToken } from "../types";
+import { CSSRules, DesignToken } from "../types";
 
 export const validateToken = (
   token: DesignToken
@@ -43,4 +43,48 @@ export const validateTokens = (tokens: DesignToken[]) => {
     seenTokens[token.key] = token
     return isValid
   })
+}
+
+export const validateProperty = (property: string): { isValid: boolean; reason?: string } => {
+
+  if(!property) {
+    return { 
+      isValid: false,
+      reason: `CSS property was not present.`
+    }
+  }
+
+  const validPropertySyntaxPattern = /[a-z\-]/
+
+  if(!validPropertySyntaxPattern.test(property)) {
+    return { 
+      isValid: false,
+      reason: `CSS property '${property}' is not valid CSS property syntax`
+    }
+  }
+  return { isValid: true }
+}
+
+export const validateRules = (rules: CSSRules): CSSRules => {
+  const validRules = {}
+
+  Object.keys(rules).forEach((property) => {
+
+    const { isValid, reason } = validateProperty(property)
+
+    if(!isValid) {
+      console.warn(`Skipping CSS property: '${property}'.`, reason)
+      return
+    }
+
+    const values = rules[property]
+
+    if(!values || !values.length) {
+      return
+    }
+
+    validRules[property] = values
+  })
+
+  return validRules
 }

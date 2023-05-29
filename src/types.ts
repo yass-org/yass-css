@@ -15,3 +15,7 @@ export interface DesignToken {
   properties?: string[];
   meta?: {};
 }
+
+export interface CSSRules {
+  [property: string]: string[];
+}

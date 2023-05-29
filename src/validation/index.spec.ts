@@ -1,4 +1,4 @@
-import { validateToken } from ".";
+import { validateToken, validateProperty, validateRules } from ".";
 import { Category } from "../types";
 
 describe('validateToken()', () => {
@@ -60,5 +60,52 @@ describe('validateToken()', () => {
     ],
   ])('should return %p for %p and %s', (token, expected) => {
     expect(validateToken(token)).toEqual(expected);
+  })
+})
+
+describe('validateProperty()', () => {
+  it.each([
+    [
+      undefined,
+      { isValid: false, reason: 'CSS property was not present.' },
+    ],
+    [
+      '',
+      { isValid: false, reason: 'CSS property was not present.' },
+    ],
+    [
+      'display',
+      { isValid: true },
+    ],    
+  ])('should return %p for %p and %s', (property, expected) => {
+    expect(validateProperty(property)).toEqual(expected);
+  })
+})
+
+describe('validateRules()', () => {
+  it.each([
+    [
+      {
+        display: undefined,
+      },
+      {}, // invalid rules are filtered out
+    ],
+    [
+      {
+        display: [],
+      },
+      {},
+    ],
+    [
+      {
+        display: ['flex'],
+      },
+      {
+        display: ['flex'], // Valid rules are returned
+      },
+    ],
+ 
+  ])('%p should return %p', (rules, expected) => {
+    expect(validateRules(rules)).toEqual(expected);
   })
 })

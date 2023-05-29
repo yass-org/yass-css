@@ -124,7 +124,7 @@ describe("CustomPropertyTransformer()", () => {
       ]
       
       expect(() => CustomPropertyTransformer.transform(tokens, config)).toThrow(
-        new Error("Unable to transform all tokens. You may have an alias token that doesn't reference a valid token.")
+        new Error("Unable to generate classes for all tokens. You may have an alias token that doesn't reference a valid token, or you have two tokens with the same key.")
       );
     })
 
