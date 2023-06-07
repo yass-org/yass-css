@@ -1,4 +1,3 @@
 export { AtomicClassTransformer } from './atomic-class'
-export { CSSRuleTransformer } from './css-rule-transformer'
+export { BaseCSSTransformer } from './base-css-transformer'
 export { CustomPropertyTransformer } from './custom-property'
-export { ThemeClassTransformer } from './theme-class'

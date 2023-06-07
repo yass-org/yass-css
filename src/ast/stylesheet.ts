@@ -1,6 +1,5 @@
 import postcss, { Root } from 'postcss'
 
-import { ThemeClass } from './theme-class'
 import { AtomicClass } from './atomic-class'
 import { RootElement } from './root-element'
 
@@ -8,7 +7,7 @@ import { RootElement } from './root-element'
 export class StyleSheet {
   root: Root
 
-  constructor(children: Array<RootElement | ThemeClass | AtomicClass>) {
+  constructor(children: Array<RootElement | AtomicClass>) {
     this.root = new Root()
 
     children.forEach((child: RootElement | AtomicClass) => {

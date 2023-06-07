@@ -1564,16 +1564,6 @@ exports[`build() matches snapshot 1`] = `
 .yass-vertical-align-revert { vertical-align: revert; }
 .yass-vertical-align-revert-layer { vertical-align: revert-layer; }
 .yass-vertical-align-unset { vertical-align: unset; }
-.light {
-  --yass-color-red: var(--color-red-light);
-  --yass-color-blue: var(--color-blue);
-}
-.high-contrast {
-  --yass-color-blue: rgb(0, 0, 255);
-}
-.dark {
-  --yass-color-blue: rgb(0, 0, 100);
-}
 .yass-color-color-red-light { color: var(--yass-color-red-light); }
 .yass-color-color-red { color: var(--yass-color-red); }
 .yass-color-green { color: var(--yass-color-green); }
