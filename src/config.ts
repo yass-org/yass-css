@@ -9,7 +9,6 @@ export interface Config {
     include: {
       baseClasses?: boolean;
       tokenClasses?: boolean;
-      themeClasses?: boolean;
     }
   },
   types: {
@@ -29,7 +28,6 @@ export const getConfig = (userConfig: Partial<Config>): Config => {
       filename: userConfig?.stylesheet?.filename || 'yass.css',
       include: {
         baseClasses: userConfig?.stylesheet?.include?.baseClasses !== undefined ? userConfig?.stylesheet?.include.baseClasses : true,
-        themeClasses: userConfig?.stylesheet?.include?.themeClasses !== undefined ? userConfig?.stylesheet?.include.themeClasses : true,
         tokenClasses: userConfig?.stylesheet?.include?.tokenClasses !== undefined ? userConfig?.stylesheet?.include.tokenClasses : true,
       }
     },

@@ -1,6 +1,6 @@
 import { RootElement, StyleSheet } from './ast' 
 import { Config } from './config'
-import { AtomicClassTransformer, CSSRuleTransformer, CustomPropertyTransformer, ThemeClassTransformer } from './transformers'
+import { AtomicClassTransformer, BaseCSSTransformer, CustomPropertyTransformer } from './transformers'
 import rules from './definitions/css/rules.json'
 import { validateTokens, validateRules } from './validation'
 
@@ -20,8 +20,7 @@ export const build = (tokens: DesignToken[], config: Config): string => {
       // Add CSS Custom Properties to :root
       CustomPropertyTransformer.transform(validTokens, config)
     ),
-    ...CSSRuleTransformer.transform(rules, config),
-    ...ThemeClassTransformer.transform(validTokens, config),
+    ...BaseCSSTransformer.transform(validRules, config),
     // Add the atomic classes
     ...AtomicClassTransformer.transform(validTokens, config),
   ]).toJSON()

@@ -1,11 +1,11 @@
-import { CSSRuleTransformer } from './css-rule-transformer'
+import { BaseCSSTransformer } from './base-css-transformer'
 import { getConfig } from "../config";
 import { AtomicClass } from "../ast";
 
 import type { CSSRules } from "../types";
 import type { Config } from "../config";
 
-describe("CSSRuleTransformer", () => {
+describe("BaseCSSTransformer", () => {
   describe('transform()', () => {
     it("transforms a css rule into an atomic class", () => {
       const userConfig: Partial<Config> = {}
@@ -34,7 +34,7 @@ describe("CSSRuleTransformer", () => {
         ]
       }
       
-      const result = CSSRuleTransformer.transform(rules, config)
+      const result = BaseCSSTransformer.transform(rules, config)
         .map((atomicClass: AtomicClass) => 
           atomicClass.toString())
     
@@ -67,7 +67,7 @@ describe("CSSRuleTransformer", () => {
       const rules: CSSRules = {
         display: []
       }  
-      const result = CSSRuleTransformer.transform(rules, config)
+      const result = BaseCSSTransformer.transform(rules, config)
             
       expect(result).toEqual([])
     })
@@ -76,7 +76,7 @@ describe("CSSRuleTransformer", () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const rules: CSSRules = {}
-      const result = CSSRuleTransformer.transform(rules, config)
+      const result = BaseCSSTransformer.transform(rules, config)
             
       expect(result).toEqual([])
     })
@@ -87,7 +87,7 @@ describe("CSSRuleTransformer", () => {
         const config: Config = getConfig(userConfig)
         const property = 'display'
         const value = 'flex'
-        const variable = CSSRuleTransformer.className(property, value, config)
+        const variable = BaseCSSTransformer.className(property, value, config)
   
         expect(variable).toBe('display\\:flex')
       })
@@ -102,7 +102,7 @@ describe("CSSRuleTransformer", () => {
         const config: Config = getConfig(userConfig)
         const property = 'display'
         const value = 'flex'
-        const variable = CSSRuleTransformer.className(property, value, config)
+        const variable = BaseCSSTransformer.className(property, value, config)
   
         expect(variable).toBe('display-flex')
       })
@@ -117,7 +117,7 @@ describe("CSSRuleTransformer", () => {
         const config: Config = getConfig(userConfig)
         const property = 'display'
         const value = 'flex'
-        const variable = CSSRuleTransformer.className(property, value, config)
+        const variable = BaseCSSTransformer.className(property, value, config)
   
         expect(variable).toBe('ds-display\\:flex')
       })

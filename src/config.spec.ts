@@ -15,7 +15,6 @@ describe('getConfig()', () => {
         filename: 'yass.css',
         include: {
           baseClasses: true,
-          themeClasses: true,
           tokenClasses: true,
         }
       },
@@ -37,7 +36,6 @@ describe('getConfig()', () => {
         filename: 'styles.css',
         include: {
           baseClasses: false,
-          themeClasses: false,
           tokenClasses: false,
         }
       },
@@ -57,7 +55,6 @@ describe('getConfig()', () => {
         filename: 'styles.css',
         include: {
           baseClasses: false,
-          themeClasses: false,
           tokenClasses: false,
         }
       },
@@ -72,7 +69,7 @@ it('accepts partial override', () => {
     const config = getConfig({
       stylesheet: {
         include: {
-          themeClasses: false,
+          baseClasses: false,
         }
       },
     })
@@ -86,8 +83,7 @@ it('accepts partial override', () => {
         buildPath:  'styles/yass/',
         filename: 'yass.css',
         include: {
-          baseClasses: true,
-          themeClasses: false,
+          baseClasses: false,
           tokenClasses: true,
         }
       },
