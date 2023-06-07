@@ -1,7 +1,7 @@
-import { AtomicClass } from "../ast";
+import { AtomicClass } from '../ast'
 
-import type { Config } from "../config";
-import type { CSSRules } from "../types";
+import type { Config } from '../config'
+import type { CSSRules } from '../types'
 
 
 export const BaseCSSTransformer = {

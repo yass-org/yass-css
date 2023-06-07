@@ -1,7 +1,7 @@
 import color from './definitions/categories/color.json'
 import scale from './definitions/categories/scale.json'
 
-import type { DesignToken } from "./types"
+import type { DesignToken } from './types'
 
 const categoryMap = {
   'color': color,
@@ -9,11 +9,11 @@ const categoryMap = {
 }
 
 function clearAndUpper(text) {
-  return text.replace(/-/, "").toUpperCase();
+  return text.replace(/-/, '').toUpperCase()
 }
 
 const toPascalCase = (text) => {
-  return text.replace(/(^\w|-\w)/g, clearAndUpper);
+  return text.replace(/(^\w|-\w)/g, clearAndUpper)
 
 }
 
@@ -46,7 +46,7 @@ export const buildTypes = (userTokens: DesignToken[], cssTokens: DesignToken[]):
   Object.keys(buckets).forEach((bucketName) => {
     const typeName = toPascalCase(bucketName)
     const values = buckets[bucketName].join('\' | \'')
-    types += `export type ${typeName} = \'${values}\'\n`
+    types += `export type ${typeName} = '${values}'\n`
   })
   
   return types

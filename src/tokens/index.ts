@@ -19,7 +19,7 @@ export const getTokens = (dir: string | undefined) => {
   } 
 
   const tokens = []
-  FileSystem.walkDir(dir, (filepath, _stats) => {
+  FileSystem.walkDir(dir, (filepath) => {
     tokens.push(...require(`${process.cwd()}/${filepath}`))
   })
 

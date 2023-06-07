@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs, { type Stats } from 'fs'
 import path from 'path'
 import  { Config } from '../config'
 
@@ -7,17 +7,17 @@ export const FileSystem = {
     return fs.existsSync(path) ? require(path) : {} // Open user config JSON
   },
  
-  walkDir(dir: string, callback: Function): void {
-    const files = fs.readdirSync(dir);
+  walkDir(dir: string, callback: (filepath: string, stats: Stats) => void): void {
+    const files = fs.readdirSync(dir)
 
     files.forEach((file) => {
-      var filepath = path.join(dir, file);
-      const stats = fs.statSync(filepath);
+      const filepath = path.join(dir, file)
+      const stats = fs.statSync(filepath)
 
       if (stats.isDirectory()) {
-        FileSystem.walkDir(filepath, callback);
+        FileSystem.walkDir(filepath, callback)
       } else if (stats.isFile()) {
-        callback(filepath, stats);
+        callback(filepath, stats)
       }
     })
   },

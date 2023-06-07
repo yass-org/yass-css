@@ -26,7 +26,7 @@ export class RootElement {
   }
 
   append(child: CustomProperty) {
-   this.root.append(child.toJSON()) 
+    this.root.append(child.toJSON()) 
   }
 
   toJSON(): Rule {

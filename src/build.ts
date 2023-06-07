@@ -4,10 +4,10 @@ import { AtomicClassTransformer, BaseCSSTransformer, CustomPropertyTransformer }
 import rules from './definitions/css/rules.json'
 import { validateTokens, validateRules } from './validation'
 
-import type { DesignToken } from "./types"
+import type { DesignToken } from './types'
 
 export const build = (tokens: DesignToken[], config: Config): string => {
-    if(!tokens || tokens.length === 0){
+  if(!tokens || tokens.length === 0){
     return ''
   }  
 
