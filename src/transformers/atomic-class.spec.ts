@@ -1,13 +1,13 @@
-import { AtomicClassTransformer } from "./atomic-class"
-import { getConfig } from "../config";
-import { AtomicClass } from "../ast";
+import { AtomicClassTransformer } from './atomic-class'
+import { getConfig } from '../config'
+import { AtomicClass } from '../ast'
 
-import type { DesignToken } from "../types";
-import type { Config } from "../config";
+import type { DesignToken } from '../types'
+import type { Config } from '../config'
 
-describe("AtomicClassTransformer", () => {
+describe('AtomicClassTransformer', () => {
   describe('transform()', () => {
-    it("transforms a token into an atomic class", () => {
+    it('transforms a token into an atomic class', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
@@ -27,7 +27,7 @@ describe("AtomicClassTransformer", () => {
       ])
     })
 
-    it("transforms an alias token into a atomic class", () => {
+    it('transforms an alias token into a atomic class', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
@@ -51,10 +51,10 @@ describe("AtomicClassTransformer", () => {
         '.color\\:blue-500 { color: var(--blue-500); }',
         '.color\\:brand-primary { color: var(--brand-primary); }' // Expected, since `--brand-primary: var(--blue-500)`
       ])
-    });
+    })
   
       
-    it("handles empty array", () => {
+    it('handles empty array', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = []
@@ -64,7 +64,7 @@ describe("AtomicClassTransformer", () => {
       expect(result).toEqual([])
     })
     
-    it("doesn't throw an error when property is not a CSS property", () => { // TODO: Discuss whether this is intended
+    it('doesn\'t throw an error when property is not a CSS property', () => { // TODO: Discuss whether this is intended
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [

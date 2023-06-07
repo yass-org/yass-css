@@ -13,7 +13,7 @@ export interface DesignToken {
   };
   category?: Category;
   properties?: string[];
-  meta?: {};
+  meta?: object;
 }
 
 export interface CSSRules {

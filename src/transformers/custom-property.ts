@@ -1,6 +1,6 @@
-import { Config } from "../config"
-import { CustomProperty } from "../ast"
-import { DesignToken } from "../types"
+import { Config } from '../config'
+import { CustomProperty } from '../ast'
+import { DesignToken } from '../types'
 
 export const CustomPropertyTransformer = {  
 
@@ -61,7 +61,7 @@ export const CustomPropertyTransformer = {
       // The while loop should never be able to iterate more than tokens.length. If this happens, 
       // then it's likely that the user has added tokens that are unable to be transformed.
       if(counter++ >= tokens.length) {
-        throw new Error("Unable to generate classes for all tokens. You may have an alias token that doesn't reference a valid token, or you have two tokens with the same key.");
+        throw new Error('Unable to generate classes for all tokens. You may have an alias token that doesn\'t reference a valid token, or you have two tokens with the same key.')
       }
     }
 

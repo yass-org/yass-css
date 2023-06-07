@@ -1,5 +1,5 @@
-import { validateToken, validateProperty, validateRules } from ".";
-import { Category } from "../types";
+import { validateToken, validateProperty, validateRules } from '.'
+import { Category } from '../types'
 
 describe('validateToken()', () => {
   it.each([
@@ -59,7 +59,7 @@ describe('validateToken()', () => {
       { isValid: true },
     ],
   ])('should return %p for %p and %s', (token, expected) => {
-    expect(validateToken(token)).toEqual(expected);
+    expect(validateToken(token)).toEqual(expected)
   })
 })
 
@@ -78,7 +78,7 @@ describe('validateProperty()', () => {
       { isValid: true },
     ],    
   ])('should return %p for %p and %s', (property, expected) => {
-    expect(validateProperty(property)).toEqual(expected);
+    expect(validateProperty(property)).toEqual(expected)
   })
 })
 
@@ -106,6 +106,6 @@ describe('validateRules()', () => {
     ],
  
   ])('%p should return %p', (rules, expected) => {
-    expect(validateRules(rules)).toEqual(expected);
+    expect(validateRules(rules)).toEqual(expected)
   })
 })

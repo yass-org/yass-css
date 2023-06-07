@@ -1,27 +1,27 @@
-import { CSSRules, DesignToken } from "../types";
+import { CSSRules, DesignToken } from '../types'
 
 export const validateToken = (
   token: DesignToken
 ): { isValid: boolean; reason?: string } => {
   if (!token.key) {
-    return { isValid: false, reason: "A token must define a key" };
+    return { isValid: false, reason: 'A token must define a key' }
   }
 
   if (!token.value) {
-    return { isValid: false, reason: "A token must define a value" };
+    return { isValid: false, reason: 'A token must define a value' }
   }
 
-  const hasProperties = token.properties && token.properties.length > 0;
+  const hasProperties = token.properties && token.properties.length > 0
 
   if (!(token.category || hasProperties)) {
     return {
       isValid: false,
-      reason: "A token must define either a category, or a list of properties",
-    };
+      reason: 'A token must define either a category, or a list of properties',
+    }
   }
 
-  return { isValid: true };
-};
+  return { isValid: true }
+}
 
 export const validateTokens = (tokens: DesignToken[]) => {
   const seenTokens = {}
@@ -30,7 +30,7 @@ export const validateTokens = (tokens: DesignToken[]) => {
     const { isValid, reason } = validateToken(token)
     
     if(!isValid) {
-      console.warn(`Skipping token: '${JSON.stringify(token)}'.`, reason);
+      console.warn(`Skipping token: '${JSON.stringify(token)}'.`, reason)
     }
 
     if(seenTokens[token.key]) {
@@ -50,7 +50,7 @@ export const validateProperty = (property: string): { isValid: boolean; reason?:
   if(!property) {
     return { 
       isValid: false,
-      reason: `CSS property was not present.`
+      reason: 'CSS property was not present.'
     }
   }
 

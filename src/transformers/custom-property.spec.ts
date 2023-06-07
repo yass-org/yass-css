@@ -1,13 +1,13 @@
-import { CustomPropertyTransformer } from "./custom-property"
-import { getConfig } from "../config";
-import { CustomProperty } from "../ast";
+import { CustomPropertyTransformer } from './custom-property'
+import { getConfig } from '../config'
+import { CustomProperty } from '../ast'
 
-import type { DesignToken } from "../types";
-import type { Config } from "../config";
+import type { DesignToken } from '../types'
+import type { Config } from '../config'
 
-describe("CustomPropertyTransformer()", () => {
+describe('CustomPropertyTransformer()', () => {
   describe('transform()', () => {
-    it("transforms a token into a custom property", () => {
+    it('transforms a token into a custom property', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
@@ -22,10 +22,10 @@ describe("CustomPropertyTransformer()", () => {
         .map((customProperty: CustomProperty) => 
           customProperty.toString())
     
-      expect(result).toEqual(['--blue-500: #0063bd']);
-    });
+      expect(result).toEqual(['--blue-500: #0063bd'])
+    })
     
-    it("transforms an alias token into a custom property", () => {
+    it('transforms an alias token into a custom property', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
@@ -47,9 +47,9 @@ describe("CustomPropertyTransformer()", () => {
         '--blue-500: #0063bd',
         '--brand-primary: var(--blue-500)',      
       ])
-    });
+    })
 
-    it("orders custom properties to ensure `var()` will resolve", () => {
+    it('orders custom properties to ensure `var()` will resolve', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
@@ -71,9 +71,9 @@ describe("CustomPropertyTransformer()", () => {
         '--blue-500: #0063bd',
         '--brand-primary: var(--blue-500)',
       ])
-    });
+    })
     
-    it("transforms tokens into custom properties with the correct value", () => {
+    it('transforms tokens into custom properties with the correct value', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
@@ -100,10 +100,10 @@ describe("CustomPropertyTransformer()", () => {
         '--brand-primary: var(--blue-500)',
         '--button-color-brand-primary: var(--brand-primary)',
       ])
-    });  
+    })  
     
     
-    it("handles empty array", () => {
+    it('handles empty array', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = []
@@ -113,7 +113,7 @@ describe("CustomPropertyTransformer()", () => {
       expect(result).toEqual([])
     })
     
-    it("throws an error when alias token cannot be resolved", () => {
+    it('throws an error when alias token cannot be resolved', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
@@ -124,8 +124,8 @@ describe("CustomPropertyTransformer()", () => {
       ]
       
       expect(() => CustomPropertyTransformer.transform(tokens, config)).toThrow(
-        new Error("Unable to generate classes for all tokens. You may have an alias token that doesn't reference a valid token, or you have two tokens with the same key.")
-      );
+        new Error('Unable to generate classes for all tokens. You may have an alias token that doesn\'t reference a valid token, or you have two tokens with the same key.')
+      )
     })
 
 

@@ -1,4 +1,4 @@
-import { getConfig } from "./config"
+import { getConfig } from './config'
 
 
 describe('getConfig()', () => {
@@ -65,7 +65,7 @@ describe('getConfig()', () => {
     })    
   })
 
-it('accepts partial override', () => {
+  it('accepts partial override', () => {
     const config = getConfig({
       stylesheet: {
         include: {

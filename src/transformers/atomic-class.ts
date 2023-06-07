@@ -1,10 +1,10 @@
-import { AtomicClass } from "../ast";
-import { CustomPropertyTransformer } from "./custom-property";
+import { AtomicClass } from '../ast'
+import { CustomPropertyTransformer } from './custom-property'
 import color from '../definitions/categories/color.json'
 import scale from '../definitions/categories/scale.json'
 
-import type { DesignToken } from "../types";
-import type { Config } from "../config";
+import type { DesignToken } from '../types'
+import type { Config } from '../config'
 
 const categoryMap = {
   'color': color,
