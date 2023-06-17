@@ -1,6 +1,8 @@
 import color from './default/color.json'
 import elevation from './default/elevation.json'
+import fontSize from './default/font-size.json'
 import fontWeight from './default/font-weight.json'
+import lineHeight from './default/line-height.json'
 import opacity from './default/opacity.json'
 import scale from './default/scale.json'
 import { FileSystem } from '../file-system'
@@ -8,7 +10,9 @@ import { FileSystem } from '../file-system'
 const defaults = [
   ...color,
   ...elevation,
+  ...fontSize,
   ...fontWeight,
+  ...lineHeight,
   ...opacity,
   ...scale,
 ]

@@ -1,5 +1,6 @@
 [
-  { "key": "neutral-50", "value": "hsl(220, 25%, 97.5%)", "theme": { "light": "hsl(220, 25%, 97.5%)", "dark": "hsl(220, 25%, 15%)"}, "category": "color" },
+  { "key": "neutral-0", "value": "hsl(220, 25%, 100%)", "category": "color" },
+  { "key": "neutral-50", "value": "hsl(220, 25%, 97.5%)", "category": "color" },
   { "key": "neutral-100", "value": "hsl(220, 25%, 95%)", "category": "color" },
   { "key": "neutral-200", "value": "hsl(220, 25%, 85%)", "category": "color" },
   { "key": "neutral-300", "value": "hsl(220, 25%, 75%)", "category": "color" },

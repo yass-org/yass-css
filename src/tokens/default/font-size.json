@@ -1,0 +1,9 @@
+[
+  { "key": "font-size-100", "name": "100", "value": "0.6rem", "properties": ["font-size"] },
+  { "key": "font-size-200", "name": "200", "value": "0.8rem", "properties": ["font-size"] },
+  { "key": "font-size-300", "name": "300", "value": "0.9rem", "properties": ["font-size"] },
+  { "key": "font-size-400", "name": "400", "value": "1rem", "properties": ["font-size"] },
+  { "key": "font-size-500", "name": "500", "value": "1.125rem", "properties": ["font-size"] },
+  { "key": "font-size-600", "name": "600", "value": "1.5rem", "properties": ["font-size"] },
+  { "key": "font-size-700", "name": "700", "value": "2rem", "properties": ["font-size"] }
+]

@@ -19,11 +19,12 @@ describe('build()', () => {
       }      
     ]
 
+    const directoryContents = undefined
     const config: Config = getConfig({})
 
-    const stylesheet = build(tokens, config)
+    const stylesheet = build(tokens, directoryContents, config)
     expect(stylesheet).toContain('--color-red: rgb(255, 0, 0);')
-    expect(stylesheet).toContain('--color-green: rgb(0, 255, 0);')
+    expect(stylesheet).toContain('--color-green: rgb(0, 255, 0)')
   })
 
   it('prefers token.name over token.key to generate class name if token.name is present', () => {
@@ -33,19 +34,19 @@ describe('build()', () => {
       name: 'red',
       properties: ['color'],
     }]
-
+    const directoryContents = undefined
     const config: Config = getConfig({})
-    const stylesheet = build(tokens, config)
+    const stylesheet = build(tokens, directoryContents, config)
 
-    expect(stylesheet).toContain('--color-red: rgb(255, 0, 0);') // Uses token.key for the custom property
+    expect(stylesheet).toContain('--color-red: rgb(255, 0, 0)') // Uses token.key for the custom property
     expect(stylesheet).toContain('.color\\:red { color: var(--color-red); }') // Uses token.name for the class name
   })
 
   it('does not generate :root element if no tokens are defined', () => {
     const tokens: DesignToken[] = []
 
-    const config: Config = getConfig({})
-    const stylesheet = build(tokens, config)
+    const config: Config = getConfig({})    
+    const stylesheet = build(tokens, [], config)
 
     expect(stylesheet).toBe('')
   })
@@ -88,6 +89,7 @@ describe('build()', () => {
         properties: ['color'],
       },      
     ]
+    const directoryContents = undefined
 
     const config: Config = getConfig({
       rules: {
@@ -95,8 +97,36 @@ describe('build()', () => {
         separator: '-'
       }
     })
-    const stylesheet = build(tokens, config)
+    const stylesheet = build(tokens, directoryContents, config)
 
     expect(stylesheet).toMatchSnapshot()
+  })
+
+  it('generates only the classes for class names referenced in the src directory', () => {
+    const tokens: DesignToken[] = [
+      {
+        key: 'color-red',
+        value: 'rgb(255, 0, 0)',
+        properties: ['background-color'],
+      },
+      {
+        key: 'color-green',
+        value: 'rgb(0, 255, 0)',
+        name: 'green',
+        properties: ['background-color'],
+      },
+    ]
+
+    const directoryContents = [
+      'class="background-color:green"'
+    ]
+    const config: Config = getConfig({})
+    const stylesheet = build(tokens, directoryContents, config)
+
+    expect(stylesheet).toBe(`:root {
+  --color-red: rgb(255, 0, 0);
+  --color-green: rgb(0, 255, 0);
+}
+.background-color\\:green { background-color: var(--color-green); }`)
   })
 })
