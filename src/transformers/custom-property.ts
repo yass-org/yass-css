@@ -2,27 +2,27 @@ import { Config } from '../config'
 import { CustomProperty } from '../ast'
 import { DesignToken } from '../types'
 
-export const CustomPropertyTransformer = {  
+export const CustomPropertyTransformer = {
 
-  /** 
-   * Surprisingly difficult function to write. We need to make sure that the resulting custom properties are 
+  /**
+   * Surprisingly difficult function to write. We need to make sure that the resulting custom properties are
    * ordered in a way where they are able to be transformed. For example:
    * ```
    * [
-   *   { key: 'brand-primary',  value: '{blue-500}' }, 
+   *   { key: 'brand-primary',  value: '{blue-500}' },
    *   { key: 'blue-500', value: '#0063bd' },
    * ]
    * ```
-   * 
+   *
    * will not automatically be able to transformed, since the `{blue-500}` alias token is referenced before it is declared.
-   * 
-   * To solve this, we repeatedly iterate over the tokens array, adding any tokens that are able to be transformed. 
+   *
+   * To solve this, we repeatedly iterate over the tokens array, adding any tokens that are able to be transformed.
    */
   transform(tokens: DesignToken[], config: Config): CustomProperty[] {
     const customProperties: CustomProperty[] = []
     const seen: Set<string> = new Set()
     let counter = 0
-    
+
     while(seen.size < tokens.length) {
       tokens.forEach((token) => {
         if(seen.has(token.key)) {
@@ -34,7 +34,7 @@ export const CustomPropertyTransformer = {
         if(!CustomPropertyTransformer.isAliasToken(token)) {
           const customPropertyName = CustomPropertyTransformer.property(token, config)
           const property = new CustomProperty({ key: customPropertyName, value: token.value })
-          
+
           seen.add(token.key)
           customProperties.push(property)
           return
@@ -42,10 +42,10 @@ export const CustomPropertyTransformer = {
 
         // Else, it's an alias token, like `{ key: 'brand-primary',  value: '{blue-500}' }`, so,
         // get the alias value, e.g. `blue-500`
-        const alias = CustomPropertyTransformer.aliasValue(token)  
+        const alias = CustomPropertyTransformer.aliasValue(token)
 
-        // If the alias has already been seen, then we are able add it to the end of 
-        // the array, since the value it transforms to has previously been added 
+        // If the alias has already been seen, then we are able add it to the end of
+        // the array, since the value it transforms to has previously been added
         if(seen.has(alias)) {
           const customPropertyName = CustomPropertyTransformer.property(token, config)
           const property = new CustomProperty({ key: customPropertyName, value: `var(--${alias})` })
@@ -58,7 +58,7 @@ export const CustomPropertyTransformer = {
         // more tokens have been transformed.
       })
 
-      // The while loop should never be able to iterate more than tokens.length. If this happens, 
+      // The while loop should never be able to iterate more than tokens.length. If this happens,
       // then it's likely that the user has added tokens that are unable to be transformed.
       if(counter++ >= tokens.length) {
         throw new Error('Unable to generate classes for all tokens. You may have an alias token that doesn\'t reference a valid token, or you have two tokens with the same key.')

@@ -1,21 +1,21 @@
-import { 
+import {
   Declaration,
-  Rule, 
+  Rule,
 } from 'postcss'
 
-export interface AtomicClassArgs { 
+export interface AtomicClassArgs {
   className: string
-  declaration: { 
+  declaration: {
     property: string
-    value: string 
+    value: string
   }
 }
 
 export class AtomicClass {
   className: string
-  declaration: { 
+  declaration: {
     property: string
-    value: string 
+    value: string
   }
 
   constructor({ className, declaration }: AtomicClassArgs){

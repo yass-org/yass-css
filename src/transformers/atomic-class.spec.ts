@@ -17,11 +17,11 @@ describe('AtomicClassTransformer', () => {
           properties: ['color']
         },
       ]
-      
+
       const result = AtomicClassTransformer.transform(tokens, config)
-        .map((atomicClass: AtomicClass) => 
+        .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
-    
+
       expect(result).toEqual([
         '.color\\:blue-500 { color: var(--blue-500); }'
       ])
@@ -40,30 +40,30 @@ describe('AtomicClassTransformer', () => {
           key: 'brand-primary',
           value: '{blue-500}',
           properties: ['color']
-        },      
+        },
       ]
-  
+
       const result = AtomicClassTransformer.transform(tokens, config)
-        .map((atomicClass: AtomicClass) => 
+        .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
-    
+
       expect(result).toEqual([
         '.color\\:blue-500 { color: var(--blue-500); }',
         '.color\\:brand-primary { color: var(--brand-primary); }' // Expected, since `--brand-primary: var(--blue-500)`
       ])
     })
-  
-      
+
+
     it('handles empty array', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = []
-  
+
       const result = AtomicClassTransformer.transform(tokens, config)
-            
+
       expect(result).toEqual([])
     })
-    
+
     it('doesn\'t throw an error when property is not a CSS property', () => { // TODO: Discuss whether this is intended
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
@@ -74,29 +74,29 @@ describe('AtomicClassTransformer', () => {
           properties: ['boop']
         },
       ]
-      
+
       const result = AtomicClassTransformer.transform(tokens, config)
-        .map((atomicClass: AtomicClass) => 
+        .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
-    
+
       expect(result).toEqual([
         '.boop\\:blue-500 { boop: var(--blue-500); }',
       ])
     })
-  
-  
+
+
     describe('className()', () => {
       it('constructs a class name', () => {
         const token: DesignToken = {
           key: '400',
           value: '8px',
         }
-  
+
         const userConfig: Partial<Config> = {}
         const config: Config = getConfig(userConfig)
         const property = 'width'
-        const variable = AtomicClassTransformer.className(property, token, config)
-  
+        const variable = AtomicClassTransformer.className({property, token, config})
+
         expect(variable).toBe('width\\:400')
       })
 
@@ -105,7 +105,7 @@ describe('AtomicClassTransformer', () => {
           key: '400',
           value: '8px',
         }
-  
+
         const userConfig: Partial<Config> = {
           rules: {
             separator: '-'
@@ -113,8 +113,8 @@ describe('AtomicClassTransformer', () => {
         }
         const config: Config = getConfig(userConfig)
         const property = 'width'
-        const variable = AtomicClassTransformer.className(property, token, config)
-  
+        const variable = AtomicClassTransformer.className({property, token, config})
+
         expect(variable).toBe('width-400')
       })
 
@@ -123,7 +123,7 @@ describe('AtomicClassTransformer', () => {
           key: '400',
           value: '8px',
         }
-  
+
         const userConfig: Partial<Config> = {
           rules: {
             namespace: 'ds-'
@@ -131,8 +131,8 @@ describe('AtomicClassTransformer', () => {
         }
         const config: Config = getConfig(userConfig)
         const property = 'width'
-        const variable = AtomicClassTransformer.className(property, token, config)
-  
+        const variable = AtomicClassTransformer.className({property, token, config})
+
         expect(variable).toBe('ds-width\\:400')
       })
 
@@ -142,14 +142,14 @@ describe('AtomicClassTransformer', () => {
           value: '8px',
           name: 'small'
         }
-  
+
         const config: Config = getConfig({})
         const property = 'width'
-        const variable = AtomicClassTransformer.className(property, token, config)
-  
+        const variable = AtomicClassTransformer.className({property, token, config})
+
         expect(variable).toBe('width\\:small')
-      })        
-    })  
+      })
+    })
   })
 })
 
