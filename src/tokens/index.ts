@@ -20,7 +20,7 @@ const defaults = [
 export const getTokens = (dir: string | undefined) => {
   if(!dir) {
     return defaults
-  } 
+  }
 
   const tokens = []
   FileSystem.walkDir(dir, (filepath) => {
@@ -28,4 +28,4 @@ export const getTokens = (dir: string | undefined) => {
   })
 
   return tokens
-} 
+}

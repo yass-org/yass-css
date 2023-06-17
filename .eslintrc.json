@@ -36,7 +36,9 @@
         "no-useless-escape": [
             "off"
         ],
-        "no-only-tests/no-only-tests": "error"
-
+        "no-only-tests/no-only-tests": "error",
+        "no-trailing-spaces": [
+            "error"
+        ]
     }
 }

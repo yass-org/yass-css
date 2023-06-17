@@ -10,7 +10,7 @@ import { arrayContainsSubstring } from './utils'
 export const build = (tokens: DesignToken[], directoryContents: string[] | undefined, config: Config): string => {
   if(!tokens || tokens.length === 0){
     return ''
-  }  
+  }
 
   const validTokens = validateTokens(tokens)
   const validRules = validateRules(rules)

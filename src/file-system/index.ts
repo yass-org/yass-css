@@ -6,7 +6,7 @@ export const FileSystem = {
   getIfExists(path: string): Partial<Config> {
     return fs.existsSync(path) ? require(path) : {} // Open user config JSON
   },
- 
+
   walkDir(dir: string, callback: (filepath: string, stats: Stats) => void): void {
     const files = fs.readdirSync(dir)
 

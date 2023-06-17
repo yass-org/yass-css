@@ -2,6 +2,7 @@ import { AtomicClass } from '../ast'
 import { CustomPropertyTransformer } from './custom-property'
 import color from '../definitions/categories/color.json'
 import scale from '../definitions/categories/scale.json'
+import pseudos from '../definitions/css/pseudos.json'
 
 import type { DesignToken } from '../types'
 import type { Config } from '../config'
@@ -11,10 +12,16 @@ const categoryMap = {
   'scale': scale,
 }
 
+interface ClassName {
+  property: string;
+  token: DesignToken;
+  config: Config
+}
+
 export const AtomicClassTransformer = {
 
   /**
-   * Converts an array of `DesignToken` objects into an array of Yass atomic classes 
+   * Converts an array of `DesignToken` objects into an array of Yass atomic classes
    */
   transform(tokens: DesignToken[], config: Config): AtomicClass[] {  
     return tokens
