@@ -1,4 +1,4 @@
-import { AtomicClass, RootElement, StyleSheet } from './ast' 
+import { AtomicClass, RootElement, StyleSheet } from './ast'
 import { Config } from './config'
 import { AtomicClassTransformer, BaseCSSTransformer, CustomPropertyTransformer } from './transformers'
 import rules from './definitions/css/rules.json'
@@ -24,7 +24,7 @@ export const build = (tokens: DesignToken[], directoryContents: string[] | undef
 
     // Add the base classes
     ...BaseCSSTransformer
-      .transform(validRules, config)      
+      .transform(validRules, config)
       .filter((atomicClass: AtomicClass) => isReferencedInSourceFolder(atomicClass, directoryContents)),
 
     // Add the atomic classes
@@ -39,8 +39,8 @@ export const build = (tokens: DesignToken[], directoryContents: string[] | undef
 }
 
 const isReferencedInSourceFolder = (atomicClass: AtomicClass, directoryContents: string[] | undefined) => {
-  
-  // If directoryContents is not defined, then generate all classes, 
+
+  // If directoryContents is not defined, then generate all classes,
   // since we can't determine which ones have been referenced
   if(!directoryContents) {
     return true

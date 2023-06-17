@@ -16,8 +16,8 @@ const tokens = getTokens(tokensDir)
 const { src } = config
 const { buildPath, filename } = config.stylesheet
 
-const directoryContent = src 
-  ? FileSystem.readDirectory(src, { ignore: [`${buildPath}/${filename}`]}) 
+const directoryContent = src
+  ? FileSystem.readDirectory(src, { ignore: [`${buildPath}/${filename}`]})
   : undefined
 
 const stylesheet = build(tokens, directoryContent, config)

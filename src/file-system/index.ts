@@ -39,7 +39,7 @@ export const FileSystem = {
         return
       }
       const fileContent = FileSystem.readFile(filepath)
-      directoryContent.push(fileContent) 
+      directoryContent.push(fileContent)
     })
 
     return directoryContent

@@ -45,7 +45,7 @@ describe('build()', () => {
   it('does not generate :root element if no tokens are defined', () => {
     const tokens: DesignToken[] = []
 
-    const config: Config = getConfig({})    
+    const config: Config = getConfig({})
     const stylesheet = build(tokens, [], config)
 
     expect(stylesheet).toBe('')
