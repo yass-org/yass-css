@@ -4,7 +4,7 @@ import { getConfig } from './config'
 describe('getConfig()', () => {
   it('generates a default config', () => {
     const config = getConfig({})
-    
+
     expect(config).toEqual({
       rules: {
         namespace: '',
@@ -21,7 +21,7 @@ describe('getConfig()', () => {
       types: {
         buildPath: 'types/',
         filename: 'yass.ts',
-      },      
+      },
     })
   })
 
@@ -44,7 +44,7 @@ describe('getConfig()', () => {
         filename: 'types.ts',
       },
     })
-    
+
     expect(config).toEqual({
       rules: {
         namespace: 'ds-',
@@ -62,7 +62,7 @@ describe('getConfig()', () => {
         buildPath: 'types/yass/',
         filename: 'types.ts',
       },
-    })    
+    })
   })
 
   it('accepts partial override', () => {
@@ -73,7 +73,7 @@ describe('getConfig()', () => {
         }
       },
     })
-    
+
     expect(config).toEqual({
       rules: {
         namespace: '',
@@ -90,7 +90,7 @@ describe('getConfig()', () => {
       types: {
         buildPath: 'types/',
         filename: 'yass.ts',
-      },   
-    })    
-  })  
+      },
+    })
+  })
 })

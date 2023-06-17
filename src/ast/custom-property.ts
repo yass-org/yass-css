@@ -1,6 +1,6 @@
 import { Declaration } from 'postcss'
 
-interface CustomPropertyArgs { 
+interface CustomPropertyArgs {
   key: string;
   value: string;
 }
@@ -8,7 +8,7 @@ interface CustomPropertyArgs {
 export class CustomProperty {
   key: string
   value: string
-  
+
   constructor({ key, value }: CustomPropertyArgs) {
     this.key = key
     this.value = value

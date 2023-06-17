@@ -28,7 +28,7 @@ export const validateTokens = (tokens: DesignToken[]) => {
 
   return tokens.filter((token: DesignToken) => {
     const { isValid, reason } = validateToken(token)
-    
+
     if(!isValid) {
       console.warn(`Skipping token: '${JSON.stringify(token)}'.`, reason)
     }
@@ -48,7 +48,7 @@ export const validateTokens = (tokens: DesignToken[]) => {
 export const validateProperty = (property: string): { isValid: boolean; reason?: string } => {
 
   if(!property) {
-    return { 
+    return {
       isValid: false,
       reason: 'CSS property was not present.'
     }
@@ -57,7 +57,7 @@ export const validateProperty = (property: string): { isValid: boolean; reason?:
   const validPropertySyntaxPattern = /[a-z\-]/
 
   if(!validPropertySyntaxPattern.test(property)) {
-    return { 
+    return {
       isValid: false,
       reason: `CSS property '${property}' is not valid CSS property syntax`
     }

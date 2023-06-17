@@ -17,9 +17,9 @@ const toPascalCase = (text) => {
 
 }
 
-// TODO: Do this using the TS AST once we validate that the types are nice to work with 
+// TODO: Do this using the TS AST once we validate that the types are nice to work with
 export const buildTypes = (userTokens: DesignToken[], cssTokens: DesignToken[]): string => {
-  
+
   const buckets = {}
 
   userTokens.forEach((token: DesignToken) => {
@@ -33,7 +33,7 @@ export const buildTypes = (userTokens: DesignToken[], cssTokens: DesignToken[]):
   })
 
   cssTokens.forEach((token: DesignToken) => {
-    
+
     token.properties.forEach((property: string) => {
       if(!buckets[property]) {
         buckets[property] = []
@@ -48,6 +48,6 @@ export const buildTypes = (userTokens: DesignToken[], cssTokens: DesignToken[]):
     const values = buckets[bucketName].join('\' | \'')
     types += `export type ${typeName} = '${values}'\n`
   })
-  
+
   return types
 }

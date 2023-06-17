@@ -33,11 +33,11 @@ describe('BaseCSSTransformer', () => {
           'table-row',
         ]
       }
-      
+
       const result = BaseCSSTransformer.transform(rules, config)
-        .map((atomicClass: AtomicClass) => 
+        .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
-    
+
       expect(result).toEqual([
         '.display\\:initial { display: initial; }',
         '.display\\:inherit { display: inherit; }',
@@ -57,42 +57,42 @@ describe('BaseCSSTransformer', () => {
         '.display\\:table-row-group { display: table-row-group; }',
         '.display\\:table-header-group { display: table-header-group; }',
         '.display\\:table-footer-group { display: table-footer-group; }',
-        '.display\\:table-row { display: table-row; }',        
+        '.display\\:table-row { display: table-row; }',
       ])
-    })  
-      
+    })
+
     it('handles empty array', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const rules: CSSRules = {
         display: []
-      }  
+      }
       const result = BaseCSSTransformer.transform(rules, config)
-            
+
       expect(result).toEqual([])
     })
-      
+
     it('handles empty object', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
       const rules: CSSRules = {}
       const result = BaseCSSTransformer.transform(rules, config)
-            
+
       expect(result).toEqual([])
     })
 
     describe('className()', () => {
-      it('constructs a class name', () => {  
+      it('constructs a class name', () => {
         const userConfig: Partial<Config> = {}
         const config: Config = getConfig(userConfig)
         const property = 'display'
         const value = 'flex'
         const variable = BaseCSSTransformer.className(property, value, config)
-  
+
         expect(variable).toBe('display\\:flex')
       })
 
-      it('uses separator provided in config ', () => {  
+      it('uses separator provided in config ', () => {
         const userConfig: Partial<Config> = {
           rules: {
             separator: '-'
@@ -103,11 +103,11 @@ describe('BaseCSSTransformer', () => {
         const property = 'display'
         const value = 'flex'
         const variable = BaseCSSTransformer.className(property, value, config)
-  
+
         expect(variable).toBe('display-flex')
       })
 
-      it('uses namespace provided in config ', () => {  
+      it('uses namespace provided in config ', () => {
         const userConfig: Partial<Config> = {
           rules: {
             namespace: 'ds-'
@@ -118,10 +118,10 @@ describe('BaseCSSTransformer', () => {
         const property = 'display'
         const value = 'flex'
         const variable = BaseCSSTransformer.className(property, value, config)
-  
+
         expect(variable).toBe('ds-display\\:flex')
       })
-    })  
+    })
   })
 })
 

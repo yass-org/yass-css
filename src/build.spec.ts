@@ -16,7 +16,7 @@ describe('build()', () => {
         key: 'color-green',
         value: 'rgb(0, 255, 0)',
         properties: ['color'],
-      }      
+      }
     ]
 
     const config: Config = getConfig({})
@@ -86,7 +86,7 @@ describe('build()', () => {
         },
         name: 'blue',
         properties: ['color'],
-      },      
+      },
     ]
 
     const config: Config = getConfig({

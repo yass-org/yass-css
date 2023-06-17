@@ -49,7 +49,7 @@ describe('validateToken()', () => {
         category: 'color' as Category,
       },
       { isValid: true },
-    ],    
+    ],
     [
       {
         key: 'color-red',
@@ -76,7 +76,7 @@ describe('validateProperty()', () => {
     [
       'display',
       { isValid: true },
-    ],    
+    ],
   ])('should return %p for %p and %s', (property, expected) => {
     expect(validateProperty(property)).toEqual(expected)
   })
@@ -104,7 +104,7 @@ describe('validateRules()', () => {
         display: ['flex'], // Valid rules are returned
       },
     ],
- 
+
   ])('%p should return %p', (rules, expected) => {
     expect(validateRules(rules)).toEqual(expected)
   })

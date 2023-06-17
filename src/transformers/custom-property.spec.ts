@@ -16,15 +16,15 @@ describe('CustomPropertyTransformer()', () => {
           value: '#0063bd'
         },
       ]
-      
+
       const result = CustomPropertyTransformer
         .transform(tokens, config)
-        .map((customProperty: CustomProperty) => 
+        .map((customProperty: CustomProperty) =>
           customProperty.toString())
-    
+
       expect(result).toEqual(['--blue-500: #0063bd'])
     })
-    
+
     it('transforms an alias token into a custom property', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
@@ -36,16 +36,16 @@ describe('CustomPropertyTransformer()', () => {
         {
           key: 'brand-primary',
           value: '{blue-500}'
-        },      
+        },
       ]
 
       const result = CustomPropertyTransformer.transform(tokens, config)
-        .map((customProperty: CustomProperty) => 
+        .map((customProperty: CustomProperty) =>
           customProperty.toString())
 
       expect(result).toEqual([
         '--blue-500: #0063bd',
-        '--brand-primary: var(--blue-500)',      
+        '--brand-primary: var(--blue-500)',
       ])
     })
 
@@ -56,15 +56,15 @@ describe('CustomPropertyTransformer()', () => {
         {
           key: 'brand-primary',
           value: '{blue-500}'
-        },    
+        },
         {
           key: 'blue-500',
           value: '#0063bd'
-        },  
+        },
       ]
 
       const result = CustomPropertyTransformer.transform(tokens, config)
-        .map((customProperty: CustomProperty) => 
+        .map((customProperty: CustomProperty) =>
           customProperty.toString())
 
       expect(result).toEqual([
@@ -72,7 +72,7 @@ describe('CustomPropertyTransformer()', () => {
         '--brand-primary: var(--blue-500)',
       ])
     })
-    
+
     it('transforms tokens into custom properties with the correct value', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
@@ -80,11 +80,11 @@ describe('CustomPropertyTransformer()', () => {
         {
           key: 'brand-primary',
           value: '{blue-500}'
-        },    
+        },
         {
           key: 'blue-500',
           value: '#0063bd'
-        },  
+        },
         {
           key: 'button-color-brand-primary',
           value: '{brand-primary}'
@@ -92,7 +92,7 @@ describe('CustomPropertyTransformer()', () => {
       ]
 
       const result = CustomPropertyTransformer.transform(tokens, config)
-        .map((customProperty: CustomProperty) => 
+        .map((customProperty: CustomProperty) =>
           customProperty.toString())
 
       expect(result).toEqual([
@@ -100,9 +100,9 @@ describe('CustomPropertyTransformer()', () => {
         '--brand-primary: var(--blue-500)',
         '--button-color-brand-primary: var(--brand-primary)',
       ])
-    })  
-    
-    
+    })
+
+
     it('handles empty array', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
@@ -112,7 +112,7 @@ describe('CustomPropertyTransformer()', () => {
 
       expect(result).toEqual([])
     })
-    
+
     it('throws an error when alias token cannot be resolved', () => {
       const userConfig: Partial<Config> = {}
       const config: Config = getConfig(userConfig)
@@ -122,7 +122,7 @@ describe('CustomPropertyTransformer()', () => {
           value: '{alias-to-a-token-that-does-not-exist}'
         },
       ]
-      
+
       expect(() => CustomPropertyTransformer.transform(tokens, config)).toThrow(
         new Error('Unable to generate classes for all tokens. You may have an alias token that doesn\'t reference a valid token, or you have two tokens with the same key.')
       )
@@ -176,8 +176,8 @@ describe('CustomPropertyTransformer()', () => {
         const variable = CustomPropertyTransformer.property(token, config)
 
         expect(variable).toBe('--gl-very-red')
-      })  
-    })  
+      })
+    })
   })
 })
 
