@@ -34,6 +34,7 @@ describe('build()', () => {
       name: 'red',
       properties: ['color'],
     }]
+
     const directoryContents = undefined
     const config: Config = getConfig({})
     const stylesheet = build(tokens, directoryContents, config)
@@ -44,9 +45,9 @@ describe('build()', () => {
 
   it('does not generate :root element if no tokens are defined', () => {
     const tokens: DesignToken[] = []
-
+    const directoryContents = undefined
     const config: Config = getConfig({})
-    const stylesheet = build(tokens, [], config)
+    const stylesheet = build(tokens, directoryContents, config)
 
     expect(stylesheet).toBe('')
   })
@@ -89,8 +90,8 @@ describe('build()', () => {
         properties: ['color'],
       },
     ]
-    const directoryContents = undefined
 
+    const directoryContents = undefined
     const config: Config = getConfig({
       rules: {
         namespace: 'yass-',
