@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { build } from './build'
 import { FileSystem } from './file-system'
-import { getTokens }  from './tokens'
+import { getTokens }  from './tokens'
 import { getConfig } from './config'
 
 import type { Config } from './config'
@@ -13,12 +13,15 @@ const userConfig: Partial<Config> = FileSystem.getIfExists(`${process.cwd()}/yas
 
 const config = getConfig(userConfig)
 const tokens = getTokens(tokensDir)
-const stylesheet = build(tokens, config)
+const { src } = config
+const { buildPath, filename } = config.stylesheet
 
-FileSystem.writeFile(
-  config.stylesheet.buildPath,
-  config.stylesheet.filename,
-  stylesheet,
-)
+const directoryContent = src
+  ? FileSystem.readDirectory(src, { ignore: [`${buildPath}/${filename}`]})
+  : undefined
+
+const stylesheet = build(tokens, directoryContent, config)
+
+FileSystem.writeFile(buildPath, filename, stylesheet)
 
 console.log('Success!')

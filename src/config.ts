@@ -11,6 +11,7 @@ export interface Config {
       tokenClasses?: boolean;
     }
   },
+  src?: string;
   types: {
     buildPath?: string;
     filename?: string;
@@ -31,6 +32,7 @@ export const getConfig = (userConfig: Partial<Config>): Config => {
         tokenClasses: userConfig?.stylesheet?.include?.tokenClasses !== undefined ? userConfig?.stylesheet?.include.tokenClasses : true,
       }
     },
+    src: userConfig?.src || undefined,
     types: {
       buildPath: userConfig?.types?.buildPath || 'types/',
       filename: userConfig?.types?.filename || 'yass.ts',

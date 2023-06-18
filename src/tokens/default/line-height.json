@@ -1,0 +1,10 @@
+[
+  { "key": "line-height-100", "name": "100", "value": "1", "properties": ["line-height"] },
+  { "key": "line-height-200", "name": "200", "value": "1.125", "properties": ["line-height"] },
+  { "key": "line-height-300", "name": "300", "value": "1.375", "properties": ["line-height"] },
+  { "key": "line-height-400", "name": "400", "value": "1.5", "properties": ["line-height"] },
+  { "key": "line-height-500", "name": "500", "value": "1.625", "properties": ["line-height"] },
+  { "key": "line-height-600", "name": "600", "value": "1.75", "properties": ["line-height"] },
+  { "key": "line-height-700", "name": "700", "value": "1.875", "properties": ["line-height"] },
+  { "key": "line-height-800", "name": "800", "value": "2", "properties": ["line-height"] }
+]

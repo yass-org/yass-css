@@ -6,7 +6,6 @@ export type Category = 'color' | 'scale';
 export interface DesignToken {
   key: string;
   value: Value;
-
   name?: string;
   themes?: {
     [theme: string]: Value;
