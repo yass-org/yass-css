@@ -1,15 +1,23 @@
 import { AtomicClass, RootElement, StyleSheet } from './ast'
 import { Config } from './config'
-import { AtomicClassTransformer, BaseCSSTransformer, CustomPropertyTransformer } from './transformers'
+import { AtomicClassTransformer, CustomPropertyTransformer } from './transformers'
 import rules from './definitions/css/rules.json'
 import { validateTokens, validateRules } from './validation'
 
 import type { DesignToken } from './types'
-import { arrayContainsSubstring } from './utils'
 
-export const build = (tokens: DesignToken[], directoryContents: string[] | undefined, config: Config): string => {
+export const build = ({ tokens, sourceSet, config }: {tokens: DesignToken[], sourceSet?: Set<string>, config: Config}): string => {
+  const { baseClasses, tokenClasses } = config.stylesheet.include
   if(!tokens || tokens.length === 0){
     return ''
+  }
+
+  const isInSourceDirectory = (atomicClass: AtomicClass) => {
+    if(!sourceSet) {
+      return true
+    }
+
+    return sourceSet.has(atomicClass.selector)
   }
 
   const validTokens = validateTokens(tokens)
@@ -22,29 +30,16 @@ export const build = (tokens: DesignToken[], directoryContents: string[] | undef
       CustomPropertyTransformer.transform(validTokens, config)
     ),
 
-    // Add the base classes
-    ...BaseCSSTransformer
-      .transform(validRules, config)
-      .filter((atomicClass: AtomicClass) => isReferencedInSourceFolder(atomicClass, directoryContents)),
+    ...(baseClasses ? AtomicClassTransformer
+      .fromCSSRules(validRules, config)
+      .filter(isInSourceDirectory) : []),
 
-    // Add the atomic classes
-    ...AtomicClassTransformer
+    ...(tokenClasses ? AtomicClassTransformer
       .transform(validTokens, config)
-      .filter((atomicClass: AtomicClass) => isReferencedInSourceFolder(atomicClass, directoryContents)),
+      .filter(isInSourceDirectory) : [])
   ]).toJSON()
 
   const { css } = stylesheet
 
   return css
-}
-
-const isReferencedInSourceFolder = (atomicClass: AtomicClass, directoryContents: string[] | undefined) => {
-
-  // If directoryContents is not defined, then generate all classes,
-  // since we can't determine which ones have been referenced
-  if(!directoryContents) {
-    return true
-  }
-
-  return arrayContainsSubstring(directoryContents, atomicClass.className)
 }

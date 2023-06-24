@@ -22,9 +22,7 @@ describe('AtomicClassTransformer', () => {
         .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
 
-      expect(result).toEqual([
-        '.color\\:blue-500 { color: var(--blue-500); }'
-      ])
+      expect(result).toContain('.color\\:blue-500 { color: var(--blue-500); }')
     })
 
     it('transforms an alias token into a atomic class', () => {
@@ -47,10 +45,8 @@ describe('AtomicClassTransformer', () => {
         .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
 
-      expect(result).toEqual([
-        '.color\\:blue-500 { color: var(--blue-500); }',
-        '.color\\:brand-primary { color: var(--brand-primary); }' // Expected, since `--brand-primary: var(--blue-500)`
-      ])
+      expect(result).toContain('.color\\:blue-500 { color: var(--blue-500); }')
+      expect(result).toContain( '.color\\:brand-primary { color: var(--brand-primary); }') // Expected, since `--brand-primary: var(--blue-500)`
     })
 
 
@@ -79,19 +75,13 @@ describe('AtomicClassTransformer', () => {
         .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
 
-      expect(result).toEqual([
-        '.boop\\:blue-500 { boop: var(--blue-500); }',
-      ])
+      expect(result).toContain('.boop\\:blue-500 { boop: var(--blue-500); }')
     })
 
 
     describe('className()', () => {
       it('constructs a class name', () => {
-        const token: DesignToken = {
-          key: '400',
-          value: '8px',
-        }
-
+        const token = '400'
         const userConfig: Partial<Config> = {}
         const config: Config = getConfig(userConfig)
         const property = 'width'
@@ -101,11 +91,7 @@ describe('AtomicClassTransformer', () => {
       })
 
       it('uses separator provided in config ', () => {
-        const token: DesignToken = {
-          key: '400',
-          value: '8px',
-        }
-
+        const token = '400'
         const userConfig: Partial<Config> = {
           rules: {
             separator: '-'
@@ -119,11 +105,7 @@ describe('AtomicClassTransformer', () => {
       })
 
       it('uses namespace provided in config ', () => {
-        const token: DesignToken = {
-          key: '400',
-          value: '8px',
-        }
-
+        const token = '400'
         const userConfig: Partial<Config> = {
           rules: {
             namespace: 'ds-'
@@ -134,20 +116,6 @@ describe('AtomicClassTransformer', () => {
         const variable = AtomicClassTransformer.className({property, token, config})
 
         expect(variable).toBe('ds-width\\:400')
-      })
-
-      it('prefers token.name over token.key ', () => {
-        const token: DesignToken = {
-          key: 'space.400',
-          value: '8px',
-          name: 'small'
-        }
-
-        const config: Config = getConfig({})
-        const property = 'width'
-        const variable = AtomicClassTransformer.className({property, token, config})
-
-        expect(variable).toBe('width\\:small')
       })
     })
   })

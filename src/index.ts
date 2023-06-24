@@ -13,14 +13,11 @@ const userConfig: Partial<Config> = FileSystem.getIfExists(`${process.cwd()}/yas
 
 const config = getConfig(userConfig)
 const tokens = getTokens(tokensDir)
-const { src } = config
 const { buildPath, filename } = config.stylesheet
+const { src } = config
+const sourceSet = src ? FileSystem.sourceToSet(src, { ignore: [`${buildPath}/${filename}`]}) : undefined
 
-const directoryContent = src
-  ? FileSystem.readDirectory(src, { ignore: [`${buildPath}/${filename}`]})
-  : undefined
-
-const stylesheet = build(tokens, directoryContent, config)
+const stylesheet = build({ tokens, sourceSet, config })
 
 FileSystem.writeFile(buildPath, filename, stylesheet)
 
