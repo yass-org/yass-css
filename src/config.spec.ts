@@ -6,9 +6,10 @@ describe('getConfig()', () => {
     const config = getConfig({})
 
     expect(config).toEqual({
+      src: undefined,
       rules: {
         namespace: '',
-        separator: '\\:',
+        separator: ':',
       },
       stylesheet: {
         buildPath:  'styles/yass/',
@@ -16,6 +17,7 @@ describe('getConfig()', () => {
         include: {
           baseClasses: true,
           tokenClasses: true,
+          pseudos: true,
         }
       },
       types: {
@@ -27,6 +29,7 @@ describe('getConfig()', () => {
 
   it('accepts overrides', () => {
     const config = getConfig({
+      src: './sircDir',
       rules: {
         namespace: 'ds-',
         separator: '-',
@@ -37,6 +40,7 @@ describe('getConfig()', () => {
         include: {
           baseClasses: false,
           tokenClasses: false,
+          pseudos: true,
         }
       },
       types: {
@@ -46,6 +50,7 @@ describe('getConfig()', () => {
     })
 
     expect(config).toEqual({
+      src: './sircDir',
       rules: {
         namespace: 'ds-',
         separator: '-',
@@ -56,6 +61,7 @@ describe('getConfig()', () => {
         include: {
           baseClasses: false,
           tokenClasses: false,
+          pseudos: true,
         }
       },
       types: {
@@ -75,9 +81,10 @@ describe('getConfig()', () => {
     })
 
     expect(config).toEqual({
+      src: undefined,
       rules: {
         namespace: '',
-        separator: '\\:',
+        separator: ':',
       },
       stylesheet: {
         buildPath:  'styles/yass/',
@@ -85,6 +92,7 @@ describe('getConfig()', () => {
         include: {
           baseClasses: false,
           tokenClasses: true,
+          pseudos: true,
         }
       },
       types: {

@@ -9,11 +9,9 @@ const tokensDir = process.argv[2];
 const userConfig = file_system_1.FileSystem.getIfExists(`${process.cwd()}/yass.config.json`);
 const config = (0, config_1.getConfig)(userConfig);
 const tokens = (0, tokens_1.getTokens)(tokensDir);
-const { src } = config;
 const { buildPath, filename } = config.stylesheet;
-const directoryContent = src
-    ? file_system_1.FileSystem.readDirectory(src, { ignore: [`${buildPath}/${filename}`] })
-    : undefined;
-const stylesheet = (0, build_1.build)(tokens, directoryContent, config);
+const { src } = config;
+const sourceSet = src ? file_system_1.FileSystem.sourceToSet(src, { ignore: [`${buildPath}/${filename}`] }) : undefined;
+const stylesheet = (0, build_1.build)({ tokens, sourceSet, config });
 file_system_1.FileSystem.writeFile(buildPath, filename, stylesheet);
 console.log('Success!');

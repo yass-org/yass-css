@@ -19,11 +19,10 @@ describe('build()', () => {
       }
     ]
 
-    const directoryContents = undefined
     const config: Config = getConfig({})
 
-    const stylesheet = build(tokens, directoryContents, config)
-    expect(stylesheet).toContain('--color-red: rgb(255, 0, 0);')
+    const stylesheet = build({tokens, config})
+    expect(stylesheet).toContain('--color-red: rgb(255, 0, 0)')
     expect(stylesheet).toContain('--color-green: rgb(0, 255, 0)')
   })
 
@@ -35,9 +34,8 @@ describe('build()', () => {
       properties: ['color'],
     }]
 
-    const directoryContents = undefined
     const config: Config = getConfig({})
-    const stylesheet = build(tokens, directoryContents, config)
+    const stylesheet = build({tokens, config})
 
     expect(stylesheet).toContain('--color-red: rgb(255, 0, 0)') // Uses token.key for the custom property
     expect(stylesheet).toContain('.color\\:red { color: var(--color-red); }') // Uses token.name for the class name
@@ -45,9 +43,8 @@ describe('build()', () => {
 
   it('does not generate :root element if no tokens are defined', () => {
     const tokens: DesignToken[] = []
-    const directoryContents = undefined
     const config: Config = getConfig({})
-    const stylesheet = build(tokens, directoryContents, config)
+    const stylesheet = build({tokens, config})
 
     expect(stylesheet).toBe('')
   })
@@ -91,14 +88,18 @@ describe('build()', () => {
       },
     ]
 
-    const directoryContents = undefined
     const config: Config = getConfig({
       rules: {
         namespace: 'yass-',
         separator: '-'
+      },
+      stylesheet: {
+        include: {
+          baseClasses: false
+        }
       }
     })
-    const stylesheet = build(tokens, directoryContents, config)
+    const stylesheet = build({tokens, config})
 
     expect(stylesheet).toMatchSnapshot()
   })
@@ -118,16 +119,45 @@ describe('build()', () => {
       },
     ]
 
-    const directoryContents = [
-      'class="background-color:green"'
-    ]
-    const config: Config = getConfig({})
-    const stylesheet = build(tokens, directoryContents, config)
+    const sourceSet = new Set<string>(['background-color:green'])
+    const config: Config = getConfig({
+      src: './src'
+    })
+    const stylesheet = build({tokens, sourceSet, config})
 
     expect(stylesheet).toBe(`:root {
   --color-red: rgb(255, 0, 0);
   --color-green: rgb(0, 255, 0);
 }
 .background-color\\:green { background-color: var(--color-green); }`)
+  })
+
+  it('respects custom separator', () => {
+    const tokens: DesignToken[] = [
+      {
+        key: 'color-red',
+        value: 'rgb(255, 0, 0)',
+        properties: ['background-color'],
+      },
+    ]
+
+    const config: Config = getConfig({
+      rules: {
+        separator: '-'
+      },
+      stylesheet: {
+        include: {
+          baseClasses: false,
+          pseudos: false
+        }
+      }
+    })
+
+    const stylesheet = build({tokens, config})
+
+    expect(stylesheet).toBe(`:root {
+  --color-red: rgb(255, 0, 0);
+}
+.background-color-color-red { background-color: var(--color-red); }`)
   })
 })

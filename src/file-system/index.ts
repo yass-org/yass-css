@@ -1,6 +1,7 @@
 import fs, { type Stats } from 'fs'
 import path from 'path'
 import  { Config } from '../config'
+import {minimatch} from 'minimatch'
 
 export const FileSystem = {
   getIfExists(path: string): Partial<Config> {
@@ -34,10 +35,14 @@ export const FileSystem = {
   readDirectory(dir: string, config?: {ignore?: string[]}): string[] {
     const { ignore } = config
     const directoryContent = []
+
     FileSystem.walkDir(dir, (filepath: string) => {
-      if(ignore.includes(filepath)) {
-        return
+      for (let index = 0; index < ignore.length; index++) {
+        if(minimatch(`./${filepath}`, `${ignore[index]}`)) {
+          return
+        }
       }
+
       const fileContent = FileSystem.readFile(filepath)
       directoryContent.push(fileContent)
     })
@@ -45,11 +50,15 @@ export const FileSystem = {
     return directoryContent
   },
 
-  directoryContainsString(dir: string, str: string, config?: { ignore?: string[] }) {
-    const directoryContent = FileSystem.readDirectory(dir, config)
+  sourceToSet(src: string, { ignore }: { ignore: string[] }): Set<string> {
+    return FileSystem
+      .readDirectory(src, { ignore })
+      .reduce((words: Set<string>, fileContent: string) => {
+        fileContent.split(/[\s]/).forEach((word: string) => {
+          words.add(word)
+        })
 
-    return !!directoryContent.find((fileContent: string) => {
-      return fileContent.match(str)
-    })
+        return words
+      }, new Set<string>())
   }
 }

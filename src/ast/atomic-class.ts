@@ -5,6 +5,7 @@ import {
 
 export interface AtomicClassArgs {
   className: string
+  selector: string
   declaration: {
     property: string
     value: string
@@ -13,13 +14,15 @@ export interface AtomicClassArgs {
 
 export class AtomicClass {
   className: string
+  selector: string
   declaration: {
     property: string
     value: string
   }
 
-  constructor({ className, declaration }: AtomicClassArgs){
+  constructor({ className, selector, declaration }: AtomicClassArgs){
     this.className = className
+    this.selector = selector
     this.declaration = declaration
   }
 

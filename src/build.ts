@@ -1,50 +1,56 @@
 import { AtomicClass, RootElement, StyleSheet } from './ast'
 import { Config } from './config'
-import { AtomicClassTransformer, BaseCSSTransformer, CustomPropertyTransformer } from './transformers'
+import { AtomicClassTransformer, CustomPropertyTransformer } from './transformers'
 import rules from './definitions/css/rules.json'
 import { validateTokens, validateRules } from './validation'
 
-import type { DesignToken } from './types'
-import { arrayContainsSubstring } from './utils'
+import type {  DesignToken } from './types'
 
-export const build = (tokens: DesignToken[], directoryContents: string[] | undefined, config: Config): string => {
+export const build = ({ tokens, sourceSet, config }: {tokens: DesignToken[], sourceSet?: Set<string>, config: Config}): string => {
+  const { baseClasses, tokenClasses } = config.stylesheet.include
   if(!tokens || tokens.length === 0){
     return ''
   }
 
-  const validTokens = validateTokens(tokens)
-  const validRules = validateRules(rules)
+  const isInSourceDirectory = (atomicClass: AtomicClass) => {
+    if(!sourceSet) {
+      return true
+    }
+
+    return sourceSet.has(atomicClass.selector)
+  }
+
+  const userTokens = validateTokens(tokens)
+  const baseCSSTokens: DesignToken[] = Object
+    .keys(validateRules(rules))
+    .flatMap(((property: string) => {
+      const values = rules[property]
+
+      return values.map((value) => ({
+        key: value,
+        value: value,
+        properties: [property],
+        customProperty: false,
+      }))
+    }))
 
   const stylesheet = new StyleSheet([
     // Add the `:root` first
     new RootElement(
       // Add CSS Custom Properties to :root
-      CustomPropertyTransformer.transform(validTokens, config)
+      CustomPropertyTransformer.transform(userTokens, config)
     ),
 
-    // Add the base classes
-    ...BaseCSSTransformer
-      .transform(validRules, config)
-      .filter((atomicClass: AtomicClass) => isReferencedInSourceFolder(atomicClass, directoryContents)),
+    ...(baseClasses ? AtomicClassTransformer
+      .transform(baseCSSTokens, config)
+      .filter(isInSourceDirectory) : []),
 
-    // Add the atomic classes
-    ...AtomicClassTransformer
-      .transform(validTokens, config)
-      .filter((atomicClass: AtomicClass) => isReferencedInSourceFolder(atomicClass, directoryContents)),
+    ...(tokenClasses ? AtomicClassTransformer
+      .transform(userTokens, config)
+      .filter(isInSourceDirectory) : [])
   ]).toJSON()
 
   const { css } = stylesheet
 
   return css
-}
-
-const isReferencedInSourceFolder = (atomicClass: AtomicClass, directoryContents: string[] | undefined) => {
-
-  // If directoryContents is not defined, then generate all classes,
-  // since we can't determine which ones have been referenced
-  if(!directoryContents) {
-    return true
-  }
-
-  return arrayContainsSubstring(directoryContents, atomicClass.className)
 }
