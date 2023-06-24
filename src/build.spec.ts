@@ -2,7 +2,6 @@ import { build } from './build'
 import { getConfig } from './config'
 import type { DesignToken } from './types'
 import type { Config } from './config'
-import pseudos from './definitions/css/pseudos'
 
 
 describe('build()', () => {
@@ -23,7 +22,7 @@ describe('build()', () => {
     const config: Config = getConfig({})
 
     const stylesheet = build({tokens, config})
-    expect(stylesheet).toContain('--color-red: rgb(255, 0, 0);')
+    expect(stylesheet).toContain('--color-red: rgb(255, 0, 0)')
     expect(stylesheet).toContain('--color-green: rgb(0, 255, 0)')
   })
 
@@ -93,6 +92,11 @@ describe('build()', () => {
       rules: {
         namespace: 'yass-',
         separator: '-'
+      },
+      stylesheet: {
+        include: {
+          baseClasses: false
+        }
       }
     })
     const stylesheet = build({tokens, config})
