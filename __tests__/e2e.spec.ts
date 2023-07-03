@@ -3,8 +3,8 @@ import path from 'path'
 import spawn from 'spawndamnit'
 
 describe('yass', () => {
-  beforeAll(() => {
-    spawn('npm', ['i', '--location=global'])
+  beforeAll(async () => {
+    await spawn('npm', ['i', '--location=global'])
   })
 
   it('works as expected with default config',  async () => {
