@@ -7,6 +7,10 @@ describe('yass', () => {
     const cwd = path.join(__dirname, 'fixtures/projects/1-no-config')
 
     await spawn('npx', ['yass-css'], { cwd })
+    const child = spawn('ls', ['-al'], { cwd })
+    const { stdout, stderr } = child
+    console.log('stdout', stdout)
+    console.log('stderr', stderr)
 
     await expect(fs.existsSync(path.join(cwd, '/styles/yass/yass.css'))).toBe(true)
 
