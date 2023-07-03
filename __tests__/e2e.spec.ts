@@ -4,7 +4,10 @@ import spawn from 'spawndamnit'
 
 describe('yass', () => {
   beforeAll(async () => {
-    await spawn('npm', ['i', '--location=global'])
+    const { stdout }  = await spawn('ls', ['-al'], { cwd: __dirname })
+    console.log('stdout', stdout)
+
+    await spawn('npm', ['install', '--location=global'], { cwd: __dirname })
   })
 
   it('works as expected with default config',  async () => {
