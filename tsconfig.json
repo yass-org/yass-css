@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "build",
-    "target": "ES6",
+    "target": "ESNext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -19,7 +19,7 @@
   },
   "include": [
     "./src",
-    "__tests__"
+    "__tests__"  
   ],
   "exclude": [
     "node_modules"
