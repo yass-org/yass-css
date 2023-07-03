@@ -5,7 +5,7 @@ import spawn from 'spawndamnit'
 describe('yass', () => {
   beforeAll(async () => {
     const { stdout }  = await spawn('ls', ['-al'], { cwd: __dirname })
-    console.log('stdout', stdout)
+    console.log('stdout', stdout.toString())
 
     await spawn('npm', ['install', '--location=global'], { cwd: __dirname })
   })
