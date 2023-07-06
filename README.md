@@ -1,5 +1,7 @@
 # Yass CSS
 
+`yass-css` is currently in alpha. It is subject to breaking changes without warning.
+
 This readme is for information about developing `yass-css`. For documentation on how to use `yass-css`, see: https://github.com/yass-org/yass-docs
 
 
