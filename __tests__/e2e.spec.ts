@@ -6,9 +6,13 @@ describe('yass', () => {
 
   it('works as expected with default config',  async () => {
     const testsDir = __dirname
+    const rootDir = __dirname.replace('__tests__', '')
+    const buildDir = path.join(rootDir, 'build/src/')
     const testProjectDir = path.join(testsDir, 'fixtures/projects/1-no-config')
 
-    await spawn('../../../../build/index.js', [], { cwd: testProjectDir })
+    await spawn('npm', ['run', 'build'], { cwd: rootDir })
+
+    await spawn('node', [path.join(buildDir, 'index.js')], { cwd: testProjectDir })
 
     await expect(fs.existsSync(path.join(testProjectDir, '/styles/yass/yass.css'))).toBe(true)
 
