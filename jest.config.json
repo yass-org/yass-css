@@ -3,7 +3,8 @@
   "transform": {
     "^.+\\.ts?$": "ts-jest"
   },
-  "testRegex": "((\\.|/)(spec))\\.ts?$",
+  "preset": "ts-jest",
+  "testRegex": "(__tests__|((\\.|/)(spec))\\.ts?)$",
   "moduleFileExtensions": ["ts", "js", "json", "node"],
   "collectCoverage": true,
   "clearMocks": true,
