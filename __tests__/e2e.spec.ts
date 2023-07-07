@@ -10,8 +10,6 @@ describe('yass', () => {
     const buildDir = path.join(rootDir, 'build/src/')
     const testProjectDir = path.join(testsDir, 'fixtures/projects/1-no-config')
 
-    await spawn('npm', ['run', 'build'], { cwd: rootDir })
-
     await spawn('node', [path.join(buildDir, 'index.js')], { cwd: testProjectDir })
 
     await expect(fs.existsSync(path.join(testProjectDir, '/styles/yass/yass.css'))).toBe(true)

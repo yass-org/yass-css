@@ -8,6 +8,5 @@
   "moduleFileExtensions": ["ts", "js", "json", "node"],
   "collectCoverage": true,
   "clearMocks": true,
-  "testTimeout": 20000,
   "coverageDirectory": "coverage"
 }

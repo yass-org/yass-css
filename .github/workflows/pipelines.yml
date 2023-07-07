@@ -4,12 +4,8 @@ on:
   push:
     branches: [ '*' ]
 
-permissions: write-all
-
 jobs:
   build:
-    permissions: write-all
-
     runs-on: ubuntu-latest
 
     strategy:
