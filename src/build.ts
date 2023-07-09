@@ -14,6 +14,7 @@ export const build = ({ tokens, sourceSet, config }: {tokens: DesignToken[], sou
 
   const isInSourceDirectory = (atomicClass: AtomicClass) => {
     if(!sourceSet) {
+
       return true
     }
 
