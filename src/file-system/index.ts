@@ -54,7 +54,7 @@ export const FileSystem = {
     return FileSystem
       .readDirectory(src, { ignore })
       .reduce((words: Set<string>, fileContent: string) => {
-        fileContent.split(/[\s]/).forEach((word: string) => {
+        fileContent.split(/[\s\"\']/).forEach((word: string) => {
           words.add(word)
         })
 
