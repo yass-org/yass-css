@@ -1,6 +1,6 @@
 {
   "name": "yass-css",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Atomic CSS that lets you encode your design system",
   "main": "./build/src/index.js",
   "scripts": {
