@@ -1,6 +1,6 @@
 {
   "name": "yass-css",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Atomic CSS that lets you encode your design system",
   "main": "./build/src/index.js",
   "scripts": {
@@ -24,11 +24,12 @@
     "Atomic CSS"
   ],
   "bin": {
-    "yass-css": "build/index.js"
+    "yass-css": "build/src/index.js"
   },
   "author": "Yass Org",
   "license": "ISC",
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@types/jest": "^29.2.5",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
