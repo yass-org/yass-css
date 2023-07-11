@@ -8,6 +8,7 @@ import pseudos from '../definitions/css/pseudos'
 import escapeSequences from '../definitions/css/escape-sequences.json'
 import scale from '../definitions/categories/scale.json'
 import color from '../definitions/categories/color.json'
+import { YassClassUsage } from '../jit'
 
 const categoryMap = {
   'color': color,
@@ -55,6 +56,36 @@ export const AtomicClassTransformer = {
           ]
         })
       })
+  },
+
+  fromUsages({ usages, config }: { usages: YassClassUsage[], config: Config }): AtomicClass[] {
+    const includePseudos = config.stylesheet.include.pseudos
+
+    return usages.flatMap(({ property, value, token }: YassClassUsage) => {
+      return [
+        // basic atomic class, e.g. `display:block`
+        new AtomicClass({
+          className: AtomicClassTransformer.className({property, token, config}),
+          selector: AtomicClassTransformer.selector({property, token, config}),
+          declaration: {
+            property,
+            value,
+          }
+        }),
+
+        // pseudo variants e.g. `display:block:hover`
+        ...(includePseudos ? pseudos.selectors.map((pseudo: string) => {
+          return new AtomicClass({
+            className: AtomicClassTransformer.className({property, token, pseudo, config}),
+            selector: AtomicClassTransformer.selector({property, token, pseudo, config}),
+            declaration: {
+              property,
+              value,
+            }
+          })
+        }) : [])
+      ]
+    })
   },
 
   className({property, token, pseudo, config }: {property: string, token: string, pseudo?: string, config: Config}): string {

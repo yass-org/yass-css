@@ -1,4 +1,4 @@
-import { AtomicClass, RootElement, StyleSheet } from './ast'
+import { RootElement, StyleSheet } from './ast'
 import { Config } from './config'
 import { AtomicClassTransformer, CustomPropertyTransformer } from './transformers'
 import rules from './definitions/css/rules.json'
@@ -6,19 +6,10 @@ import { validateTokens, validateRules } from './validation'
 
 import type {  DesignToken } from './types'
 
-export const build = ({ tokens, sourceSet, config }: {tokens: DesignToken[], sourceSet?: Set<string>, config: Config}): string => {
+export const build = ({ tokens, config }: { tokens: DesignToken[], config: Config }): string => {
   const { baseClasses, tokenClasses } = config.stylesheet.include
   if(!tokens || tokens.length === 0){
     return ''
-  }
-
-  const isInSourceDirectory = (atomicClass: AtomicClass) => {
-    if(!sourceSet) {
-
-      return true
-    }
-
-    return sourceSet.has(atomicClass.selector)
   }
 
   const userTokens = validateTokens(tokens)
@@ -44,11 +35,13 @@ export const build = ({ tokens, sourceSet, config }: {tokens: DesignToken[], sou
 
     ...(baseClasses ? AtomicClassTransformer
       .transform(baseCSSTokens, config)
-      .filter(isInSourceDirectory) : []),
+      // .filter(isInSourceDirectory)
+      : []),
 
     ...(tokenClasses ? AtomicClassTransformer
       .transform(userTokens, config)
-      .filter(isInSourceDirectory) : [])
+      // .filter(isInSourceDirectory)
+      : [])
   ]).toJSON()
 
   const { css } = stylesheet

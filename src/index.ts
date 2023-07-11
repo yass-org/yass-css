@@ -5,6 +5,7 @@ import { getTokens }  from './tokens'
 import { getConfig } from './config'
 
 import type { Config } from './config'
+import { JitCompiler } from './jit'
 
 
 const tokensDir = process.argv[2]
@@ -15,10 +16,17 @@ const config = getConfig(userConfig)
 const tokens = getTokens(tokensDir)
 const { buildPath, filename } = config.stylesheet
 const { src } = config
-const sourceSet = src ? FileSystem.sourceToSet(src, { ignore: [`${buildPath}/${filename}`]}) : undefined
 
-const stylesheet = build({ tokens, sourceSet, config })
+if(src) {
+  const stylesheet = JitCompiler.build({tokens, config})
+  FileSystem.writeFile(buildPath, filename, stylesheet)
 
-FileSystem.writeFile(buildPath, filename, stylesheet)
+} else {
+
+  const stylesheet = build({ tokens, config })
+  FileSystem.writeFile(buildPath, filename, stylesheet)
+}
+
+
 
 console.log('Success!')

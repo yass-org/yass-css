@@ -26,6 +26,6 @@ export const getTokens = (dir: string | undefined) => {
   FileSystem.walkDir(dir, (filepath) => {
     tokens.push(...require(`${process.cwd()}/${filepath}`))
   })
-
+  // TODO: Probably validate tokens here
   return tokens
 }
