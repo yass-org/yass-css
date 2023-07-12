@@ -1,2 +1,2 @@
-export { JitCompiler, type YassClassUsage } from './jit-compiler'
+export { JitCompiler, type YassSelector } from './jit-compiler'
 export { DefaultCompiler } from './default-compiler'

@@ -6,7 +6,7 @@ import { FileSystem } from '../file-system'
 import { AtomicClassTransformer, CustomPropertyTransformer } from '../transformers'
 import { StyleSheet, RootElement } from '../ast'
 
-export interface YassClassUsage {
+export interface YassSelector {
   property: string
   value: string
   token: string
@@ -40,9 +40,9 @@ export const JitCompiler = {
     return css
   },
 
-  findUsages({ fileContents, tokens, config }: {fileContents: string[], tokens: DesignToken[], config: Config}): YassClassUsage[] {
+  findUsages({ fileContents, tokens, config }: {fileContents: string[], tokens: DesignToken[], config: Config}): YassSelector[] {
 
-    return fileContents.flatMap((fileContent: string): YassClassUsage[] => {
+    return fileContents.flatMap((fileContent: string): YassSelector[] => {
       const candidateUsages = fileContent.split(/[\s\"\']/)
 
       return candidateUsages.map((candidateUsage: string) => {

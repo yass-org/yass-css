@@ -8,7 +8,7 @@ import pseudos from '../definitions/css/pseudos'
 import escapeSequences from '../definitions/css/escape-sequences.json'
 import scale from '../definitions/categories/scale.json'
 import color from '../definitions/categories/color.json'
-import type { YassClassUsage } from '../compilers'
+import type { YassSelector } from '../compilers'
 
 const categoryMap = {
   'color': color,
@@ -58,12 +58,12 @@ export const AtomicClassTransformer = {
       })
   },
 
-  fromUsages({ usages, config }: { usages: YassClassUsage[], config: Config }): AtomicClass[] {
+  fromUsages({ usages, config }: { usages: YassSelector[], config: Config }): AtomicClass[] {
     // Since a user could reference the same class twice, e.g. two `<div>`'s with `display:block,
     // we need to keep track of a `seen` so we don't add duplicate class definitions to the stylesheet
     const seen = new Set<string>()
 
-    return usages.flatMap(({ property, value, pseudos, token }: YassClassUsage) => {
+    return usages.flatMap(({ property, value, pseudos, token }: YassSelector) => {
       if(pseudos.length > 0) {
         return pseudos.map((pseudo: string) => new AtomicClass({
           className: AtomicClassTransformer.className({ property, value: token, pseudos, pseudo, config }),
