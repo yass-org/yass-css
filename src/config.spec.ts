@@ -20,10 +20,6 @@ describe('getConfig()', () => {
           pseudos: true,
         }
       },
-      types: {
-        buildPath: 'types/',
-        filename: 'yass.ts',
-      },
     })
   })
 
