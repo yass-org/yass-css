@@ -1,7 +1,7 @@
 import fs, { type Stats } from 'fs'
 import path from 'path'
 import  { Config } from '../config'
-import {minimatch} from 'minimatch'
+import { minimatch } from 'minimatch'
 
 export const FileSystem = {
   getIfExists(path: string): Partial<Config> {
@@ -50,15 +50,15 @@ export const FileSystem = {
     return directoryContent
   },
 
-  sourceToSet(src: string, { ignore }: { ignore: string[] }): Set<string> {
-    return FileSystem
-      .readDirectory(src, { ignore })
-      .reduce((words: Set<string>, fileContent: string) => {
-        fileContent.split(/[\s\"\']/).forEach((word: string) => {
-          words.add(word)
-        })
+  // sourceToSet(src: string, { ignore }: { ignore: string[] }): Set<string> {
+  //   return FileSystem
+  //     .readDirectory(src, { ignore })
+  //     .reduce((words: Set<string>, fileContent: string) => {
+  //       fileContent.split(/[\s\"\']/).forEach((word: string) => {
+  //         words.add(word)
+  //       })
 
-        return words
-      }, new Set<string>())
-  }
+  //       return words
+  //     }, new Set<string>())
+  // }
 }

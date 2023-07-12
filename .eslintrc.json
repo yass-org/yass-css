@@ -39,6 +39,7 @@
         "no-only-tests/no-only-tests": "error",
         "no-trailing-spaces": [
             "error"
-        ]
+        ],
+        "object-curly-spacing": ["error", "always"]
     }
 }

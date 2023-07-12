@@ -8,6 +8,7 @@ import pseudos from '../definitions/css/pseudos'
 import escapeSequences from '../definitions/css/escape-sequences.json'
 import scale from '../definitions/categories/scale.json'
 import color from '../definitions/categories/color.json'
+import type { YassSelector } from '../compilers'
 
 const categoryMap = {
   'color': color,
@@ -20,7 +21,7 @@ export const AtomicClassTransformer = {
    * Converts an array of `DesignToken` objects into an array of Yass atomic classes
    */
   transform(tokens: DesignToken[], config: Config): AtomicClass[] {
-    const includePseudos = config.stylesheet.include.pseudos
+    const validPseudoSelectors = config.stylesheet.include.pseudos ? pseudos.selectors : []
 
     return tokens
       .flatMap((token: DesignToken) => {
@@ -33,8 +34,8 @@ export const AtomicClassTransformer = {
           return [
             // basic atomic class, e.g. `display:block`
             new AtomicClass({
-              className: AtomicClassTransformer.className({property, token: name || key, config}),
-              selector: AtomicClassTransformer.selector({property, token: name || key, config}),
+              className: AtomicClassTransformer.className({ property, value: name || key, config }),
+              selector: AtomicClassTransformer.selector({ property, value: name || key, config }),
               declaration: {
                 property,
                 value,
@@ -42,47 +43,82 @@ export const AtomicClassTransformer = {
             }),
 
             // pseudo variants e.g. `display:block:hover`
-            ...(includePseudos ? pseudos.selectors.map((pseudo: string) => {
+            ...validPseudoSelectors.map((pseudo: string) => {
               return new AtomicClass({
-                className: AtomicClassTransformer.className({property, token: name || key, pseudo, config}),
-                selector: AtomicClassTransformer.selector({property, token: name || key, pseudo, config}),
+                className: AtomicClassTransformer.className({ property, value: name || key, pseudo, config }),
+                selector: AtomicClassTransformer.selector({ property, value: name || key, pseudos: [pseudo], config }),
                 declaration: {
                   property,
                   value,
                 }
               })
-            }) : [])
+            })
           ]
         })
       })
   },
 
-  className({property, token, pseudo, config }: {property: string, token: string, pseudo?: string, config: Config}): string {
-    const { namespace, separator } = config.rules
-    const escapedSeparator = escapedCSSString(separator)
-    const className = `${namespace}${property}${escapedSeparator}${token}`
+  fromUsages({ usages, config }: { usages: YassSelector[], config: Config }): AtomicClass[] {
+    // Since a user could reference the same class twice, e.g. two `<div>`'s with `display:block,
+    // we need to keep track of a `seen` so we don't add duplicate class definitions to the stylesheet
+    const seen = new Set<string>()
 
-    if(pseudo) {
-      return `${className}\\${pseudo}${pseudo}`
+    return usages.flatMap(({ property, value, pseudos, token }: YassSelector) => {
+      if(pseudos.length > 0) {
+        return pseudos.map((pseudo: string) => new AtomicClass({
+          className: AtomicClassTransformer.className({ property, value: token, pseudos, pseudo, config }),
+          selector: AtomicClassTransformer.selector({ property, value: token, pseudos, config }),
+          declaration: {
+            property,
+            value,
+          }
+        }))
+      }
+
+      return [
+        new AtomicClass({
+          className: AtomicClassTransformer.className({ property, value: token, config }),
+          selector: AtomicClassTransformer.selector({ property, value: token, config }),
+          declaration: {
+            property,
+            value,
+          }
+        })
+      ]
+
+    }).filter(({ className }: AtomicClass) => {
+      if(seen.has(className)) {
+        return false
+      }
+
+      seen.add(className)
+
+      return true
+    })
+  },
+
+  className({ property, value, pseudos = [], pseudo = '', config }: {property: string, value: string, pseudos?: string[], pseudo?: string, config: Config}): string {
+    const { namespace, separator } = config.rules
+    const escapedSeparator = escapedCssString(separator)
+    const className = `${namespace}${property}${escapedSeparator}${value}`
+
+    if(pseudo && pseudos.length) {
+      return `${className}\\${pseudos.join('\\')}${pseudo}`
     }
 
     return className
   },
 
-  selector({ property, token, pseudo, config }: { property: string, token: string, pseudo?: string, config: Config }): string {
+  selector({ property, value, pseudos = [], config }: { property: string, value: string, pseudos?: string[], config: Config }): string {
     const { namespace, separator } = config.rules
 
-    const className = `${namespace}${property}${separator}${token}`
+    const className = `${namespace}${property}${separator}${value}`
 
-    if(pseudo) {
-      return `${className}${pseudo}`
-    }
-
-    return className
+    return `${className}${pseudos.join('')}`
   }
 }
 
-const escapedCSSString = (str: string): string => {
+const escapedCssString = (str: string): string => {
   return escapeSequences.class.reduce((escapedString, specialChar) => {
     return escapedString.replace(specialChar, `\\${specialChar}`)
   }, str)

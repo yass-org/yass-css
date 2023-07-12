@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import { build } from './build'
 import { FileSystem } from './file-system'
 import { getTokens }  from './tokens'
 import { getConfig } from './config'
 
 import type { Config } from './config'
+import { JitCompiler, DefaultCompiler } from './compilers'
 
 
 const tokensDir = process.argv[2]
@@ -15,9 +15,9 @@ const config = getConfig(userConfig)
 const tokens = getTokens(tokensDir)
 const { buildPath, filename } = config.stylesheet
 const { src } = config
-const sourceSet = src ? FileSystem.sourceToSet(src, { ignore: [`${buildPath}/${filename}`]}) : undefined
+const Compiler = src ? JitCompiler : DefaultCompiler
 
-const stylesheet = build({ tokens, sourceSet, config })
+const stylesheet = Compiler.build({tokens, config})
 
 FileSystem.writeFile(buildPath, filename, stylesheet)
 
