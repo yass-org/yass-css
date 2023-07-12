@@ -1,40 +1,10 @@
 import { Config } from '../config'
 import rules from '../definitions/css/rules.json'
+import validPseudos from '../definitions/css/pseudos'
 import { DesignToken } from '../types'
 import { FileSystem } from '../file-system'
 import { AtomicClassTransformer, CustomPropertyTransformer } from '../transformers'
 import { StyleSheet, RootElement } from '../ast'
-
-
-/**
- * TODO: I want `rules` to look more like this:
- * [
- *  {
- *    property: 'display',
- *    values: [
- *     "initial",
- *     "inherit",
- *     "unset",
- *     "revert",
- *     "revert-layer",
- *     "inline",
- *     "block",
- *    ],
- *    tokenisable: false,
- *  },
- *  {
- *    property: 'background-color',
- *    values: [
- *     "initial",
- *     "inherit",
- *     "unset",
- *     "revert",
- *     "revert-layer",
- *    ],
- *    tokenisable: true,
- *  }
- * ]
- */
 
 export interface YassClassUsage {
   property: string
@@ -70,17 +40,12 @@ export const JitCompiler = {
     return css
   },
 
-  findUsages({fileContents, tokens, config}: {fileContents: string[], tokens: DesignToken[], config: Config}): YassClassUsage[] | undefined {
-    if(!config.src) {
-      return
-    }
+  findUsages({fileContents, tokens, config}: {fileContents: string[], tokens: DesignToken[], config: Config}): YassClassUsage[] {
 
-    const usages: YassClassUsage[] = []
-
-    fileContents.forEach((fileContent: string) => {
+    return fileContents.flatMap((fileContent: string): YassClassUsage[] => {
       const candidateUsages = fileContent.split(/[\s\"\']/)
 
-      candidateUsages.forEach((candidateUsage: string) => {
+      return candidateUsages.map((candidateUsage: string) => {
         // split `background-color:red-500:hover:focus` into `['background-color', 'red-500:hover:focus']`
         const pivot = candidateUsage.indexOf(config.rules.separator)
         const [property, valueAndPseudos] = [candidateUsage.substring(0, pivot), candidateUsage.substring(pivot + 1)]
@@ -92,29 +57,38 @@ export const JitCompiler = {
         }
 
         // check whether the candidate word is a valid css property and value, e.g. display: flex
-        if(rules[property] && rules[property].includes(value)) {
-          usages.push({
+        const rule = rules.find((rule) => rule.property === property && rule.values.includes(value))  // TODO: Change format of tokens so it has fast lookup
+        if(rule) {
+          return {
             property,
             value,
             token: value,
-            pseudos: pseudos.map((pseudo: string) => `:${pseudo}`),
-          })
-
+            pseudos: pseudos
+              .map((pseudo: string) => `:${pseudo}`)
+              .filter((pseudo) => [
+                ...validPseudos.selectors,
+                ...validPseudos.functions
+              ]
+                .includes(pseudo)),
+          }
         }
 
         const token = tokens.find((token) => token.name === value || token.key === value)  // TODO: Change format of tokens so it has fast lookup
         if(token){
-          usages.push({
+          return {
             property,
             value: token.value,
             token: token.name || token.key,
-            pseudos: pseudos.map((pseudo: string) => `:${pseudo}`),
-          })
+            pseudos: pseudos
+              .map((pseudo: string) => `:${pseudo}`)
+              .filter((pseudo) => [
+                ...validPseudos.selectors,
+                ...validPseudos.functions
+              ]
+                .includes(pseudo)),
+          }
         }
-      }, {})
-
+      }).filter(Boolean)
     })
-
-    return usages
   },
 }
