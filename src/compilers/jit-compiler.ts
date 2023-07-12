@@ -51,7 +51,9 @@ export const JitCompiler = {
     const { buildPath, filename } = config.stylesheet
 
     const fileContents = FileSystem.readDirectory(src, { ignore: [`${buildPath}/${filename}`]})
-    const usages = JitCompiler.findUsages({fileContents, tokens, config})
+    const usages = JitCompiler
+      .findUsages({fileContents, tokens, config})
+
 
     const stylesheet = new StyleSheet([
     // Add the `:root` first
@@ -95,7 +97,7 @@ export const JitCompiler = {
             property,
             value,
             token: value,
-            pseudos,
+            pseudos: pseudos.map((pseudo: string) => `:${pseudo}`),
           })
 
         }
@@ -106,7 +108,7 @@ export const JitCompiler = {
             property,
             value: token.value,
             token: token.name || token.key,
-            pseudos,
+            pseudos: pseudos.map((pseudo: string) => `:${pseudo}`),
           })
         }
       }, {})

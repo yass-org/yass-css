@@ -8,7 +8,7 @@ import pseudos from '../definitions/css/pseudos'
 import escapeSequences from '../definitions/css/escape-sequences.json'
 import scale from '../definitions/categories/scale.json'
 import color from '../definitions/categories/color.json'
-import { YassClassUsage } from '../jit'
+import type { YassClassUsage } from '../compilers'
 
 const categoryMap = {
   'color': color,
@@ -45,8 +45,8 @@ export const AtomicClassTransformer = {
             // pseudo variants e.g. `display:block:hover`
             ...(includePseudos ? pseudos.selectors.map((pseudo: string) => {
               return new AtomicClass({
-                className: AtomicClassTransformer.className({property, token: name || key, pseudo, config}),
-                selector: AtomicClassTransformer.selector({property, token: name || key, pseudo, config}),
+                className: AtomicClassTransformer.className({property, token: name || key, pseudos: [pseudo], config}),
+                selector: AtomicClassTransformer.selector({property, token: name || key, pseudos: [pseudo], config}),
                 declaration: {
                   property,
                   value,
@@ -59,61 +59,47 @@ export const AtomicClassTransformer = {
   },
 
   fromUsages({ usages, config }: { usages: YassClassUsage[], config: Config }): AtomicClass[] {
-    const includePseudos = config.stylesheet.include.pseudos
+    // Since a user could reference the same class twice, e.g. two `<div>`'s with `display:block,
+    // we need to keep track of a `seen` so we don't add duplicate class definitions to the stylesheet
+    const seen = new Set<string>()
 
-    return usages.flatMap(({ property, value, token }: YassClassUsage) => {
-      return [
-        // basic atomic class, e.g. `display:block`
-        new AtomicClass({
-          className: AtomicClassTransformer.className({property, token, config}),
-          selector: AtomicClassTransformer.selector({property, token, config}),
-          declaration: {
-            property,
-            value,
-          }
-        }),
+    return usages.map(({ property, value, pseudos, token }: YassClassUsage) => {
+      return new AtomicClass({
+        className: AtomicClassTransformer.className({property, token, pseudos, config}),
+        selector: AtomicClassTransformer.selector({property, token, pseudos, config}),
+        declaration: {
+          property,
+          value,
+        }
+      })
 
-        // pseudo variants e.g. `display:block:hover`
-        ...(includePseudos ? pseudos.selectors.map((pseudo: string) => {
-          return new AtomicClass({
-            className: AtomicClassTransformer.className({property, token, pseudo, config}),
-            selector: AtomicClassTransformer.selector({property, token, pseudo, config}),
-            declaration: {
-              property,
-              value,
-            }
-          })
-        }) : [])
-      ]
+    }).filter(({ className }: AtomicClass) => {
+      if(seen.has(className)) {
+        return false
+      }
+      seen.add(className)
+      return true
     })
   },
 
-  className({property, token, pseudo, config }: {property: string, token: string, pseudo?: string, config: Config}): string {
+  className({property, token, pseudos = [], config }: {property: string, token: string, pseudos?: string[], config: Config}): string {
     const { namespace, separator } = config.rules
-    const escapedSeparator = escapedCSSString(separator)
+    const escapedSeparator = escapedCssString(separator)
     const className = `${namespace}${property}${escapedSeparator}${token}`
 
-    if(pseudo) {
-      return `${className}\\${pseudo}${pseudo}`
-    }
-
-    return className
+    return `${className}${pseudos.map((pseudo: string) => `\\${escapedCssString(pseudo)}${pseudo}`).join('')}`
   },
 
-  selector({ property, token, pseudo, config }: { property: string, token: string, pseudo?: string, config: Config }): string {
+  selector({ property, token, pseudos = [], config }: { property: string, token: string, pseudos?: string[], config: Config }): string {
     const { namespace, separator } = config.rules
 
     const className = `${namespace}${property}${separator}${token}`
 
-    if(pseudo) {
-      return `${className}${pseudo}`
-    }
-
-    return className
+    return `${className}${pseudos.join('')}`
   }
 }
 
-const escapedCSSString = (str: string): string => {
+const escapedCssString = (str: string): string => {
   return escapeSequences.class.reduce((escapedString, specialChar) => {
     return escapedString.replace(specialChar, `\\${specialChar}`)
   }, str)
