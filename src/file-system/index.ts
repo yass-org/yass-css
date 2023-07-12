@@ -1,7 +1,7 @@
 import fs, { type Stats } from 'fs'
 import path from 'path'
 import  { Config } from '../config'
-import {minimatch} from 'minimatch'
+import { minimatch } from 'minimatch'
 
 export const FileSystem = {
   getIfExists(path: string): Partial<Config> {

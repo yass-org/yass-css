@@ -20,9 +20,9 @@ export const JitCompiler = {
     const { src, } = config
     const { buildPath, filename } = config.stylesheet
 
-    const fileContents = FileSystem.readDirectory(src, { ignore: [`${buildPath}/${filename}`]})
+    const fileContents = FileSystem.readDirectory(src, { ignore: [`${buildPath}/${filename}`] })
     const usages = JitCompiler
-      .findUsages({fileContents, tokens, config})
+      .findUsages({ fileContents, tokens, config })
 
 
     const stylesheet = new StyleSheet([
@@ -40,7 +40,7 @@ export const JitCompiler = {
     return css
   },
 
-  findUsages({fileContents, tokens, config}: {fileContents: string[], tokens: DesignToken[], config: Config}): YassClassUsage[] {
+  findUsages({ fileContents, tokens, config }: {fileContents: string[], tokens: DesignToken[], config: Config}): YassClassUsage[] {
 
     return fileContents.flatMap((fileContent: string): YassClassUsage[] => {
       const candidateUsages = fileContent.split(/[\s\"\']/)

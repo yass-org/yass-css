@@ -81,17 +81,17 @@ describe('AtomicClassTransformer', () => {
 
     describe('className()', () => {
       it('constructs a class name', () => {
-        const token = '400'
+        const value = '400'
         const userConfig: Partial<Config> = {}
         const config: Config = getConfig(userConfig)
         const property = 'width'
-        const variable = AtomicClassTransformer.className({property, token, config})
+        const variable = AtomicClassTransformer.className({ property, value, config })
 
         expect(variable).toBe('width\\:400')
       })
 
       it('uses separator provided in config ', () => {
-        const token = '400'
+        const value = '400'
         const userConfig: Partial<Config> = {
           rules: {
             separator: '-'
@@ -99,13 +99,13 @@ describe('AtomicClassTransformer', () => {
         }
         const config: Config = getConfig(userConfig)
         const property = 'width'
-        const variable = AtomicClassTransformer.className({property, token, config})
+        const variable = AtomicClassTransformer.className({ property, value, config })
 
         expect(variable).toBe('width-400')
       })
 
       it('uses namespace provided in config ', () => {
-        const token = '400'
+        const value = '400'
         const userConfig: Partial<Config> = {
           rules: {
             namespace: 'ds-'
@@ -113,7 +113,7 @@ describe('AtomicClassTransformer', () => {
         }
         const config: Config = getConfig(userConfig)
         const property = 'width'
-        const variable = AtomicClassTransformer.className({property, token, config})
+        const variable = AtomicClassTransformer.className({ property, value, config })
 
         expect(variable).toBe('ds-width\\:400')
       })

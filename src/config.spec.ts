@@ -43,10 +43,6 @@ describe('getConfig()', () => {
           pseudos: true,
         }
       },
-      types: {
-        buildPath: 'types/yass/',
-        filename: 'types.ts',
-      },
     })
 
     expect(config).toEqual({
@@ -63,10 +59,6 @@ describe('getConfig()', () => {
           tokenClasses: false,
           pseudos: true,
         }
-      },
-      types: {
-        buildPath: 'types/yass/',
-        filename: 'types.ts',
       },
     })
   })
@@ -94,10 +86,6 @@ describe('getConfig()', () => {
           tokenClasses: true,
           pseudos: true,
         }
-      },
-      types: {
-        buildPath: 'types/',
-        filename: 'yass.ts',
       },
     })
   })
