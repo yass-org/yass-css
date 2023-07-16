@@ -84,7 +84,7 @@ export const AtomicClassTransformer = {
     })
   },
 
-  className({ property, value, pseudos = [], config }: {property: string, value: string, pseudos?: string[], pseudo?: string, config: Config}): string {
+  className({ property, value, pseudos = [], config }: { property: string, value: string, pseudos?: string[], config: Config }): string {
     const { namespace, separator } = config.rules
     const escapedSeparator = escapedCssString(separator)
     const className = `${namespace}${property}${escapedSeparator}${value}`
