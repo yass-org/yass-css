@@ -11,7 +11,7 @@ export interface YassSelector {
   value: string
   token: string
   pseudos?: string[]
-  mediaQuery?: string
+  // mediaQuery?: string TODO: implement this
 }
 
 export const JitCompiler = {
@@ -65,11 +65,17 @@ export const JitCompiler = {
             token: value,
             pseudos: pseudos
               .map((pseudo: string) => `:${pseudo}`)
-              .filter((pseudo) => [
-                ...validPseudos.selectors,
-                ...validPseudos.functions
-              ]
-                .includes(pseudo)),
+              .filter((pseudo) => {
+                const { selectors, functions } = validPseudos
+
+                if(selectors.includes(pseudo)) {
+                  return true
+                }
+                if(functions.some((func) => pseudo.startsWith(func))) {
+                  return true
+                }
+                return false
+              }),
           }
         }
 
@@ -81,11 +87,17 @@ export const JitCompiler = {
             token: token.name || token.key,
             pseudos: pseudos
               .map((pseudo: string) => `:${pseudo}`)
-              .filter((pseudo) => [
-                ...validPseudos.selectors,
-                ...validPseudos.functions
-              ]
-                .includes(pseudo)),
+              .filter((pseudo) => {
+                const { selectors, functions } = validPseudos
+
+                if(selectors.includes(pseudo)) {
+                  return true
+                }
+                if(functions.some((func) => pseudo.startsWith(func))) {
+                  return true
+                }
+                return false
+              }),
           }
         }
       }).filter(Boolean)

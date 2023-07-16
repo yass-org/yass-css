@@ -45,7 +45,7 @@ export const AtomicClassTransformer = {
             // pseudo variants e.g. `display:block:hover`
             ...validPseudoSelectors.map((pseudo: string) => {
               return new AtomicClass({
-                className: AtomicClassTransformer.className({ property, value: name || key, pseudo, config }),
+                className: AtomicClassTransformer.className({ property, value: name || key, pseudos: [pseudo], config }),
                 selector: AtomicClassTransformer.selector({ property, value: name || key, pseudos: [pseudo], config }),
                 declaration: {
                   property,
@@ -63,50 +63,33 @@ export const AtomicClassTransformer = {
     // we need to keep track of a `seen` so we don't add duplicate class definitions to the stylesheet
     const seen = new Set<string>()
 
-    return usages.flatMap(({ property, value, pseudos, token }: YassSelector) => {
-      if(pseudos.length > 0) {
-        return pseudos.map((pseudo: string) => new AtomicClass({
-          className: AtomicClassTransformer.className({ property, value: token, pseudos, pseudo, config }),
-          selector: AtomicClassTransformer.selector({ property, value: token, pseudos, config }),
-          declaration: {
-            property,
-            value,
-          }
-        }))
-      }
+    return usages.map(({ property, value, pseudos, token }: YassSelector) => {
+      return new AtomicClass({
+        className: AtomicClassTransformer.className({ property, value: token, pseudos, config }),
+        selector: AtomicClassTransformer.selector({ property, value: token, pseudos, config }),
+        declaration: {
+          property,
+          value,
+        }
+      })
 
-      return [
-        new AtomicClass({
-          className: AtomicClassTransformer.className({ property, value: token, config }),
-          selector: AtomicClassTransformer.selector({ property, value: token, config }),
-          declaration: {
-            property,
-            value,
-          }
-        })
-      ]
-
-    }).filter(({ className }: AtomicClass) => {
-      if(seen.has(className)) {
+    }).filter(({ selector }: AtomicClass) => {
+      if(seen.has(selector)) {
         return false
       }
 
-      seen.add(className)
+      seen.add(selector)
 
       return true
     })
   },
 
-  className({ property, value, pseudos = [], pseudo = '', config }: {property: string, value: string, pseudos?: string[], pseudo?: string, config: Config}): string {
+  className({ property, value, pseudos = [], config }: { property: string, value: string, pseudos?: string[], config: Config }): string {
     const { namespace, separator } = config.rules
     const escapedSeparator = escapedCssString(separator)
     const className = `${namespace}${property}${escapedSeparator}${value}`
 
-    if(pseudo && pseudos.length) {
-      return `${className}\\${pseudos.join('\\')}${pseudo}`
-    }
-
-    return className
+    return `${className}${escapedCssString(pseudos.join('\\'))}${pseudos.join('')}`
   },
 
   selector({ property, value, pseudos = [], config }: { property: string, value: string, pseudos?: string[], config: Config }): string {
