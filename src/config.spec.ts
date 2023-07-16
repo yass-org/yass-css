@@ -1,4 +1,4 @@
-import { getConfig } from './config'
+import { Config, getConfig } from './config'
 
 
 describe('getConfig()', () => {
@@ -6,7 +6,6 @@ describe('getConfig()', () => {
     const config = getConfig({})
 
     expect(config).toEqual({
-      src: undefined,
       rules: {
         namespace: '',
         separator: ':',
@@ -24,8 +23,7 @@ describe('getConfig()', () => {
   })
 
   it('accepts overrides', () => {
-    const config = getConfig({
-      src: './sircDir',
+    const config: Config = getConfig({
       rules: {
         namespace: 'ds-',
         separator: '-',
@@ -42,7 +40,6 @@ describe('getConfig()', () => {
     })
 
     expect(config).toEqual({
-      src: './sircDir',
       rules: {
         namespace: 'ds-',
         separator: '-',
@@ -69,7 +66,6 @@ describe('getConfig()', () => {
     })
 
     expect(config).toEqual({
-      src: undefined,
       rules: {
         namespace: '',
         separator: ':',

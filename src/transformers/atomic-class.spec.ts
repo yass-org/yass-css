@@ -3,12 +3,12 @@ import { getConfig } from '../config'
 import { AtomicClass } from '../ast'
 
 import type { DesignToken } from '../types'
-import type { Config } from '../config'
+import type { Config, UserConfig } from '../config'
 
 describe('AtomicClassTransformer', () => {
   describe('transform()', () => {
     it('transforms a token into an atomic class', () => {
-      const userConfig: Partial<Config> = {}
+      const userConfig: Partial<UserConfig> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
         {
@@ -26,7 +26,7 @@ describe('AtomicClassTransformer', () => {
     })
 
     it('transforms an alias token into a atomic class', () => {
-      const userConfig: Partial<Config> = {}
+      const userConfig: Partial<UserConfig> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
         {
@@ -51,7 +51,7 @@ describe('AtomicClassTransformer', () => {
 
 
     it('handles empty array', () => {
-      const userConfig: Partial<Config> = {}
+      const userConfig: Partial<UserConfig> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = []
 
@@ -61,7 +61,7 @@ describe('AtomicClassTransformer', () => {
     })
 
     it('doesn\'t throw an error when property is not a CSS property', () => { // TODO: Discuss whether this is intended
-      const userConfig: Partial<Config> = {}
+      const userConfig: Partial<UserConfig> = {}
       const config: Config = getConfig(userConfig)
       const tokens: DesignToken[] = [
         {
@@ -82,7 +82,7 @@ describe('AtomicClassTransformer', () => {
     describe('className()', () => {
       it('constructs a class name', () => {
         const value = '400'
-        const userConfig: Partial<Config> = {}
+        const userConfig: Partial<UserConfig> = {}
         const config: Config = getConfig(userConfig)
         const property = 'width'
         const variable = AtomicClassTransformer.className({ property, value, config })
@@ -92,7 +92,7 @@ describe('AtomicClassTransformer', () => {
 
       it('uses separator provided in config ', () => {
         const value = '400'
-        const userConfig: Partial<Config> = {
+        const userConfig: Partial<UserConfig> = {
           rules: {
             separator: '-'
           }
@@ -106,7 +106,7 @@ describe('AtomicClassTransformer', () => {
 
       it('uses namespace provided in config ', () => {
         const value = '400'
-        const userConfig: Partial<Config> = {
+        const userConfig: Partial<UserConfig> = {
           rules: {
             namespace: 'ds-'
           }
