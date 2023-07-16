@@ -45,7 +45,7 @@ export const AtomicClassTransformer = {
             // pseudo variants e.g. `display:block:hover`
             ...validPseudoSelectors.map((pseudo: string) => {
               return new AtomicClass({
-                className: AtomicClassTransformer.className({ property, value: name || key, pseudo, config }),
+                className: AtomicClassTransformer.className({ property, value: name || key, pseudos: [pseudo], config }),
                 selector: AtomicClassTransformer.selector({ property, value: name || key, pseudos: [pseudo], config }),
                 declaration: {
                   property,
