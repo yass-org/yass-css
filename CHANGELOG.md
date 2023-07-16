@@ -1,5 +1,11 @@
 # yass-css
 
+## 0.2.0
+
+### Minor Changes
+
+- Adds support for all pseudo-classes.
+
 ## 0.1.1
 
 ### Patch Changes
