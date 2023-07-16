@@ -2,7 +2,6 @@ import { Config } from '../config'
 import rules from '../definitions/css/rules.json'
 import validPseudos from '../definitions/css/pseudos'
 import { DesignToken } from '../types'
-import { FileSystem } from '../file-system'
 import { AtomicClassTransformer, CustomPropertyTransformer } from '../transformers'
 import { StyleSheet, RootElement } from '../ast'
 
@@ -18,11 +17,9 @@ export const JitCompiler = {
 
   build({ tokens, config }: { tokens: DesignToken[], config: Config }): string {
     const { src, } = config
-    const { buildPath, filename } = config.stylesheet
 
-    const fileContents = FileSystem.readDirectory(src, { ignore: [`${buildPath}/${filename}`] })
     const usages = JitCompiler
-      .findUsages({ fileContents, tokens, config })
+      .findUsages({ src, tokens, config })
 
 
     const stylesheet = new StyleSheet([
@@ -40,9 +37,9 @@ export const JitCompiler = {
     return css
   },
 
-  findUsages({ fileContents, tokens, config }: {fileContents: string[], tokens: DesignToken[], config: Config}): YassSelector[] {
+  findUsages({ src, tokens, config }: {src: string[], tokens: DesignToken[], config: Config}): YassSelector[] {
 
-    return fileContents.flatMap((fileContent: string): YassSelector[] => {
+    return src.flatMap((fileContent: string): YassSelector[] => {
       const candidateUsages = fileContent.split(/[\s\"\']/)
 
       return candidateUsages.map((candidateUsage: string) => {

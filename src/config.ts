@@ -1,5 +1,5 @@
-export interface Config {
-  src: string;
+import { FileSystem } from './file-system'
+interface BaseConfig {
   rules: {
     namespace?: string;
     separator?: string;
@@ -15,9 +15,21 @@ export interface Config {
   },
 }
 
-export const getConfig = (userConfig: Partial<Config>): Config => {
+export interface UserConfig extends BaseConfig {
+  src?: string;
+}
+
+export interface Config extends BaseConfig {
+  src?: string[];
+}
+
+export const getConfig = (userConfig: Partial<UserConfig>): Config => {
+  const { src } = userConfig
+  const { buildPath, filename } = userConfig.stylesheet ?? {}
+  const ignore = buildPath && filename ? [`${buildPath}/${filename}`] : []
+
   const config: Config = {
-    src: userConfig?.src || undefined,
+    src: src ? FileSystem.readDirectory(src, { ignore }) : undefined,
     rules: {
       namespace: userConfig?.rules?.namespace || '',
       separator: userConfig?.rules?.separator || ':',

@@ -1,10 +1,9 @@
 import fs, { type Stats } from 'fs'
 import path from 'path'
-import  { Config } from '../config'
 import { minimatch } from 'minimatch'
 
 export const FileSystem = {
-  getIfExists(path: string): Partial<Config> {
+  getIfExists(path: string): unknown {
     return fs.existsSync(path) ? require(path) : {} // Open user config JSON
   },
 
