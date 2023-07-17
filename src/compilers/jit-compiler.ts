@@ -1,6 +1,6 @@
 import { Config } from '../config'
-import rules from '../definitions/css/rules.json'
-import validPseudos from '../definitions/css/pseudos'
+import supportedRules from '../definitions/css/rules.json'
+import supportedPseudos from '../definitions/css/pseudos'
 import { DesignToken } from '../types'
 import { AtomicClassTransformer, CustomPropertyTransformer } from '../transformers'
 import { StyleSheet, RootElement } from '../ast'
@@ -45,7 +45,8 @@ export const JitCompiler = {
       return candidateUsages.map((candidateUsage: string) => {
         // split `background-color:red-500:hover:focus` into `['background-color', 'red-500:hover:focus']`
         const pivot = candidateUsage.indexOf(config.rules.separator)
-        const [property, valueAndPseudos] = [candidateUsage.substring(0, pivot), candidateUsage.substring(pivot + 1)]
+        const [namespaceAndProperty, valueAndPseudos] = [candidateUsage.substring(0, pivot), candidateUsage.substring(pivot + 1)]
+        const property = namespaceAndProperty.replace(config.rules.namespace, '')
         // split `:red-500:hover:focus` into `['red-500', 'hover', 'focus']`
         const [value, ...pseudos] = valueAndPseudos.split(':')
 
@@ -53,26 +54,20 @@ export const JitCompiler = {
           return
         }
 
+        if(arePseudosValid(pseudos) === false) {
+          // Don't generate the class if the pseudo is invalid, e.g. `:hoover`
+          return
+        }
+
         // check whether the candidate word is a valid css property and value, e.g. display: flex
-        const rule = rules.find((rule) => rule.property === property && rule.values.includes(value))  // TODO: Change format of tokens so it has fast lookup
+        const rule = supportedRules.find((rule) => rule.property === property && rule.values.includes(value))  // TODO: Change format of tokens so it has fast lookup
+        // const rule = boop({ property, value, config })
         if(rule) {
           return {
             property,
             value,
             token: value,
-            pseudos: pseudos
-              .map((pseudo: string) => `:${pseudo}`)
-              .filter((pseudo) => {
-                const { selectors, functions } = validPseudos
-
-                if(selectors.includes(pseudo)) {
-                  return true
-                }
-                if(functions.some((func) => pseudo.startsWith(func))) {
-                  return true
-                }
-                return false
-              }),
+            pseudos: pseudos.map((pseudo: string) => `:${pseudo}`),
           }
         }
 
@@ -80,24 +75,29 @@ export const JitCompiler = {
         if(token){
           return {
             property,
-            value: token.value,
+            value: `var(${CustomPropertyTransformer.property(token, config)})`,
             token: token.name || token.key,
-            pseudos: pseudos
-              .map((pseudo: string) => `:${pseudo}`)
-              .filter((pseudo) => {
-                const { selectors, functions } = validPseudos
-
-                if(selectors.includes(pseudo)) {
-                  return true
-                }
-                if(functions.some((func) => pseudo.startsWith(func))) {
-                  return true
-                }
-                return false
-              }),
+            pseudos: pseudos.map((pseudo: string) => `:${pseudo}`),
           }
         }
       }).filter(Boolean)
     })
   },
+}
+
+
+const arePseudosValid = (pseudos: string[]) => {
+  const { selectors, functions } = supportedPseudos
+
+  return pseudos.every((pseudo: string) => {
+    if(selectors.includes(pseudo)) {
+      return true
+    }
+
+    if(functions.find((func: string) => pseudo.match(`^${func}\\([^\s]*\\)$`))) {
+      return true
+    }
+
+    return false
+  })
 }

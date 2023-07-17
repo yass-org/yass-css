@@ -1,13 +1,14 @@
 import { FileSystem } from './file-system'
-interface BaseConfig {
-  rules: {
+export interface UserConfig {
+  src?: string;
+  rules?: {
     namespace?: string;
     separator?: string;
   }
-  stylesheet: {
+  stylesheet?: {
     buildPath?: string;
     filename?: string;
-    include: {
+    include?: {
       baseClasses?: boolean;
       tokenClasses?: boolean;
       pseudos?: boolean;
@@ -15,12 +16,21 @@ interface BaseConfig {
   },
 }
 
-export interface UserConfig extends BaseConfig {
-  src?: string;
-}
-
-export interface Config extends BaseConfig {
+export interface Config {
   src?: string[];
+  rules: {
+    namespace: string;
+    separator: string;
+  }
+  stylesheet: {
+    buildPath: string;
+    filename: string;
+    include: {
+      baseClasses: boolean;
+      tokenClasses: boolean;
+      pseudos: boolean;
+    }
+  },
 }
 
 export const getConfig = (userConfig: Partial<UserConfig>): Config => {
