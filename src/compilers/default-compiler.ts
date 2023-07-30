@@ -1,7 +1,7 @@
 import { RootElement, StyleSheet } from '../ast'
 import { Config } from '../config'
 import { AtomicClassTransformer, CustomPropertyTransformer } from '../transformers'
-import rules from '../definitions/css/rules.json'
+import * as CSS from 'css-data'
 import { validateTokens } from '../validation'
 
 import type {  DesignToken } from '../types'
@@ -15,7 +15,7 @@ export const DefaultCompiler = {
     }
 
     const userTokens = validateTokens(tokens)
-    const baseCSSTokens: DesignToken[] = rules.flatMap((({ values, property }) => {
+    const baseCSSTokens: DesignToken[] =CSS.declarations.flatMap((({ values, property }) => {
       return values.map((value) => ({
         key: value,
         value: value,

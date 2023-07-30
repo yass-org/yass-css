@@ -1,9 +1,9 @@
 import { Config } from '../config'
-import supportedRules from '../definitions/css/rules.json'
-import supportedPseudos from '../definitions/css/pseudos'
+import * as CSS from 'css-data'
 import { DesignToken } from '../types'
 import { AtomicClassTransformer, CustomPropertyTransformer } from '../transformers'
 import { StyleSheet, RootElement } from '../ast'
+
 
 export interface YassSelector {
   property: string
@@ -54,14 +54,13 @@ export const JitCompiler = {
           return
         }
 
-        if(arePseudosValid(pseudos) === false) {
+        if(!arePseudosValid(pseudos)) {
           // Don't generate the class if the pseudo is invalid, e.g. `:hoover`
           return
         }
 
         // check whether the candidate word is a valid css property and value, e.g. display: flex
-        const rule = supportedRules.find((rule) => rule.property === property && rule.values.includes(value))  // TODO: Change format of tokens so it has fast lookup
-        // const rule = boop({ property, value, config })
+        const rule = CSS.declarations.find((rule) => rule.property === property && rule.values.includes(value))  // TODO: Change format of tokens so it has fast lookup
         if(rule) {
           return {
             property,
@@ -86,18 +85,21 @@ export const JitCompiler = {
 }
 
 
-const arePseudosValid = (pseudos: string[]) => {
-  const { selectors, functions } = supportedPseudos
+const arePseudosValid = (userPseudos: string[]) => {
+  // matches a leading pseudoclass name, like `nth-child`, followed by `(`, then not `()\s` and finally a `)
+  const balancedParenthesesPattern = new RegExp(/^[^\(\)\s]+\([^\(\)\s]+\)$/)
 
-  return pseudos.every((pseudo: string) => {
-    if(selectors.includes(pseudo)) {
-      return true
-    }
+  return userPseudos
+    .every((userPseudo: string) => {
+      const pseudo = CSS.pseudoclasses.find(({ name }) => name === userPseudo.replace(/\(.*$/, ''))
+      if(!pseudo) {
+        return false
+      }
 
-    if(functions.find((func: string) => pseudo.match(`^${func}\\([^\s]*\\)$`))) {
-      return true
-    }
+      if(pseudo.isFunctional) {
+        return balancedParenthesesPattern.test(userPseudo)
+      }
 
-    return false
-  })
+      return pseudo.name === userPseudo
+    })
 }
