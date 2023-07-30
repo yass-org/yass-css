@@ -2,7 +2,7 @@
   "name": "yass-css",
   "version": "0.2.0",
   "description": "Atomic CSS that lets you encode your design system",
-  "main": "./build/src/index.js",
+  "main": "./build/src/build.js",
   "scripts": {
     "test": "jest",
     "build": "tsc",
@@ -24,7 +24,7 @@
     "Atomic CSS"
   ],
   "bin": {
-    "yass-css": "build/src/index.js"
+    "yass-css": "build/src/build.js"
   },
   "author": "Yass Org",
   "license": "ISC",

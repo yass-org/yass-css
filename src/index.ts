@@ -1,24 +1,31 @@
-#!/usr/bin/env node
-import { FileSystem } from './file-system'
-import { getTokens }  from './tokens'
-import { getConfig } from './config'
+import { Config } from './config'
+import * as CSS from 'css-data'
+import { AtomicClassTransformer, CustomPropertyTransformer } from './transformers'
+import { DesignToken } from './types'
+export { AtomicClassTransformer, CustomPropertyTransformer } from './transformers'
+export { JitCompiler } from './compiler'
 
-import type { Config, UserConfig } from './config'
-import { JitCompiler, DefaultCompiler } from './compilers'
+export type { Config } from './config'
+export type { DesignToken, Category } from './types'
 
 
-const tokensDir = process.argv[2]
+interface Declaration {
+  property: string
+  values: string[]
+}
 
-const userConfig = FileSystem.getIfExists(`${process.cwd()}/yass.config.json`) as UserConfig
+export const buildBaseCSSDeclarations = ({ declarations = CSS.declarations, config }: { declarations: Declaration[], config: Config }) => {
+  return AtomicClassTransformer
+    .transform(declarations.flatMap((({ values, property }) => {
+      return values.map((value) => ({
+        key: value,
+        value: value,
+        properties: [property],
+        customProperty: false,
+      }))
+    })), config)
+}
 
-const config: Config = getConfig(userConfig)
-const tokens = getTokens(tokensDir)
-const { buildPath, filename } = config.stylesheet
-const { src } = config
-const Compiler = src ? JitCompiler : DefaultCompiler
-
-const stylesheet = Compiler.build({ tokens, config })
-
-FileSystem.writeFile(buildPath, filename, stylesheet)
-
-console.log('Success!')
+export const buildRootElementDeclaration = ({ tokens, config }: { tokens: DesignToken[], config: Config }) => {
+  return CustomPropertyTransformer.transform(tokens, config)
+}

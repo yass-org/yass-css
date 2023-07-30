@@ -1,15 +1,14 @@
 import { CustomPropertyTransformer } from './custom-property'
-import { getConfig } from '../config'
+import { defaultConfig } from '../config'
 import { CustomProperty } from '../ast'
 
 import type { DesignToken } from '../types'
-import type { UserConfig, Config } from '../config'
+import type { Config } from '../config'
 
 describe('CustomPropertyTransformer()', () => {
   describe('transform()', () => {
     it('transforms a token into a custom property', () => {
-      const userConfig: Partial<UserConfig> = {}
-      const config: Config = getConfig(userConfig)
+      const config: Config = defaultConfig
       const tokens: DesignToken[] = [
         {
           key: 'blue-500',
@@ -26,8 +25,7 @@ describe('CustomPropertyTransformer()', () => {
     })
 
     it('transforms an alias token into a custom property', () => {
-      const userConfig: Partial<UserConfig> = {}
-      const config: Config = getConfig(userConfig)
+      const config: Config = defaultConfig
       const tokens: DesignToken[] = [
         {
           key: 'blue-500',
@@ -50,8 +48,7 @@ describe('CustomPropertyTransformer()', () => {
     })
 
     it('orders custom properties to ensure `var()` will resolve', () => {
-      const userConfig: Partial<UserConfig> = {}
-      const config: Config = getConfig(userConfig)
+      const config: Config = defaultConfig
       const tokens: DesignToken[] = [
         {
           key: 'brand-primary',
@@ -74,8 +71,7 @@ describe('CustomPropertyTransformer()', () => {
     })
 
     it('transforms tokens into custom properties with the correct value', () => {
-      const userConfig: Partial<UserConfig> = {}
-      const config: Config = getConfig(userConfig)
+      const config: Config = defaultConfig
       const tokens: DesignToken[] = [
         {
           key: 'brand-primary',
@@ -104,8 +100,7 @@ describe('CustomPropertyTransformer()', () => {
 
 
     it('handles empty array', () => {
-      const userConfig: Partial<UserConfig> = {}
-      const config: Config = getConfig(userConfig)
+      const config: Config = defaultConfig
       const tokens: DesignToken[] = []
 
       const result = CustomPropertyTransformer.transform(tokens, config)
@@ -114,8 +109,7 @@ describe('CustomPropertyTransformer()', () => {
     })
 
     it('throws an error when alias token cannot be resolved', () => {
-      const userConfig: Partial<UserConfig> = {}
-      const config: Config = getConfig(userConfig)
+      const config: Config = defaultConfig
       const tokens: DesignToken[] = [
         {
           key: 'blue-500',
@@ -136,8 +130,7 @@ describe('CustomPropertyTransformer()', () => {
           value: 'rgb(255, 0, 0)',
         }
 
-        const userConfig: Partial<UserConfig> = {}
-        const config: Config = getConfig(userConfig)
+        const config: Config = defaultConfig
         const variable = CustomPropertyTransformer.property(token, config)
 
         expect(variable).toBe('--very-red')
@@ -149,12 +142,13 @@ describe('CustomPropertyTransformer()', () => {
           value: 'rgb(255, 0, 0)',
         }
 
-        const userConfig: Partial<UserConfig> = {
+        const config: Config = {
+          ...defaultConfig,
           rules: {
             namespace: 'gl-',
+            separator: ':'
           }
         }
-        const config: Config = getConfig(userConfig)
         const variable = CustomPropertyTransformer.property(token, config)
 
         expect(variable).toBe('--gl-very-red')
@@ -167,12 +161,13 @@ describe('CustomPropertyTransformer()', () => {
           name: 'red'
         }
 
-        const userConfig: Partial<UserConfig> = {
+        const config: Config = {
+          ...defaultConfig,
           rules: {
             namespace: 'gl-',
+            separator: ':'
           }
         }
-        const config: Config = getConfig(userConfig)
         const variable = CustomPropertyTransformer.property(token, config)
 
         expect(variable).toBe('--gl-very-red')

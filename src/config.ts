@@ -1,6 +1,6 @@
 import { FileSystem } from './file-system'
 export interface UserConfig {
-  src?: string;
+  src: string;
   rules?: {
     namespace?: string;
     separator?: string;
@@ -8,16 +8,11 @@ export interface UserConfig {
   stylesheet?: {
     buildPath?: string;
     filename?: string;
-    include?: {
-      baseClasses?: boolean;
-      tokenClasses?: boolean;
-      pseudos?: boolean;
-    }
   },
 }
 
 export interface Config {
-  src?: string[];
+  src: string[];
   rules: {
     namespace: string;
     separator: string;
@@ -25,11 +20,6 @@ export interface Config {
   stylesheet: {
     buildPath: string;
     filename: string;
-    include: {
-      baseClasses: boolean;
-      tokenClasses: boolean;
-      pseudos: boolean;
-    }
   },
 }
 
@@ -38,22 +28,33 @@ export const getConfig = (userConfig: Partial<UserConfig>): Config => {
   const { buildPath, filename } = userConfig.stylesheet ?? {}
   const ignore = buildPath && filename ? [`${buildPath}/${filename}`] : []
 
+  if(!src) {
+    throw new Error('Please specify `src` property in `yass.config.json`.')
+  }
+
   const config: Config = {
-    src: src ? FileSystem.readDirectory(src, { ignore }) : undefined,
+    src: FileSystem.readDirectory(src, { ignore }),
     rules: {
-      namespace: userConfig?.rules?.namespace || '',
-      separator: userConfig?.rules?.separator || ':',
+      namespace: userConfig?.rules?.namespace || defaultConfig.rules.namespace,
+      separator: userConfig?.rules?.separator || defaultConfig.rules.separator,
     },
     stylesheet: {
-      buildPath:  userConfig?.stylesheet?.buildPath || 'styles/yass/',
-      filename: userConfig?.stylesheet?.filename || 'yass.css',
-      include: {
-        baseClasses: userConfig?.stylesheet?.include?.baseClasses !== undefined ? userConfig?.stylesheet?.include.baseClasses : true,
-        tokenClasses: userConfig?.stylesheet?.include?.tokenClasses !== undefined ? userConfig?.stylesheet?.include.tokenClasses : true,
-        pseudos: userConfig?.stylesheet?.include?.pseudos !== undefined ? userConfig?.stylesheet?.include.pseudos : true,
-      }
+      buildPath:  userConfig?.stylesheet?.buildPath || defaultConfig.stylesheet.buildPath,
+      filename: userConfig?.stylesheet?.filename || defaultConfig.stylesheet.filename,
     },
   }
 
   return config
+}
+
+export const defaultConfig: Config = {
+  src: [],
+  rules: {
+    namespace: '',
+    separator: ':',
+  },
+  stylesheet: {
+    buildPath: 'styles/yass/',
+    filename: 'yass.css',
+  },
 }

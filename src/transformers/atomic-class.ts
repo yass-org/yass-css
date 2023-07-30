@@ -8,12 +8,14 @@ import * as CSS from 'css-data'
 import scale from '../definitions/categories/scale.json'
 import color from '../definitions/categories/color.json'
 import elevation from '../definitions/categories/elevation.json'
-import type { YassSelector } from '../compilers'
+import opacity from '../definitions/categories/opacity.json'
+import type { YassSelector } from '../compiler'
 
 const categoryMap = {
   'color': color,
   'scale': scale,
   'elevation': elevation,
+  'opacity': opacity,
 }
 
 export const AtomicClassTransformer = {
@@ -22,7 +24,7 @@ export const AtomicClassTransformer = {
    * Converts an array of `DesignToken` objects into an array of Yass atomic classes
    */
   transform(tokens: DesignToken[], config: Config): AtomicClass[] {
-    const validPseudoClasses = config.stylesheet.include.pseudos ? CSS.pseudoclasses.map(({ name }) => name) : []
+    const validPseudoClasses = CSS.pseudoclasses.map(({ name }) => name)
 
     return tokens
       .flatMap((token: DesignToken) => {
