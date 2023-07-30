@@ -1,10 +1,16 @@
 # yass-css
 
+## 0.3.1
+
+### Patch Changes
+
+- Use correct entrypoint for imports.
+
 ## 0.3.0
 
 ### Minor Changes
 
-- 911d15d: Export functionality to allow for overrides and project intergration.
+- 911d15d: Export functionality to allow for overrides and project integration.
 
 ## 0.2.0
 
