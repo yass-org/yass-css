@@ -1,6 +1,6 @@
-import { getConfig, type Config } from '../config'
+import { defaultConfig, type Config } from '../config'
 import type { DesignToken } from '../types'
-import { JitCompiler } from './jit-compiler'
+import { JitCompiler } from '.'
 
 describe('JitCompiler', () => {
   describe('basic functionality', () => {
@@ -12,7 +12,7 @@ describe('JitCompiler', () => {
       ]
 
       const config: Config = {
-        ...getConfig({}),
+        ...defaultConfig,
         src: [
           '<div class="display:block"></div>', // base CSS class
           '<div class="background-color:blue-100"></div>', // tokenised class
@@ -21,7 +21,7 @@ describe('JitCompiler', () => {
       }
 
 
-      const css = JitCompiler.build({ tokens, config })
+      const css = JitCompiler.compile({ tokens, config })
 
       expect(css).toContain('--blue-100: #0000F1')
       expect(css).toContain('--blue-101: #0000F2')
@@ -36,7 +36,7 @@ describe('JitCompiler', () => {
   describe('pseudo-classes', () => {
     it('generates pseudo classes', () => {
       const config: Config = {
-        ...getConfig({}),
+        ...defaultConfig,
         src: [
           '<div class="display:flex:hover"></div>', // accepts pseudos
           '<div class="display:inline:hover:active"></div>', // accepts chained pseudos
@@ -47,7 +47,7 @@ describe('JitCompiler', () => {
         ]
       }
 
-      const css = JitCompiler.build({ tokens: [], config })
+      const css = JitCompiler.compile({ tokens: [], config })
 
       expect(css).toContain('.display\\:flex\\:hover:hover { display: flex; }')
       expect(css).toContain('.display\\:inline\\:hover\\:active:hover:active { display: inline; }')
@@ -58,13 +58,13 @@ describe('JitCompiler', () => {
 
     it('does not accept pseudos that contain a space', () => {
       const config: Config = {
-        ...getConfig({}),
+        ...defaultConfig,
         src: [
           '<div class="display:inline-block:nth-child(2n + 1)"></div>', // since "(2n + 1)" contains spaces, it should not work
         ]
       }
 
-      const css = JitCompiler.build({ tokens: [], config })
+      const css = JitCompiler.compile({ tokens: [], config })
 
       expect(css).not.toContain('.display\\:inline-block\\:nth-child\\(2n\\+1\\):nth-child(2n+1) { display: inline-block; }')
 
@@ -74,13 +74,13 @@ describe('JitCompiler', () => {
 
     it('does not accept invalid pseudos', () => {
       const config: Config = {
-        ...getConfig({}),
+        ...defaultConfig,
         src: [
           '<div class="display:block:hoover"></div>', // since "hoover" is not a valid pseudo, it should not work
         ]
       }
 
-      const css = JitCompiler.build({ tokens: [], config })
+      const css = JitCompiler.compile({ tokens: [], config })
 
       expect(css).not.toContain('.display\\:block\\:hoover { display: block; }')
       expect(css).not.toContain('.display\\:block { display: block; }')
@@ -93,7 +93,7 @@ describe('JitCompiler', () => {
         { key: 'space-100', value: '8px', properties: ['padding'] }
       ]
       const config: Config = {
-        ...getConfig({}),
+        ...defaultConfig,
         rules: {
           namespace: 'yass-',
           separator: ':'
@@ -107,7 +107,7 @@ describe('JitCompiler', () => {
           '<div class="yass-padding:space-100:focus:active"></div>', // generates tokenised class with chained pseudos
         ]
       }
-      const css = JitCompiler.build({ tokens, config })
+      const css = JitCompiler.compile({ tokens, config })
 
       expect(css).toContain('.yass-display\\:block { display: block; }')
       expect(css).toContain('.yass-display\\:flex\\:active:active { display: flex; }')
@@ -122,7 +122,7 @@ describe('JitCompiler', () => {
         { key: 'space-100', value: '8px', properties: ['padding'] }
       ]
       const config: Config = {
-        ...getConfig({}),
+        ...defaultConfig,
         rules: {
           namespace: '',
           separator: '-'
@@ -137,7 +137,7 @@ describe('JitCompiler', () => {
         ]
       }
 
-      const css = JitCompiler.build({ tokens, config })
+      const css = JitCompiler.compile({ tokens, config })
 
       expect(css).toContain('.display-block { display: block; }')
       expect(css).toContain('.display-flex\\:active:active { display: flex; }')
@@ -157,7 +157,7 @@ describe('JitCompiler', () => {
       ]
 
       const config: Config = {
-        ...getConfig({}),
+        ...defaultConfig,
         src: [
           '<div class="display:block"></div>', // simple selector
           '<div class="display:flex background-color:blue-100"></div>', // multiple selectors
@@ -169,7 +169,7 @@ describe('JitCompiler', () => {
         ]
       }
 
-      const css = JitCompiler.build({ tokens, config })
+      const css = JitCompiler.compile({ tokens, config })
 
       expect(css).toContain('--blue-100: #0000F1')
       expect(css).toContain('--blue-101: #0000F2')

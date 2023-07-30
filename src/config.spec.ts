@@ -3,9 +3,10 @@ import { Config, getConfig } from './config'
 
 describe('getConfig()', () => {
   it('generates a default config', () => {
-    const config = getConfig({})
+    const config = getConfig({ src: '.' })
 
     expect(config).toEqual({
+      src: expect.any(Array<string>),
       rules: {
         namespace: '',
         separator: ':',
@@ -13,17 +14,13 @@ describe('getConfig()', () => {
       stylesheet: {
         buildPath:  'styles/yass/',
         filename: 'yass.css',
-        include: {
-          baseClasses: true,
-          tokenClasses: true,
-          pseudos: true,
-        }
       },
     })
   })
 
   it('accepts overrides', () => {
     const config: Config = getConfig({
+      src: './src',
       rules: {
         namespace: 'ds-',
         separator: '-',
@@ -31,15 +28,11 @@ describe('getConfig()', () => {
       stylesheet: {
         buildPath:  'styles/',
         filename: 'styles.css',
-        include: {
-          baseClasses: false,
-          tokenClasses: false,
-          pseudos: true,
-        }
       },
     })
 
     expect(config).toEqual({
+      src: expect.any(Array<string>),
       rules: {
         namespace: 'ds-',
         separator: '-',
@@ -47,37 +40,27 @@ describe('getConfig()', () => {
       stylesheet: {
         buildPath:  'styles/',
         filename: 'styles.css',
-        include: {
-          baseClasses: false,
-          tokenClasses: false,
-          pseudos: true,
-        }
       },
     })
   })
 
   it('accepts partial override', () => {
     const config = getConfig({
+      src: './src',
       stylesheet: {
-        include: {
-          baseClasses: false,
-        }
-      },
+        filename: 'styles.css'
+      }
     })
 
     expect(config).toEqual({
+      src: expect.any(Array<string>),
       rules: {
         namespace: '',
         separator: ':',
       },
       stylesheet: {
         buildPath:  'styles/yass/',
-        filename: 'yass.css',
-        include: {
-          baseClasses: false,
-          tokenClasses: true,
-          pseudos: true,
-        }
+        filename: 'styles.css',
       },
     })
   })

@@ -13,14 +13,29 @@ export interface YassSelector {
   // mediaQuery?: string TODO: implement this
 }
 
+export interface CompileArgs {
+  tokens: DesignToken[],
+  transformers?: {
+    AtomicClassTransformer: typeof AtomicClassTransformer,
+    CustomPropertyTransformer: typeof CustomPropertyTransformer,
+  }
+  config: Config
+}
+
 export const JitCompiler = {
 
-  build({ tokens, config }: { tokens: DesignToken[], config: Config }): string {
+  compile({
+    tokens,
+    transformers = {
+      AtomicClassTransformer,
+      CustomPropertyTransformer,
+    },
+    config
+  }: CompileArgs): string {
     const { src, } = config
-
+    const { AtomicClassTransformer, CustomPropertyTransformer, } = transformers
     const usages = JitCompiler
       .findUsages({ src, tokens, config })
-
 
     const stylesheet = new StyleSheet([
     // Add the `:root` first

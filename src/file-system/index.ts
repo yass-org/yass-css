@@ -31,7 +31,7 @@ export const FileSystem = {
     return fs.readFileSync(filepath).toString()
   },
 
-  readDirectory(dir: string, config?: {ignore?: string[]}): string[] {
+  readDirectory(dir: string, config?: { ignore?: string[] }): string[] {
     const { ignore } = config
     const directoryContent = []
 
@@ -48,16 +48,4 @@ export const FileSystem = {
 
     return directoryContent
   },
-
-  // sourceToSet(src: string, { ignore }: { ignore: string[] }): Set<string> {
-  //   return FileSystem
-  //     .readDirectory(src, { ignore })
-  //     .reduce((words: Set<string>, fileContent: string) => {
-  //       fileContent.split(/[\s\"\']/).forEach((word: string) => {
-  //         words.add(word)
-  //       })
-
-  //       return words
-  //     }, new Set<string>())
-  // }
 }
