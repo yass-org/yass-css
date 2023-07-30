@@ -29,6 +29,7 @@
   "author": "Yass Org",
   "license": "ISC",
   "dependencies": {
+    "css-data": "0.0.5",
     "minimatch": "^9.0.3",
     "postcss": "^8.4.25"
   },

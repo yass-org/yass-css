@@ -4,15 +4,16 @@ import { CustomPropertyTransformer } from './custom-property'
 import type { DesignToken } from '../types'
 import type { Config } from '../config'
 
-import pseudos from '../definitions/css/pseudos'
-import escapeSequences from '../definitions/css/escape-sequences.json'
+import * as CSS from 'css-data'
 import scale from '../definitions/categories/scale.json'
 import color from '../definitions/categories/color.json'
+import elevation from '../definitions/categories/elevation.json'
 import type { YassSelector } from '../compilers'
 
 const categoryMap = {
   'color': color,
   'scale': scale,
+  'elevation': elevation,
 }
 
 export const AtomicClassTransformer = {
@@ -21,7 +22,7 @@ export const AtomicClassTransformer = {
    * Converts an array of `DesignToken` objects into an array of Yass atomic classes
    */
   transform(tokens: DesignToken[], config: Config): AtomicClass[] {
-    const validPseudoSelectors = config.stylesheet.include.pseudos ? pseudos.selectors : []
+    const validPseudoClasses = config.stylesheet.include.pseudos ? CSS.pseudoclasses.map(({ name }) => name) : []
 
     return tokens
       .flatMap((token: DesignToken) => {
@@ -43,7 +44,7 @@ export const AtomicClassTransformer = {
             }),
 
             // pseudo variants e.g. `display:block:hover`
-            ...validPseudoSelectors.map((pseudo: string) => {
+            ...validPseudoClasses.map((pseudo: string) => {
               return new AtomicClass({
                 className: AtomicClassTransformer.className({ property, value: name || key, pseudos: [pseudo], config }),
                 selector: AtomicClassTransformer.selector({ property, value: name || key, pseudos: [pseudo], config }),
@@ -102,7 +103,7 @@ export const AtomicClassTransformer = {
 }
 
 const escapedCssString = (str: string): string => {
-  return escapeSequences.class.reduce((escapedString, specialChar) => {
+  return CSS.specialcharacters.classes.reduce((escapedString, specialChar) => {
     return escapedString.replace(specialChar, `\\${specialChar}`)
   }, str)
 }
