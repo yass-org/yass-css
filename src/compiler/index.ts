@@ -1,7 +1,7 @@
 import { Config } from '../config'
 import * as CSS from 'css-data'
 import { DesignToken } from '../types'
-import { AtomicClassTransformer, CustomPropertyTransformer, MediaQueryTransformer } from '../transformers'
+import { AtomicClassTransformer, CustomPropertyTransformer, AtRuleTransformer } from '../transformers'
 import { StyleSheet, RootElement } from '../ast'
 
 
@@ -59,7 +59,7 @@ export const JitCompiler = {
       ),
 
       ...AtomicClassTransformer.transform({ selectors: categories.selectors, config }),
-      ...MediaQueryTransformer.transform({ selectors: categories.atRules, tokens, config })
+      ...AtRuleTransformer.transform({ selectors: categories.atRules, tokens, config })
     ]).toJSON()
 
     const { css } = stylesheet

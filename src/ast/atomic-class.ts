@@ -6,6 +6,7 @@ import {
 export interface AtomicClassArgs {
   className: string
   selector: string
+  indentation?: number
   declaration: {
     property: string
     value: string
@@ -15,15 +16,17 @@ export interface AtomicClassArgs {
 export class AtomicClass {
   className: string
   selector: string
+  indentation?: number
   declaration: {
     property: string
     value: string
   }
 
-  constructor({ className, selector, declaration }: AtomicClassArgs){
+  constructor({ className, selector, declaration, indentation = 0 }: AtomicClassArgs){
     this.className = className
     this.selector = selector
     this.declaration = declaration
+    this.indentation = indentation
   }
 
   toJSON() {
@@ -31,7 +34,7 @@ export class AtomicClass {
       selector: `.${this.className}`,
       raws: {
         semicolon: true,
-        before: '\n',
+        before: '\n'.padEnd(this.indentation, ' '),
         after: ' ',
       },
     })

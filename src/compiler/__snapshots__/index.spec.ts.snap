@@ -2,9 +2,8 @@
 
 exports[`JitCompiler media queries generates media queries 1`] = `
 ":root {
-}"
-
-@media(min-width: 768px) {
-  display: flex;
 }
+@media (min-width: 768px) {
+.display\\:flex { display: flex; }
+}"
 `;

@@ -2,12 +2,13 @@ import postcss, { Root } from 'postcss'
 
 import { AtomicClass } from './atomic-class'
 import { RootElement } from './root-element'
+import { AtRule } from './at-rule'
 
 
 export class StyleSheet {
   root: Root
 
-  constructor(children: Array<RootElement | AtomicClass>) {
+  constructor(children: Array<RootElement | AtomicClass | AtRule>) {
     this.root = new Root()
 
     children.forEach((child: RootElement | AtomicClass) => {

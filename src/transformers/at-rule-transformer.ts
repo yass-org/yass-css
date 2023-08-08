@@ -4,32 +4,22 @@ import { DesignToken } from '../types'
 import { AtomicClassTransformer } from './atomic-class'
 import { AtRule } from '../ast'
 import * as CSS from 'css-data'
+import { interpolate } from '../utils/interpolate'
 
 const supportedAtRules = CSS.atrules
   .filter(({ isConditional }) => isConditional)
   .map(({ name }) => name)
 
-export const MediaQueryTransformer = {
+export const AtRuleTransformer = {
 
-  transform({ selectors, tokens, config }: { selectors: YassSelector[], tokens: DesignToken[], config: Config }) {
-    // const mediaQueryTokens = tokens
-    //   .filter((token: DesignToken) => token.category === 'media')
-
-    // const buckets = mediaQueryTokens.reduce((buckets, token: DesignToken) => {
-    //   buckets[token.key] = new AtRule({
-    //     name: 'media',
-    //     condition: token.value,
-    //   })
-
-    //   return buckets
-    // }, {})
-
+  transform({ selectors, tokens, config }: { selectors: YassSelector[], tokens: DesignToken[], config: Config }): AtRule[] {
     const buckets = {}
 
     selectors.forEach((selector: YassSelector) => {
       selector.atRules.forEach((atRule: string) => {
         const resolvedAtRule = interpolate(atRule, tokens)
         const { name, condition } = splitAtRule(resolvedAtRule)
+
         if(!supportedAtRules.includes(name)) {
           return
         }
@@ -38,10 +28,11 @@ export const MediaQueryTransformer = {
           buckets[resolvedAtRule] = new AtRule({ name, condition })
         }
 
-        buckets[resolvedAtRule].append(AtomicClassTransformer.transform({ selectors: [selector], config }))
+        buckets[resolvedAtRule].appendAll(AtomicClassTransformer.transform({ selectors: [selector], config }))
       })
     })
 
+    return Object.values(buckets)
   },
 }
 

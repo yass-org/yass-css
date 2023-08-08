@@ -90,8 +90,8 @@ describe('JitCompiler', () => {
   describe('media queries', () => {
     it('generates media queries', () => {
       const tokens: DesignToken[] = [
-        { key: 'sm', value: '(min-width: 460px)', category: 'media' },
-        { key: 'md', value: '(min-width: 768px)', category: 'media' },
+        { key: 'sm', value: 'min-width: 460px', category: 'media' },
+        { key: 'md', value: 'min-width: 768px', category: 'media' },
       ]
 
       const config: Config = {
