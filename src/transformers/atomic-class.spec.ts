@@ -3,7 +3,7 @@ import { defaultConfig } from '../config'
 import { AtomicClass } from '../ast'
 
 import type { DesignToken } from '../types'
-import type { Config, UserConfig } from '../config'
+import type { Config } from '../config'
 
 describe('AtomicClassTransformer', () => {
   describe('transform()', () => {
@@ -17,7 +17,7 @@ describe('AtomicClassTransformer', () => {
         },
       ]
 
-      const result = AtomicClassTransformer.transform(tokens, config)
+      const result = AtomicClassTransformer.generate(tokens, config)
         .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
 
@@ -39,7 +39,7 @@ describe('AtomicClassTransformer', () => {
         },
       ]
 
-      const result = AtomicClassTransformer.transform(tokens, config)
+      const result = AtomicClassTransformer.generate(tokens, config)
         .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
 
@@ -52,7 +52,7 @@ describe('AtomicClassTransformer', () => {
       const config: Config = defaultConfig
       const tokens: DesignToken[] = []
 
-      const result = AtomicClassTransformer.transform(tokens, config)
+      const result = AtomicClassTransformer.generate(tokens, config)
 
       expect(result).toEqual([])
     })
@@ -67,7 +67,7 @@ describe('AtomicClassTransformer', () => {
         },
       ]
 
-      const result = AtomicClassTransformer.transform(tokens, config)
+      const result = AtomicClassTransformer.generate(tokens, config)
         .map((atomicClass: AtomicClass) =>
           atomicClass.toString())
 

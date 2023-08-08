@@ -87,6 +87,62 @@ describe('JitCompiler', () => {
     })
   })
 
+  describe('media queries', () => {
+    it('generates media queries', () => {
+      const tokens: DesignToken[] = [
+        { key: 'sm', value: '(min-width: 460px)', category: 'media' },
+        { key: 'md', value: '(min-width: 768px)', category: 'media' },
+      ]
+
+      const config: Config = {
+        ...defaultConfig,
+        src: [
+          '<div class="display:flex@media({md})"></div>', // accepts media query
+          // '<div class="display:inline:hover@media({md})"></div>', // accepts chained pseudos and MQs
+          // '<div class="display:@media({md}):nth-child(2n+1)"></div>', // accepts MQs and functional pseudos
+          // '<div class="display:block@media({sm})@media({md})"></div>', // accepts multiple MQs
+          // // generates both base, and pseudo variants of a class if specified
+          // '<div class="display:revert"></div>',
+          // '<div class="display:revert:@media({md})"></div>',
+        ]
+      }
+
+      const css = JitCompiler.compile({ tokens, config })
+
+      expect(css).toMatchSnapshot()
+    })
+
+    // it('does not accept pseudos that contain a space', () => {
+    //   const config: Config = {
+    //     ...defaultConfig,
+    //     src: [
+    //       '<div class="display:inline-block:nth-child(2n + 1)"></div>', // since "(2n + 1)" contains spaces, it should not work
+    //     ]
+    //   }
+
+    //   const css = JitCompiler.compile({ tokens: [], config })
+
+    //   expect(css).not.toContain('.display\\:inline-block\\:nth-child\\(2n\\+1\\):nth-child(2n+1) { display: inline-block; }')
+
+    //   // it should also not generate a partial class
+    //   expect(css).not.toContain('.display\\:inline-block\\:nth-child\\(2n:nth-child(2n { display: inline-block; }')
+    // })
+
+    // it('does not accept invalid pseudos', () => {
+    //   const config: Config = {
+    //     ...defaultConfig,
+    //     src: [
+    //       '<div class="display:block:hoover"></div>', // since "hoover" is not a valid pseudo, it should not work
+    //     ]
+    //   }
+
+    //   const css = JitCompiler.compile({ tokens: [], config })
+
+    //   expect(css).not.toContain('.display\\:block\\:hoover { display: block; }')
+    //   expect(css).not.toContain('.display\\:block { display: block; }')
+    // })
+  })
+
   describe('config options', () => {
     it('applies namespace', () => {
       const tokens: DesignToken[] = [
@@ -96,7 +152,7 @@ describe('JitCompiler', () => {
         ...defaultConfig,
         rules: {
           namespace: 'yass-',
-          separator: ':'
+          separator: ':' // TODO: Should not have to specify the other `rules` attrs.
         },
         src: [
           '<div class="yass-display:block"></div>', // generates a base class

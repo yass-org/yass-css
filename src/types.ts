@@ -1,7 +1,7 @@
 
 
 type Value = string;
-export type Category = 'color' | 'scale' | 'elevation' | 'opacity';
+export type Category = 'color' | 'scale' | 'elevation' | 'opacity' | 'media';
 
 export interface DesignToken {
   key: string;

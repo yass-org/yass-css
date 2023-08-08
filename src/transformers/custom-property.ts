@@ -25,6 +25,12 @@ export const CustomPropertyTransformer = {
 
     while(seen.size < tokens.length) {
       tokens.forEach((token) => {
+        // media queries can't contain CSS custom properties, so, we deal with MQs differently
+        if(token.category === 'media') {
+          seen.add(token.key)
+          return
+        }
+
         if(seen.has(token.key)) {
           // Token has already been transformed, we can skip
           return

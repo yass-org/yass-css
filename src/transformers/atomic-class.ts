@@ -23,7 +23,7 @@ export const AtomicClassTransformer = {
   /**
    * Converts an array of `DesignToken` objects into an array of Yass atomic classes
    */
-  transform(tokens: DesignToken[], config: Config): AtomicClass[] {
+  generate(tokens: DesignToken[], config: Config): AtomicClass[] {
     const validPseudoClasses = CSS.pseudoclasses.map(({ name }) => name)
 
     return tokens
@@ -61,12 +61,12 @@ export const AtomicClassTransformer = {
       })
   },
 
-  fromUsages({ usages, config }: { usages: YassSelector[], config: Config }): AtomicClass[] {
+  transform({ selectors, config }: { selectors: YassSelector[], config: Config }): AtomicClass[] {
     // Since a user could reference the same class twice, e.g. two `<div>`'s with `display:block,
     // we need to keep track of a `seen` so we don't add duplicate class definitions to the stylesheet
     const seen = new Set<string>()
 
-    return usages.map(({ property, value, pseudos, token }: YassSelector) => {
+    return selectors.map(({ property, value, pseudos, token }: YassSelector) => {
       return new AtomicClass({
         className: AtomicClassTransformer.className({ property, value: token, pseudos, config }),
         selector: AtomicClassTransformer.selector({ property, value: token, pseudos, config }),

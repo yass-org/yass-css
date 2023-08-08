@@ -1,7 +1,7 @@
 import { Config } from '../config'
 import * as CSS from 'css-data'
 import { DesignToken } from '../types'
-import { AtomicClassTransformer, CustomPropertyTransformer } from '../transformers'
+import { AtomicClassTransformer, CustomPropertyTransformer, MediaQueryTransformer } from '../transformers'
 import { StyleSheet, RootElement } from '../ast'
 
 
@@ -10,7 +10,7 @@ export interface YassSelector {
   value: string
   token: string
   pseudos?: string[]
-  // mediaQuery?: string TODO: implement this
+  atRules?: string[]
 }
 
 export interface CompileArgs {
@@ -34,8 +34,22 @@ export const JitCompiler = {
   }: CompileArgs): string {
     const { src, } = config
     const { AtomicClassTransformer, CustomPropertyTransformer, } = transformers
-    const usages = JitCompiler
-      .findUsages({ src, tokens, config })
+    const buckets = {
+      selectors: [],
+      atRules: [],
+    }
+
+    const categories = JitCompiler
+      .compileSelectors({ src, tokens, config })
+      .reduce((buckets, selector: YassSelector) => {
+        if(selector.atRules.length > 0) {
+          buckets.atRules.push(selector)
+        } else {
+          buckets.selectors.push(selector)
+        }
+
+        return buckets
+      }, buckets)
 
     const stylesheet = new StyleSheet([
     // Add the `:root` first
@@ -44,7 +58,8 @@ export const JitCompiler = {
         CustomPropertyTransformer.transform(tokens, config)
       ),
 
-      ...AtomicClassTransformer.fromUsages({ usages, config })
+      ...AtomicClassTransformer.transform({ selectors: categories.selectors, config }),
+      ...MediaQueryTransformer.transform({ selectors: categories.atRules, tokens, config })
     ]).toJSON()
 
     const { css } = stylesheet
@@ -52,22 +67,35 @@ export const JitCompiler = {
     return css
   },
 
-  findUsages({ src, tokens, config }: {src: string[], tokens: DesignToken[], config: Config}): YassSelector[] {
-
+  compileSelectors({ src, tokens, config }: {src: string[], tokens: DesignToken[], config: Config}): YassSelector[] {
     return src.flatMap((fileContent: string): YassSelector[] => {
-      const candidateUsages = fileContent.split(/[\s\"\']/)
+      const candidateSelectors = fileContent.split(/[\s\"\']/)
 
-      return candidateUsages.map((candidateUsage: string) => {
-        // split `background-color:red-500:hover:focus` into `['background-color', 'red-500:hover:focus']`
-        const pivot = candidateUsage.indexOf(config.rules.separator)
-        const [namespaceAndProperty, valueAndPseudos] = [candidateUsage.substring(0, pivot), candidateUsage.substring(pivot + 1)]
-        const property = namespaceAndProperty.replace(config.rules.namespace, '')
-        // split `:red-500:hover:focus` into `['red-500', 'hover', 'focus']`
-        const [value, ...pseudos] = valueAndPseudos.split(':')
-
-        if(!property || !value) {
+      return candidateSelectors.map((candidateSelector: string): YassSelector => {
+        const { selector, matches } = JitCompiler.matchesSelector(candidateSelector, config)
+        if(!matches) {
           return
         }
+
+        // split namespace away from the rest of the selector
+        const [_namespace, classAndModifiers] = [config.rules.namespace, selector.replace(config.rules.namespace, '')]
+
+        // split property away from the rest of the selector
+        const [property, valueAndModifiers] = classAndModifiers.split(new RegExp(`${config.rules.separator}(.*)`))
+
+        // split value away from the @ rules, and pseudo-classes
+        const [value, ...modifiers] = valueAndModifiers.split(/[:@]/)
+
+        // categorise modifiers into either @rules, or pseudo-classes
+        const [pseudos, media] = modifiers.reduce((acc, curr) => {
+          if(curr.startsWith('media')) {
+            acc[1].push(curr)
+          } else {
+            acc[0].push(curr)
+          }
+
+          return acc
+        }, [[], []]) // initialise with a couple of buckets to categorise the modifiers into
 
         if(!arePseudosValid(pseudos)) {
           // Don't generate the class if the pseudo is invalid, e.g. `:hoover`
@@ -82,6 +110,7 @@ export const JitCompiler = {
             value,
             token: value,
             pseudos: pseudos.map((pseudo: string) => `:${pseudo}`),
+            atRules: media,
           }
         }
 
@@ -92,13 +121,26 @@ export const JitCompiler = {
             value: `var(${CustomPropertyTransformer.property(token, config)})`,
             token: token.name || token.key,
             pseudos: pseudos.map((pseudo: string) => `:${pseudo}`),
+            atRules: media,
           }
         }
       }).filter(Boolean)
     })
   },
-}
 
+  matchesSelector(candidateSelector: string, config: Config): { matches: boolean, selector: string} {
+    const { namespace, separator } = config.rules
+    const propertyPattern = '(\\w(-)*)+' // match hyphen separated words
+    const valuePattern = '(\\w(-)*)+' // match hyphen separated words
+    const modifiersPattern = '([@:].*)?' // Optional '@' or ':' followed by anything (basic check for pseudo, or at-rule)
+    const pattern = `^${namespace}${propertyPattern}${separator}${valuePattern}${modifiersPattern}`
+
+    return {
+      matches: Boolean(candidateSelector.match(pattern)),
+      selector: candidateSelector
+    }
+  }
+}
 
 const arePseudosValid = (userPseudos: string[]) => {
   // matches a leading pseudoclass name, like `nth-child`, followed by `(`, then not `()\s` and finally a `)

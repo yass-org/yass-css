@@ -16,7 +16,7 @@ interface Declaration {
 
 export const buildBaseCSSDeclarations = ({ declarations = CSS.declarations, config }: { declarations: Declaration[], config: Config }) => {
   return AtomicClassTransformer
-    .transform(declarations.flatMap((({ values, property }) => {
+    .generate(declarations.flatMap((({ values, property }) => {
       return values.map((value) => ({
         key: value,
         value: value,

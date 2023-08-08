@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JitCompiler media queries generates media queries 1`] = `
+":root {
+}"
+
+@media(min-width: 768px) {
+  display: flex;
+}
+`;
