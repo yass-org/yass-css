@@ -1,6 +1,6 @@
 {
   "name": "yass-css",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Atomic CSS that lets you encode your design system",
   "main": "./build/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "Atomic CSS"
   ],
   "bin": {
-    "yass-css": "build/src/build.js"
+    "yass-css": "build/build.js"
   },
   "files": [
     "build/*"
