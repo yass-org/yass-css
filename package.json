@@ -26,6 +26,9 @@
   "bin": {
     "yass-css": "build/src/build.js"
   },
+  "files": [
+    "build/*"
+  ],
   "author": "Yass Org",
   "license": "ISC",
   "dependencies": {
