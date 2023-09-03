@@ -1,5 +1,11 @@
 # yass-css
 
+## 0.3.3
+
+### Patch Changes
+
+- 618aabe: Use correct path for bin.
+
 ## 0.3.2
 
 ### Patch Changes
