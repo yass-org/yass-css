@@ -1,5 +1,11 @@
 # yass-css
 
+## 0.3.2
+
+### Patch Changes
+
+- 67603a6: Fix bug preventing npx usage.
+
 ## 0.3.1
 
 ### Patch Changes
