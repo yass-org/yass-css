@@ -24,7 +24,7 @@
     "Atomic CSS"
   ],
   "bin": {
-    "yass-css": "build/build.js"
+    "yass-css": "./build/build.js"
   },
   "files": [
     "build/*"
